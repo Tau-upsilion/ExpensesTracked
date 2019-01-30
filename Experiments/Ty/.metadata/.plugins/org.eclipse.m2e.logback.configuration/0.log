@@ -1,0 +1,15 @@
+2019-01-30 02:32:37,482 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-01-30 02:33:30,798 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples:spring-petclinic:2.0.0 @ /home/ty/Downloads/petclinic-mysql/Spring/pom.xml.
+2019-01-30 02:33:31,938 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring-petclinic/src/main/java
+2019-01-30 02:33:31,939 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /spring-petclinic/src/main/resources
+2019-01-30 02:33:31,941 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /spring-petclinic/src/main/resources
+2019-01-30 02:33:31,944 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring-petclinic/src/test/java
+2019-01-30 02:33:32,477 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2019-01-30 02:33:34,115 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-30 02:33:34,120 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-30 02:33:34,161 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 21 resources
+2019-01-30 02:33:34,259 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-30 02:33:34,259 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/ty/Downloads/petclinic-mysql/Spring/src/test/resources
+2019-01-30 02:33:47,247 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2019-01-30 02:33:51,916 [Worker-13: Launching Spring] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/ty/Downloads/petclinic-mysql/Spring
+2019-01-30 02:33:51,917 [Worker-13: Launching Spring] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B package
