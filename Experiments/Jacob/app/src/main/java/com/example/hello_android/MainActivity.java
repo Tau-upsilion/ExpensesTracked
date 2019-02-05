@@ -8,18 +8,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button b1, b2, b3;
+    Button message, next, helloWorld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b1 = findViewById(R.id.buttonMessage);
-        b2 = findViewById(R.id.buttonNext);
-        b3 = findViewById(R.id.buttonHello);
+        message = findViewById(R.id.buttonMessage);
+        next = findViewById(R.id.buttonNext);
+        helloWorld = findViewById(R.id.buttonHello);
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Hello Android!", Toast.LENGTH_LONG).show();
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        b2.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        b3.setOnClickListener(new View.OnClickListener() {
+        helloWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(MainActivity.this, WorldActivity.class);
