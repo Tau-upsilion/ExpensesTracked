@@ -7,16 +7,16 @@ import android.widget.Button;
 import android.support.v7.app.AppCompatActivity;
 
 public class WorldActivity extends AppCompatActivity {
-    Button b1;
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_world);
 
-        b1 = findViewById(R.id.buttonBack);
+        back = findViewById(R.id.buttonBack);
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(WorldActivity.this, MainActivity.class);
