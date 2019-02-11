@@ -9,12 +9,12 @@
 
     <Button
         android:id="@+id/buttonMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="108dp"
+        android:layout_height="79dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="474dp"
         android:text="Message" />
 
     <Button
@@ -23,17 +23,27 @@
         android:layout_height="78dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="393dp"
-        android:layout_marginEnd="73dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="33dp"
         android:text="Next" />
 
     <Button
-        android:id="@+id/buttonLogout"
+        android:id="@+id/buttonHello"
         android:layout_width="165dp"
         android:layout_height="86dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="115dp"
+        android:layout_marginStart="121dp"
         android:layout_marginTop="96dp"
+        android:text="Hello World" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="28dp"
         android:text="Logout" />
 </RelativeLayout>
