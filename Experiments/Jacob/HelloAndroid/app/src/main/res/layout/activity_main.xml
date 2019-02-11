@@ -13,8 +13,8 @@
         android:layout_height="79dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="474dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="340dp"
         android:text="Message" />
 
     <Button
@@ -23,8 +23,8 @@
         android:layout_height="78dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="468dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="67dp"
         android:text="Next" />
 
     <Button
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="21dp"
         android:text="Logout" />
 </RelativeLayout>
