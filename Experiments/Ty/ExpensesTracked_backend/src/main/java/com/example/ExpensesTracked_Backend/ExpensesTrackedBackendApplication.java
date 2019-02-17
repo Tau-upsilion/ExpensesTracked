@@ -9,5 +9,7 @@ public class ExpensesTrackedBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ExpensesTrackedBackendApplication.class, args);
 	}
+	
+	
 
 }
