@@ -6,17 +6,42 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
     android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context=".WorldActivity">
+
+    <Button
+        android:id="@+id/buttonStringRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="String Request" />
+
+    <Button
+        android:id="@+id/buttonJsonRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="JSON Request" />
+
+    <Button
+        android:id="@+id/buttonImageRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Image Request" />
 
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
+        android:layout_marginTop="300dp"
         android:text="Thank You,\nGo Back Home"
-        android:textSize="20dp"
+        android:textSize="20sp"
         tools:layout_conversion_absoluteHeight="70dp"
         tools:layout_conversion_absoluteWidth="208dp" />
 </LinearLayout>
