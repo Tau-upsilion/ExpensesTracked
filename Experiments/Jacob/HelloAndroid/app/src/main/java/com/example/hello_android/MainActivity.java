@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button message, next, helloWorld, logout;
+    Button message, next, testVolley, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         message = findViewById(R.id.buttonMessage);
         next = findViewById(R.id.buttonNext);
-        helloWorld = findViewById(R.id.buttonHello);
+        testVolley = findViewById(R.id.buttonVolley);
         logout = findViewById(R.id.buttonLogout);
 
         message.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        helloWorld.setOnClickListener(new View.OnClickListener() {
+        testVolley.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openWorld = new Intent(MainActivity.this, WorldActivity.class);
