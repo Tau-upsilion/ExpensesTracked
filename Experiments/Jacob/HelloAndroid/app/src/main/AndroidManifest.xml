@@ -14,20 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Message"></activity>
+        <activity android:name=".volley_requests.ImageRequest"></activity>
+        <activity android:name=".volley_requests.JsonRequest" />
+        <activity android:name=".volley_requests.StringRequest" />
+        <activity android:name=".Message" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".main.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".WorldActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.WorldActivity" />
+        <activity android:name=".main.HomeActivity" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MessageActivity" />
+        <activity android:name=".main.MessageActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.hello_android;
+package com.example.hello_android.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.hello_android.R;
+
 public class MessageActivity extends AppCompatActivity {
 
-    Button sendManager, sendIntent;
-    TextView smsMessage, smsPhoneNumber;
+    private TextView smsMessage, smsPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        Button sendManager, sendIntent;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
