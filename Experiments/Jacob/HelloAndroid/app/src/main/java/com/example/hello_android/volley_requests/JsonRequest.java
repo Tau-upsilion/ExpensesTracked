@@ -12,14 +12,22 @@ public class JsonRequest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
-        Button jsonRequest;
+        Button jsonObjRequest, jsonArrRequest;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_request);
 
-        jsonRequest = findViewById(R.id.buttonJsonRequest);
+        jsonObjRequest = findViewById(R.id.buttonJsonObjRequest);
+        jsonArrRequest = findViewById(R.id.buttonJsonArrRequest);
 
-        jsonRequest.setOnClickListener(new View.OnClickListener() {
+        jsonObjRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        jsonArrRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
