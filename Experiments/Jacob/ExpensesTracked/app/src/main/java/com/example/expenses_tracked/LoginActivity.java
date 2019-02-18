@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -91,8 +92,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+        mLoginFormView = (View) findViewById(R.id.login_form);
+        mProgressView = (View) findViewById(R.id.login_progress);
     }
 
     private void populateAutoComplete() {

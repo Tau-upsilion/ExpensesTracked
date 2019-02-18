@@ -8,11 +8,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
-
-
-
+    // Variables
     private TextView mTextMessage;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
