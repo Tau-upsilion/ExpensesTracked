@@ -1,4 +1,4 @@
-package com.example.hello_android.volley_requests;
+package com.example.hello_android.net_utils;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

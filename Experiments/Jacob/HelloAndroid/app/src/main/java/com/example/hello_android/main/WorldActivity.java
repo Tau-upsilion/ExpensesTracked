@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.hello_android.R;
-import com.example.hello_android.volley_requests.ImageRequest;
-import com.example.hello_android.volley_requests.JsonRequest;
-import com.example.hello_android.volley_requests.StringRequest;
+import com.example.hello_android.net_utils.ImageRequest;
+import com.example.hello_android.net_utils.JsonRequest;
+import com.example.hello_android.net_utils.StringRequest;
 
 public class WorldActivity extends AppCompatActivity {
 
