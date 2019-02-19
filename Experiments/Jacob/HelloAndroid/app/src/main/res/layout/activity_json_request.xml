@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    tools:context=".main.MainActivity" >
+
+    <Button
+        android:id="@+id/buttonJsonObjRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="JSON Object Request" />
+
+    <Button
+        android:id="@+id/buttonJsonArrRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="JSON Array Request" />
+
+</LinearLayout>

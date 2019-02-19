@@ -1,4 +1,4 @@
-package com.example.hello_android;
+package com.example.hello_android.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,17 +7,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.hello_android.R;
+
 public class MainActivity extends AppCompatActivity {
-    Button message, next, testVolley, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        Button message, next, testVolley, sendMessage, logout;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         message = findViewById(R.id.buttonMessage);
         next = findViewById(R.id.buttonNext);
         testVolley = findViewById(R.id.buttonVolley);
+        sendMessage = findViewById(R.id.buttonSendMessage);
         logout = findViewById(R.id.buttonLogout);
 
         message.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openWorld = new Intent(MainActivity.this, WorldActivity.class);
                 startActivity(openWorld);
+            }
+        });
+
+        sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent message = new Intent(MainActivity.this, MessageActivity.class);
+                startActivity(message);
             }
         });
 
