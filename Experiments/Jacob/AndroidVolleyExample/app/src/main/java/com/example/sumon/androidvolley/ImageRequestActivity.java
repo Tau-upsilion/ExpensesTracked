@@ -67,8 +67,7 @@ public class ImageRequestActivity extends Activity {
 		});*/
 
         // Loading image with placeholder and error image
-        imageLoader.get(Const.URL_IMAGE, ImageLoader.getImageListener(
-                imageView, R.drawable.ico_loading, R.drawable.ico_error));
+        imageLoader.get(Const.URL_IMAGE, ImageLoader.getImageListener(imageView, R.drawable.ico_loading, R.drawable.ico_error));
 
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
         Entry entry = cache.get(Const.URL_IMAGE);

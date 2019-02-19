@@ -38,12 +38,12 @@ public class AppController extends Application {
         return mRequestQueue;
     }
 
-    public ImageLoader getmImageLoader() {
+    public ImageLoader getImageLoader() {
         getRequestQueue();
 
         if (mImageLoader == null)
         {
-            mImageLoader = new ImageLoader(this.mRequestQueue, new LruBitmapCache);
+            mImageLoader = new ImageLoader(this.mRequestQueue, new LruBitmapCache());
         }
 
         // Return

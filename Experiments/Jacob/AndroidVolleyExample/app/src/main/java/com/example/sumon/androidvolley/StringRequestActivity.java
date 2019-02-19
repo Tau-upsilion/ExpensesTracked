@@ -18,7 +18,6 @@ import com.example.sumon.androidvolley.utils.Const;
 public class StringRequestActivity extends Activity {
 
     private String TAG = StringRequestActivity.class.getSimpleName();
-    private Button btnStringReq;
     private TextView msgResponse;
     private ProgressDialog pDialog;
 
@@ -27,6 +26,9 @@ public class StringRequestActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        Button btnStringReq;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.string_request);
 
@@ -40,7 +42,25 @@ public class StringRequestActivity extends Activity {
         btnStringReq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeStringReq();
+                showProgressDialog();
+
+                StringRequest strReq = new StringRequest(Method.GET, Const.URL_STRING_REQ, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response.toString());
+                        msgResponse.setText(response.toString());
+                        hideProgressDialog();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+                        hideProgressDialog();
+                    }
+                });
+
+                // Adding request to request queue
+                AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
             }
         });
     }
@@ -55,29 +75,4 @@ public class StringRequestActivity extends Activity {
             pDialog.hide();
     }
 
-    /**
-     * Making json object request
-     * */
-    private void makeStringReq() {
-        showProgressDialog();
-
-        StringRequest strReq = new StringRequest(Method.GET, Const.URL_STRING_REQ, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, response.toString());
-                msgResponse.setText(response.toString());
-                hideProgressDialog();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                hideProgressDialog();
-            }
-        });
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-
-    }
 }
