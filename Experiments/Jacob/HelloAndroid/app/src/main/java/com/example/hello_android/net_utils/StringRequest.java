@@ -47,6 +47,7 @@ public class StringRequest extends AppCompatActivity {
                         pDialog.hide();
                     }
                 }, new Response.ErrorListener() {
+
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         VolleyLog.d(TAG, "Error: " + error.getMessage());
