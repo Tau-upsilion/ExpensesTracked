@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin;
+rpackage com.androidtutorialpoint.androidlogin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

@@ -37,14 +37,4 @@ public class MainController {
 		return userRepository.findById(id)
 				.orElseThrow();
 	}
-	@SuppressWarnings("unlikely-arg-type")
-	@PostMapping(path="/login")
-	public String register(@RequestBody User n) {
-		String result = "No Such User";
-		for(int i = 0; i < userRepository.count(); i++) {
-			if(userRepository.findById(i).equals(n));
-			result = "Found User.";
-		}
-		return result;
-	}
 }
