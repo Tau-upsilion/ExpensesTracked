@@ -55,10 +55,10 @@ public class RegisterActivity extends AppCompatActivity {
                 submitForm();
             }
         });
+
         btnLinkLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(i);
             }
@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         int selectedId = genderRadioGroup.getCheckedRadioButtonId();
         String gender;
+
         if(selectedId == R.id.female_radio_btn)
             gender = "Female";
         else
@@ -81,8 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                      signupInputAge.getText().toString());
     }
 
-    private void registerUser(final String name,  final String email, final String password,
-                              final String gender, final String dob) {
+    private void registerUser(final String name,  final String email, final String password, final String gender, final String dob) {
         // Tag used to cancel the request
         String cancel_req_tag = "register";
 
@@ -106,16 +106,13 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Hi " + user +", You are successfully Added!", Toast.LENGTH_SHORT).show();
 
                         // Launch login activity
-                        Intent intent = new Intent(
-                                RegisterActivity.this,
-                                LoginActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
 
                         String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -127,8 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {
@@ -144,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
                 return params;
             }
         };
+
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
     }
