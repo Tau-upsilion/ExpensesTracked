@@ -62,8 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
         showDialog();
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                URL_FOR_LOGIN, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_LOGIN, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
