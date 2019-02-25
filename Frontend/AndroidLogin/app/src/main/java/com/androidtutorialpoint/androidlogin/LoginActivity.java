@@ -43,8 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser(loginInputEmail.getText().toString(),
-                        loginInputPassword.getText().toString());
+                loginUser(loginInputEmail.getText().toString(), loginInputPassword.getText().toString());
             }
         });
 
@@ -75,17 +74,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
                         // Launch User activity
-                        Intent intent = new Intent(
-                                LoginActivity.this,
-                                UserActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         intent.putExtra("username", user);
                         startActivity(intent);
                         finish();
                     } else {
 
                         String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
