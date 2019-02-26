@@ -32,7 +32,6 @@ public class UserActivity extends AppCompatActivity {
     private TextView greetingTextView;
     private Button btnLogOut;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
