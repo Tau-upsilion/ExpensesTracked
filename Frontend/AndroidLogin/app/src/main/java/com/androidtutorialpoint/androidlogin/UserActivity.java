@@ -41,13 +41,15 @@ public class UserActivity extends AppCompatActivity {
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
         greetingTextView.setText("Hello "+ user);
+
         // Progress dialog
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent i = new Intent(UserActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
+
     }
 }
