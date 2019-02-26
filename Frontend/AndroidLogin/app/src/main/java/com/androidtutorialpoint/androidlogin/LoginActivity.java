@@ -22,7 +22,8 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
-    private static final String URL_FOR_LOGIN = "http:http://cs309-yt-7.misc.iastate.edu/";
+    private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
+
     ProgressDialog progressDialog;
     private EditText loginInputEmail, loginInputPassword;
     private Button btnlogin;
@@ -66,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
-                hideDialog();
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
@@ -76,12 +76,13 @@ public class LoginActivity extends AppCompatActivity {
                         // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         intent.putExtra("username", user);
+                        hideDialog();
                         startActivity(intent);
                         finish();
                     } else {
-
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+                        hideDialog();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

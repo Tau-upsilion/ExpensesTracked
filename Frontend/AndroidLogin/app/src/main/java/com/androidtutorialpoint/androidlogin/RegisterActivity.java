@@ -23,7 +23,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity";
-    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu/";
+    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/add";
     ProgressDialog progressDialog;
 
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
@@ -103,7 +103,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user +", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Hi " + user +", You are successfully Added!",
+                                Toast.LENGTH_SHORT).show();
 
                         // Launch login activity
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
