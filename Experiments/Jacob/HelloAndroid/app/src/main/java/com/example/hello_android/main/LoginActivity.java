@@ -3,6 +3,7 @@ package com.example.hello_android.main;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -93,8 +94,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+        mLoginFormView = (View) findViewById(R.id.login_form);
+        mProgressView = (View) findViewById(R.id.login_progress);
     }
 
     private void populateAutoComplete() {
@@ -131,7 +132,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Callback received when a permissions request has been completed.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         if (requestCode == REQUEST_READ_CONTACTS) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 populateAutoComplete();
@@ -189,16 +191,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent login = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(login);
         }
     }
 
     private boolean isEmailValid(String email) {
-        // TODO: Replace this with your own logic
+        //TODO: Replace this with your own logic
         return email.contains("@") && email.contains(".");
     }
 
     private boolean isPasswordValid(String password) {
-        // TODO: Replace this with your own logic
+        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
@@ -275,7 +279,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
+                new ArrayAdapter<>(LoginActivity.this,
+                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
     }
@@ -324,6 +329,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
 
             // TODO: register the new account here.
+
             return true;
         }
 

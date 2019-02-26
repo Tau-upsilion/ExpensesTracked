@@ -35,30 +35,30 @@ public class StringRequest extends AppCompatActivity {
 
         pDialog.setMessage("Loading...");
 
-        stringRequest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pDialog.show();
-
-                StringRequest strReq = new StringRequest(Method.GET, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d(AppController.TAG, response.toString());
-                        pDialog.hide();
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d(TAG, "Error: " + error.getMessage());
-                        pDialog.hide();
-                    }
-                });
-
-                // Adding request to request queue
-                AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-            }
-        });
+//        stringRequest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                pDialog.show();
+//
+//                StringRequest strReq = new StringRequest(Method.GET, url, new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        Log.d(AppController.TAG, response.toString());
+//                        pDialog.hide();
+//                    }
+//                }, new Response.ErrorListener() {
+//
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+//                        pDialog.hide();
+//                    }
+//                });
+//
+//                // Adding request to request queue
+//                AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//            }
+//        });
 
 
     }
