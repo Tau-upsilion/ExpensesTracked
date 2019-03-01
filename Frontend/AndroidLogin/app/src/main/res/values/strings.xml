@@ -12,7 +12,9 @@
     <string name="err_msg_email">Please enter a Valid Email</string>
     <string name="err_msg_password">Enter a Password</string>
     <string name="err_msg_dob">Enter a valid D.O.B</string>
+    <string name="header">Hello, User</string>
     <string name="btn_home">Home</string>
+    <string name="btn_logout">Sign Out!</string>
     <string name="btn_login">Login</string>
     <string name="btn_link_signup">Don\'t have an account yet, Register!</string>
     <string name="btn_link_login">Already have an account, Login!</string>
