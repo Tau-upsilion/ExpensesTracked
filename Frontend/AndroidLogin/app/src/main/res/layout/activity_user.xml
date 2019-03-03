@@ -42,8 +42,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:orientation="vertical"
-        android:gravity="center|bottom"
-        >
+        android:gravity="center|bottom">
 
         <Button
             android:id="@+id/logout_button"
