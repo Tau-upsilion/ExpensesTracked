@@ -56,4 +56,12 @@
         android:background="@null"
         android:text="@string/btn_link_signup"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/btn_bypass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Bypass" />
+
 </LinearLayout>

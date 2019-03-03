@@ -18,40 +18,52 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class LoginActivity extends AppCompatActivity {
-
+    // Instance varialbes
     private static final String TAG = "LoginActivity";
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
-
-    ProgressDialog progressDialog;
     private EditText loginInputEmail, loginInputPassword;
-    private Button btnlogin;
-    private Button btnLinkSignup;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        Button btnlogin, btnLinkSignup, btnBypass;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Text input initializations
         loginInputEmail = (EditText) findViewById(R.id.login_input_email);
         loginInputPassword = (EditText) findViewById(R.id.login_input_password);
+
+        // Button initializations
         btnlogin = (Button) findViewById(R.id.btn_login);
         btnLinkSignup = (Button) findViewById(R.id.btn_link_signup);
+        btnBypass = (Button) findViewById(R.id.btn_bypass);
+
         // Progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
 
+        // OnClick listeners
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginUser(loginInputEmail.getText().toString(), loginInputPassword.getText().toString());
             }
         });
-
         btnLinkSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+        btnBypass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(i);
             }
         });
