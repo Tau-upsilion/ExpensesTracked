@@ -28,7 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
-        Button btnlogin, btnLinkSignup, btnBypass;
+        Button btnlogin;
+        Button btnLinkSignup;
+        Button btnBypass;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -56,15 +58,15 @@ public class LoginActivity extends AppCompatActivity {
         btnLinkSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(i);
+                Intent goRegister = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(goRegister);
             }
         });
         btnBypass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), UserActivity.class);
-                startActivity(i);
+                Intent goHome = new Intent(LoginActivity.this, UserActivity.class);
+                startActivity(goHome);
             }
         });
     }

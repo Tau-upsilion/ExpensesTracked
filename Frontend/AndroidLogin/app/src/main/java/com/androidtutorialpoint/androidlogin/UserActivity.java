@@ -29,11 +29,8 @@ import java.util.Map;
 
 
 public class UserActivity extends AppCompatActivity {
-
+    // Instance variables
     private static final String TAG = "UserActivity";
-
-    private TextView greetingTextView;
-    private Button btnLogOut;
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -56,13 +53,17 @@ public class UserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        TextView greetingTextView;
+        Button btnLogOut;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Bundle bundle = getIntent().getExtras();
-        String user = bundle.getString("username");
+//        String user = bundle.getString("username");   // Commented out bc causes app to crash
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
         btnLogOut = (Button) findViewById(R.id.logout_button);
-        greetingTextView.setText("Hello "+ user);
+//        greetingTextView.setText("Hello "+ user);     // Commented out bc causes app to crash
 
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
