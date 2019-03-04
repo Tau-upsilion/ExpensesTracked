@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="@string/hint_name"
+            android:inputType="textPersonName"
             tools:ignore="Autofill" />
 
    </android.support.design.widget.TextInputLayout>
@@ -38,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
             android:hint="@string/hint_email"
-            tools:ignore="Autofill"/>
+            android:inputType="textEmailAddress"
+            tools:ignore="Autofill" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -56,8 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
             android:hint="@string/hint_password"
+            android:inputType="textPassword"
             tools:ignore="Autofill" />
 
     </android.support.design.widget.TextInputLayout>
@@ -74,8 +74,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
             android:hint="@string/hint_dob"
+            android:inputType="number"
             tools:ignore="Autofill" />
 
     </android.support.design.widget.TextInputLayout>
@@ -87,10 +87,10 @@
 
         <TextView
             android:id="@+id/gender_textview"
-            android:paddingRight="15dp"
-            android:paddingLeft="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/hint_gender"
             android:textSize="20sp" />
 
@@ -105,22 +105,19 @@
                 android:id="@+id/male_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/male"
-                android:textColorLink="@color/bg_main" />
+                android:text="@string/male" />
 
             <RadioButton
                 android:id="@+id/female_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/female"
-                android:textColorLink="@color/bg_main" />
+                android:text="@string/female" />
 
             <RadioButton
                 android:id="@+id/other_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/other"
-                android:textColorLink="@color/bg_main" />
+                android:text="@string/other" />
 
         </RadioGroup>
 
@@ -131,18 +128,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/btn_sign_up"
         android:background="@color/bg_main"
         android:buttonTint="@color/bg_main"
+        android:text="@string/btn_sign_up"
         android:textColor="@android:color/white" />
 
-    <Button android:id="@+id/btn_link_login"
+    <Button
+        android:id="@+id/btn_link_login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_link_login"
         android:layout_marginTop="3dp"
         android:background="@null"
         android:buttonTint="@color/bg_main"
-        android:textColor="@android:color/black"/>
+        android:text="@string/btn_link_login"
+        android:textColor="@android:color/black" />
 
 </LinearLayout>

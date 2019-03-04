@@ -35,6 +35,7 @@ public class UserActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch(menuItem.getItemId()) {
                 case R.id.navigation_home:
+
                     return true;
                 case R.id.navigation_categories:
                     return true;
