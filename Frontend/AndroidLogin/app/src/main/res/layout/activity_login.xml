@@ -24,6 +24,7 @@
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             android:textColor="#000000"
+            android:textColorLink="@color/bg_main"
             tools:ignore="Autofill" />
 
     </android.support.design.widget.TextInputLayout>
@@ -40,6 +41,7 @@
             android:hint="@string/hint_password"
             android:inputType="textPassword"
             android:textColor="#000000"
+            android:textColorLink="@color/bg_main"
             tools:ignore="Autofill" />
     </android.support.design.widget.TextInputLayout>
 
@@ -48,24 +50,27 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/bg_main"
         android:text="@string/btn_login"
-        android:textColor="@android:color/white" />
+        android:background="@color/bg_main"
+        android:textColor="@android:color/white"
+        android:textColorLink="@color/bg_main" />
 
     <Button
         android:id="@+id/btn_link_signup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:background="@null"
         android:text="@string/btn_link_signup"
-        android:textColor="@android:color/black" />
+        android:background="@null"
+        android:textColor="@android:color/black"
+        android:textColorLink="@color/bg_main" />
 
     <Button
         android:id="@+id/btn_bypass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/btn_bypass" />
+        android:text="@string/btn_bypass"
+        android:textColorLink="@color/bg_main" />
 
 </LinearLayout>

@@ -7,6 +7,7 @@
     <string name="hint_gender">I am</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="other">No Response</string>
     <string name="btn_sign_up">Register !!</string>
     <string name="err_msg_name">Please enter a Name</string>
     <string name="err_msg_required">Valid Input Required</string>

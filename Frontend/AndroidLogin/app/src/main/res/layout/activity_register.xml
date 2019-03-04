@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:inputType="textPersonName"
             android:hint="@string/hint_name"
             tools:ignore="Autofill" />
 
@@ -73,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="number"
             android:hint="@string/hint_dob"
             tools:ignore="Autofill" />
 
@@ -97,7 +98,6 @@
             android:id="@+id/gender_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/gender_textview"
             android:layout_toEndOf="@+id/gender_textview"
             android:orientation="horizontal">
 
@@ -105,7 +105,6 @@
                 android:id="@+id/male_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/male"
                 android:textColorLink="@color/bg_main" />
 
@@ -114,6 +113,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/female"
+                android:textColorLink="@color/bg_main" />
+
+            <RadioButton
+                android:id="@+id/other_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other"
                 android:textColorLink="@color/bg_main" />
 
         </RadioGroup>
@@ -125,16 +131,18 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/bg_main"
         android:text="@string/btn_sign_up"
+        android:background="@color/bg_main"
+        android:buttonTint="@color/bg_main"
         android:textColor="@android:color/white" />
 
     <Button android:id="@+id/btn_link_login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_link_login"
-        android:background="@null"
         android:layout_marginTop="3dp"
+        android:background="@null"
+        android:buttonTint="@color/bg_main"
         android:textColor="@android:color/black"/>
 
 </LinearLayout>
