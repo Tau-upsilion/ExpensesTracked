@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    // Instance varialbes
+    // Instance variables
     private static final String TAG = "LoginActivity";
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
     private EditText loginInputEmail, loginInputPassword;
