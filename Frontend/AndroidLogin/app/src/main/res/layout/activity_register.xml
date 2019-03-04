@@ -1,118 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
-    <LinearLayout
+    android:padding="20dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/signup_input_layout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_name"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/signup_input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
-            <EditText
-                android:id="@+id/signup_input_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Name"/>
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_email"
+            android:ems="10"
+            android:hint="@string/hint_name"
+            tools:ignore="Autofill" />
+
+   </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/signup_input_layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/signup_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
-            <EditText
-                android:id="@+id/signup_input_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Email" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_password"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/hint_email"
+            tools:ignore="Autofill"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/signup_input_layout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/signup_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
-            <EditText
-                android:id="@+id/signup_input_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:hint="@string/hint_password" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_age"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/hint_password"
+            tools:ignore="Autofill" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/signup_input_layout_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/signup_input_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
-            <EditText
-                android:id="@+id/signup_input_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/hint_dob"/>
-        </android.support.design.widget.TextInputLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/hint_dob"
+            tools:ignore="Autofill" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/gender_textview"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp">
-            <TextView
-                android:id="@+id/gender_textview"
-                android:paddingRight="15dp"
+            android:text="@string/hint_gender"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/gender_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/gender_textview"
+            android:layout_toEndOf="@+id/gender_textview"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/male_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/hint_gender"
-                android:fontFeatureSettings="@string/hint_password"
-                android:textSize="20dp"
-                android:fontFamily="@string/hint_password"/>
-            <RadioGroup
-                android:id="@+id/gender_radio_group"
+                android:checked="true"
+                android:text="@string/male"
+                android:textColorLink="@color/bg_main" />
+
+            <RadioButton
+                android:id="@+id/female_radio_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/gender_textview"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/male_radio_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male"
-                    android:checked="true"
-                    />
-                <RadioButton
-                    android:id="@+id/female_radio_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text = "@string/female"
-                    />
-            </RadioGroup>
-        </RelativeLayout>
-        <Button android:id="@+id/btn_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_sign_up"
-            android:background="@color/login_button_background"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"/>
-        <Button android:id="@+id/btn_link_login"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_link_login"
-            android:background="@null"
-            android:layout_marginTop="3dp"
-            android:textColor="@android:color/black"/>
-    </LinearLayout>
+                android:text="@string/female"
+                android:textColorLink="@color/bg_main" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/bg_main"
+        android:text="@string/btn_sign_up"
+        android:textColor="@android:color/white" />
+
+    <Button android:id="@+id/btn_link_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_link_login"
+        android:background="@null"
+        android:layout_marginTop="3dp"
+        android:textColor="@android:color/black"/>
+
 </LinearLayout>

@@ -19,20 +19,19 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class RegisterActivity extends AppCompatActivity {
-
+    // Instance Variables
     private static final String TAG = "RegisterActivity";
     private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/add";
-    ProgressDialog progressDialog;
-
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
-    private Button btnSignUp;
-    private Button btnLinkLogin;
     private RadioGroup genderRadioGroup;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Variables
+        Button btnSignUp, btnLinkLogin;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 

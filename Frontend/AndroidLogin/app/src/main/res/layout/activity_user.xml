@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top|center"
+    android:gravity="top|center_horizontal"
     android:orientation="vertical"
     android:paddingTop="10dp">
 
@@ -12,9 +13,7 @@
         android:id="@+id/greeting_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:text="@string/header"
         android:textColor="#000000"
         android:textSize="40sp"
@@ -26,9 +25,7 @@
         android:id="@+id/home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:padding="10dp"
         android:text="@string/btn_home"
         android:textColor="#000000"
         android:textStyle="bold"
@@ -39,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:gravity="center|bottom"
+        android:gravity="bottom|center_horizontal"
         android:orientation="vertical">
 
         <Button
@@ -60,7 +57,8 @@
             android:layout_marginTop="10dp"
             android:background="?android:attr/windowBackground"
             android:clipToPadding="false"
-            app:itemBackground="@color/colorAccent"
+            app:itemBackground="@color/bg_main"
+            app:itemTextColor="@color/input_login"
             app:menu="@menu/navigation"
             tools:layout_editor_absoluteY="546dp" />
 

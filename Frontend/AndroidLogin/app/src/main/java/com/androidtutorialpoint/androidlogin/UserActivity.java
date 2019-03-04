@@ -1,6 +1,5 @@
 package com.androidtutorialpoint.androidlogin;
 
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +25,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class UserActivity extends AppCompatActivity {
     // Instance variables

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Android Login</string>
-    <string name="hint_dob">Enter Age</string>
-    <string name="hint_password">Password</string>
+    <string name="app_name">Expenses Tracked</string>
+    <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_dob">Enter Age</string>
     <string name="hint_gender">I am</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -18,6 +19,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_link_signup">Don\'t have an account yet, Register!</string>
     <string name="btn_link_login">Already have an account, Login!</string>
+    <string name="btn_bypass">Bypass</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_categories">Categories</string>

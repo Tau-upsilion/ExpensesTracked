@@ -28,9 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
-        Button btnlogin;
-        Button btnLinkSignup;
-        Button btnBypass;
+        Button btnlogin, btnLinkSignup, btnBypass;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
