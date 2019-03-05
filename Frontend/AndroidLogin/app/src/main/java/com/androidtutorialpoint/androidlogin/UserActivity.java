@@ -17,16 +17,28 @@ import com.androidtutorialpoint.androidlogin.menu.CategoriesFragment;
 import com.androidtutorialpoint.androidlogin.menu.HomeFragment;
 import com.androidtutorialpoint.androidlogin.menu.SettingsFragment;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
-        TextView greetingTextView;
+        TextView greetingTextView, date;
         Button btnLogout;
+        String strDate = DateFormat.getDateTimeInstance().format(new Date());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        // Initialize text view
+        Bundle bundle = getIntent().getExtras();
+//        String user = bundle.getString("username");                           // Commented out bc causes app to crash
+        greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
+//        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
+        date = findViewById(R.id.date);
+//        date.setText(strDate);    // Need to figure out how to get this implementation to work
 
         // Initialize buttons
         btnLogout = findViewById(R.id.logout_button);
@@ -35,11 +47,6 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         loadFragment(new HomeFragment());
-
-        Bundle bundle = getIntent().getExtras();
-//        String user = bundle.getString("username");                           // Commented out bc causes app to crash
-        greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
-//        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
 
         // Set up button listeners
 //        btnLogout.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash - btnLogOut is null?
