@@ -1,19 +1,14 @@
 package com.example.ExpensesTracked_Backend;
 
-
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.ExpensesTracked_Backend.*;
 
 @RestController    // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -38,9 +33,8 @@ public class MainController {
 		return userRepository.findById(id)
 				.orElseThrow();
 	}
-	@SuppressWarnings("unlikely-arg-type")
 	@PostMapping(path="/login")
-	public Optional<User> register(@RequestBody User n) {
+	public User register(@RequestBody User n) {
 		User result = null;
 		for(int i = 0; i < userRepository.count(); i++) {
 			String givenEmail = n.getEmail();
@@ -52,6 +46,6 @@ public class MainController {
 				break;
 			}
 		}
-		return (Opitional<User>) result;
+		return result;
 	}
 }
