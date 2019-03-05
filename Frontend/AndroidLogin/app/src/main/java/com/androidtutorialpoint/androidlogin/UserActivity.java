@@ -37,7 +37,7 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 //        String user = bundle.getString("username");                           // Commented out bc causes app to crash
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
 //        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
-        date = findViewById(R.id.category_date);
+        date = findViewById(R.id.cat_date);
 //        date.setText(strDate);    // Need to figure out how to get this implementation to work
 
         // Initialize buttons
