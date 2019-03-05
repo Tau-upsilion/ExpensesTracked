@@ -1,6 +1,8 @@
 package com.example.ExpensesTracked_Backend;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.ExpensesTracked_Backend.User;
-import com.example.ExpensesTracked_Backend.UserRepository;
+import com.example.ExpensesTracked_Backend.*;
 
 @RestController    // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -39,12 +40,18 @@ public class MainController {
 	}
 	@SuppressWarnings("unlikely-arg-type")
 	@PostMapping(path="/login")
-	public String register(@RequestBody User n) {
-		String result = "No Such User";
+	public Optional<User> register(@RequestBody User n) {
+		User result = null;
 		for(int i = 0; i < userRepository.count(); i++) {
-			if(userRepository.findById(i).equals(n));
-			result = "Found User.";
+			String givenEmail = n.getEmail();
+			String givenPassword = n.getPassword();
+			String email = userRepository.findById(i).get().getEmail();
+			String password = userRepository.findById(i).get().getPassword();
+			if(givenEmail == email && givenPassword == password) {
+				result = userRepository.findById(i).get();
+				break;
+			}
 		}
-		return result;
+		return (Opitional<User>) result;
 	}
 }
