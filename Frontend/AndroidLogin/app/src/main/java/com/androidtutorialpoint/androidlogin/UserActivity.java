@@ -23,13 +23,13 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
         TextView greetingTextView;
-        Button btnLogOut;
+        Button btnLogout;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
         // Initialize buttons
-        btnLogOut = findViewById(R.id.logout_button);
+        btnLogout = findViewById(R.id.logout_button);
 
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -42,13 +42,13 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 //        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
 
         // Set up button listeners
-//        btnLogOut.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash
-//            @Override
-//            public void onClick(View v) {
-//                Intent logout = new Intent(UserActivity.this, LoginActivity.class);
-//                startActivity(logout);
-//            }
-//        });
+        btnLogout.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash - btnLogOut is null
+            @Override
+            public void onClick(View v) {
+                Intent logout = new Intent(UserActivity.this, LoginActivity.class);
+                startActivity(logout);
+            }
+        });
 
     }
 
