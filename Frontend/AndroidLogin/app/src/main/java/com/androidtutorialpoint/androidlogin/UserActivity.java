@@ -42,7 +42,7 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 //        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
 
         // Set up button listeners
-//        btnLogout.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash - btnLogOut is null
+//        btnLogout.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash - btnLogOut is null?
 //            @Override
 //            public void onClick(View v) {
 //                Intent logout = new Intent(UserActivity.this, LoginActivity.class);
