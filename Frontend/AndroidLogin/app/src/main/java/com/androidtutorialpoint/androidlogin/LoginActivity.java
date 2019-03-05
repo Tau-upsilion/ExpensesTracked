@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goHome = new Intent(LoginActivity.this, UserActivity.class);
-                startActivity(goHome);
+//                startActivity(goHome);        // causing a crash
             }
         });
     }
