@@ -35,26 +35,30 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Progress dialog
+        // Progress dialog initialization
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
 
+        // Edit text initialization
         signupInputName = (EditText) findViewById(R.id.signup_input_name);
         signupInputEmail = (EditText) findViewById(R.id.signup_input_email);
         signupInputPassword = (EditText) findViewById(R.id.signup_input_password);
         signupInputAge = (EditText) findViewById(R.id.signup_input_age);
 
+        // Radio group initialization
+        genderRadioGroup = (RadioGroup) findViewById(R.id.gender_radio_group);
+
+        // Button initialization
         btnSignUp = (Button) findViewById(R.id.btn_signup);
         btnLinkLogin = (Button) findViewById(R.id.btn_link_login);
 
-        genderRadioGroup = (RadioGroup) findViewById(R.id.gender_radio_group);
+        // Button OnClick Listeners
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 submitForm();
             }
         });
-
         btnLinkLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

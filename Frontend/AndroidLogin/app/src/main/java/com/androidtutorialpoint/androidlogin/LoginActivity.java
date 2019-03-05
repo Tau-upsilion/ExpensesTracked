@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
@@ -64,8 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goHome = new Intent(LoginActivity.this, UserActivity.class);
-
-                startActivity(goHome);    // TODO - causing a crash
+                startActivity(goHome);
             }
         });
     }

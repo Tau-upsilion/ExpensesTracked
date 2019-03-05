@@ -1,6 +1,5 @@
 package com.androidtutorialpoint.androidlogin;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,26 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
 import com.androidtutorialpoint.androidlogin.menu.AddFragment;
 import com.androidtutorialpoint.androidlogin.menu.CalendarFragment;
 import com.androidtutorialpoint.androidlogin.menu.CategoriesFragment;
 import com.androidtutorialpoint.androidlogin.menu.HomeFragment;
 import com.androidtutorialpoint.androidlogin.menu.SettingsFragment;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
-    // Instance variables
-    private static final String TAG = "UserActivity";
+public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,25 +27,28 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        Bundle bundle = getIntent().getExtras();
-//        String user = bundle.getString("username");   // Commented out bc causes app to crash
-        greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
-        btnLogOut = (Button) findViewById(R.id.logout_button);
-//        greetingTextView.setText("Hello "+ user);     // Commented out bc causes app to crash
+
+        // Initialize buttons
+        btnLogOut = findViewById(R.id.logout_button);
 
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         loadFragment(new HomeFragment());
 
+        Bundle bundle = getIntent().getExtras();
+//        String user = bundle.getString("username");                           // Commented out bc causes app to crash
+        greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
+//        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
+
         // Set up button listeners
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(UserActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
+//        btnLogOut.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash
+//            @Override
+//            public void onClick(View v) {
+//                Intent logout = new Intent(UserActivity.this, LoginActivity.class);
+//                startActivity(logout);
+//            }
+//        });
 
     }
 
