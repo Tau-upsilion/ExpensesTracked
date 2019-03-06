@@ -15,7 +15,12 @@ public class CategoriesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_categories, null);
+        // Variables
+        View v = inflater.inflate(R.layout.fragment_categories, null);
+
+
+        // Return
+        return v;
     }
 
 }

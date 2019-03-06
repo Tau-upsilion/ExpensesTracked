@@ -21,19 +21,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
         View v = inflater.inflate(R.layout.fragment_home, null);
-        Button btnSignout;
-
-        // Find ids
-        btnSignout = v.findViewById(R.id.btn_logout);
-
-        // On click listeners
-        btnSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent logoutIntent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(logoutIntent);
-            }
-        });
 
 
         // Return
