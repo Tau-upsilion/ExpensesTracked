@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         // Button initializations
         btnlogin = (Button) findViewById(R.id.btn_login);
         btnLinkSignup = (Button) findViewById(R.id.btn_link_signup);
-        btnBypass = (Button) findViewById(R.id.btn_bypass);
+        btnBypass = (Button) findViewById(R.id.btn_bypass); // remove after login implementation working
 
         // Progress dialog
         progressDialog = new ProgressDialog(this);
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goRegister);
             }
         });
-        btnBypass.setOnClickListener(new View.OnClickListener() {
+        btnBypass.setOnClickListener(new View.OnClickListener() {   // TODO - remove after login implementation working
             @Override
             public void onClick(View view) {
                 Intent goHome = new Intent(LoginActivity.this, UserActivity.class);
