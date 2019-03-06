@@ -13,7 +13,7 @@
         android:layout_margin="10dp"
         android:text="Settings Page"
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
