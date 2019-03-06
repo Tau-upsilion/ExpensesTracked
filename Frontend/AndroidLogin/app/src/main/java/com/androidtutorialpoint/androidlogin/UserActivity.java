@@ -24,12 +24,12 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
+
         // Variables
         TextView greetingTextView, date;
         String strDate = DateFormat.getDateTimeInstance().format(new Date());
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
 
         // Initialize text view
         Bundle bundle = getIntent().getExtras();

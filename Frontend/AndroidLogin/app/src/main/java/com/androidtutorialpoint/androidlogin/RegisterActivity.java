@@ -29,11 +29,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Variables
-        Button btnSignUp, btnLinkLogin;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // Variables
+        Button btnSignUp, btnLinkLogin;
 
         // Progress dialog initialization
         progressDialog = new ProgressDialog(this);
