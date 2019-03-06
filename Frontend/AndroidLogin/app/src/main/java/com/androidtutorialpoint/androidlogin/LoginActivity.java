@@ -34,16 +34,14 @@ public class LoginActivity extends AppCompatActivity {
         // Variables
         Button btnlogin, btnLinkSignup, btnBypass;
 
-        // Text input initializations
-        loginInputEmail = (EditText) findViewById(R.id.login_input_email);
-        loginInputPassword = (EditText) findViewById(R.id.login_input_password);
+        // Variable initialization
+        loginInputEmail = findViewById(R.id.login_input_email);
+        loginInputPassword = findViewById(R.id.login_input_password);
 
-        // Button initializations
-        btnlogin = (Button) findViewById(R.id.btn_login);
-        btnLinkSignup = (Button) findViewById(R.id.btn_link_signup);
-        btnBypass = (Button) findViewById(R.id.btn_bypass); // remove after login implementation working
+        btnlogin = findViewById(R.id.btn_login);
+        btnLinkSignup = findViewById(R.id.btn_link_signup);
+        btnBypass = findViewById(R.id.btn_bypass); // remove after login implementation working
 
-        // Progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
 
@@ -68,6 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goHome);
             }
         });
+
+
     }
 
     private void loginUser( final String email, final String password) {
