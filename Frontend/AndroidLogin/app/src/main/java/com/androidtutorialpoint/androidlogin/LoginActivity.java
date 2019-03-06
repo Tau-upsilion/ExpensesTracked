@@ -16,6 +16,9 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         // Variables
         Button btnlogin, btnLinkSignup, btnBypass;
 
-        // Variable initialization
+        // Initializations
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
 

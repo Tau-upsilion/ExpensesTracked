@@ -28,16 +28,13 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_user);
 
         // Variables
-        TextView greetingTextView, date;
-        String strDate = DateFormat.getDateTimeInstance().format(new Date());
+        TextView greetingTextView;
 
-        // Initialize text view
+        // Initializations
         Bundle bundle = getIntent().getExtras();
 //        String user = bundle.getString("username");                           // Commented out bc causes app to crash
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
 //        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
-        date = findViewById(R.id.cat_date);
-//        date.setText(strDate);    // Need to figure out how to get this implementation to work
 
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
