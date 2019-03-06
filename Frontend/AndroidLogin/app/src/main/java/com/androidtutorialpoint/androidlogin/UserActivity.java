@@ -26,7 +26,6 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         // Variables
         TextView greetingTextView, date;
-        Button btnLogout;
         String strDate = DateFormat.getDateTimeInstance().format(new Date());
 
         super.onCreate(savedInstanceState);
@@ -40,22 +39,10 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         date = findViewById(R.id.cat_date);
 //        date.setText(strDate);    // Need to figure out how to get this implementation to work
 
-        // Initialize buttons
-        btnLogout = findViewById(R.id.logout_button);
-
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         loadFragment(new HomeFragment());
-
-        // Set up button listeners
-//        btnLogout.setOnClickListener(new View.OnClickListener() {     // TODO - Causing a crash - btnLogOut is null?
-//            @Override
-//            public void onClick(View v) {
-//                Intent logout = new Intent(UserActivity.this, LoginActivity.class);
-//                startActivity(logout);
-//            }
-//        });
 
     }
 
