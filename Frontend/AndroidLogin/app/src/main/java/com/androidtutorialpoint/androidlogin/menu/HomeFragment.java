@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
         View v = inflater.inflate(R.layout.fragment_home, null);
-        String strDate = DateFormat.getDateInstance().format(new Date());
+        String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
 
         // Initializations

@@ -21,12 +21,12 @@ public class CategoriesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
         View v = inflater.inflate(R.layout.fragment_categories, null);
-        String strDate = DateFormat.getDateInstance().format(new Date());
+        String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
 
         // Initializations
         date = v.findViewById(R.id.cat_date);
-        date.setText(strDate);
+        date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
 
         // Return
         return v;
