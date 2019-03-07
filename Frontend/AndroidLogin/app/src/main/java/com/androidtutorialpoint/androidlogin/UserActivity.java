@@ -29,33 +29,18 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
 
         // Variables
         TextView greetingTextView;
+        String user;
 
         // Initializations
         Bundle bundle = getIntent().getExtras();
-//        String user = bundle.getString("username");                           // Commented out bc causes app to crash
+//        user = bundle.getString("username");          // Commented out bc causes app to crash
         greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
-//        greetingTextView.setText("Hello "+ user);                             // Commented out bc causes app to crash
+//        greetingTextView.setText("Hello "+ user);     // Commented out bc causes app to crash
 
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         loadFragment(new HomeFragment());
-
-    }
-
-    private boolean loadFragment(Fragment fragment) {
-        if (fragment != null)
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-
-            // Return
-            return true;
-        }
-        else
-        {
-            // Return
-            return false;
-        }
 
     }
 
@@ -88,4 +73,27 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         // Return
         return loadFragment(fragment);
     }
+
+    /**
+     * Helper method to load the fragment layout class that is called in as a parameter
+     *
+     * @param fragment - the fragment layout class that is to be loaded onto the screen
+     * @return true if fragment is non-null, false otherwise
+     */
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+
+            // Return
+            return true;
+        }
+        else
+        {
+            // Return
+            return false;
+        }
+
+    }
+
 }
