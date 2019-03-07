@@ -9,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.androidtutorialpoint.androidlogin.LoginActivity;
 import com.androidtutorialpoint.androidlogin.R;
-import com.androidtutorialpoint.androidlogin.UserActivity;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
 
@@ -21,7 +23,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
         View v = inflater.inflate(R.layout.fragment_home, null);
+        String strDate = DateFormat.getDateInstance().format(new Date());
+        TextView date;
 
+        // Initializations
+        date = v.findViewById(R.id.home_date);
+        date.setText(strDate);
 
         // Return
         return v;
