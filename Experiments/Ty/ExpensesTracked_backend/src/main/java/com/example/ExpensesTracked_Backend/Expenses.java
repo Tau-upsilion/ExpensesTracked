@@ -10,16 +10,21 @@ public class Expenses {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String Expensesname;
+    private String expensesName;
     
     private int userId;
 
     private int amount;
     
     private String token;
-    
+    public void setId(Integer i) {
+    	this.id = i;
+    }
+    public Integer getId() {
+    	return this.id;
+    }
     public void setExpensesname(String n) {
-    	this.Expensesname = n; 
+    	this.expensesName = n; 
     }
     public void setAmount(int m) {
     	this.amount = m;
@@ -27,8 +32,8 @@ public class Expenses {
     public int getAmount() {
     	return this.amount;
     }
-    public String expensesName() {
-    	return this.Expensesname;
+    public String getExpensesName() {
+    	return this.expensesName;
     }
     public int getUserID() {
     	return this.userId;
