@@ -1,5 +1,7 @@
 package com.example.ExpensesTracked_Backend;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +44,7 @@ public class MainController {
 			String email = userRepository.findById(i).get().getEmail();
 			String password = userRepository.findById(i).get().getPassword();
 			if(givenEmail == email && givenPassword == password) {
-				result = userRepository.findById(i).get();
+				result = userRepository.findById(i).get()
 				break;
 			}
 		}
@@ -57,4 +59,19 @@ public class MainController {
 		expenseRepository.save(n);
 		return "Saved";
 	}
+	@GetMapping(path="/expenses/{id}")
+	Expenses getExpense(@PathVariable int id) {
+		return expenseRepository.findById(id).orElseThrow();
+	}
+	@GetMapping(path="/expenses/user/{id}")
+	public @ResponseBody Iterable<Expenses> getAllExpensesByUser(@PathVariable int id){
+		ArrayList<Expenses> l = new ArrayList<Expenses>();
+		for(int i = 0; i < expenseRepository.count(); i++) {
+			if(expenseRepository.findById(i).get().getUserID() == id) {
+				l.add(expenseRepository.findById(i).orElseThrow());
+			}
+		}
+		return l;
+	}
+	
 }
