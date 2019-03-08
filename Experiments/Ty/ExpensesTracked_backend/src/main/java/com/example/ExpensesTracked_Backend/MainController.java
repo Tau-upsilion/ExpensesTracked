@@ -44,7 +44,7 @@ public class MainController {
 			String email = userRepository.findById(i).get().getEmail();
 			String password = userRepository.findById(i).get().getPassword();
 			if(givenEmail == email && givenPassword == password) {
-				result = userRepository.findById(i).get()
+				result = userRepository.findById(i).get();
 				break;
 			}
 		}
