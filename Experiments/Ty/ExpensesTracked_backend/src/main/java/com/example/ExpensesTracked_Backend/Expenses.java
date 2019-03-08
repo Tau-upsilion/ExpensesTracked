@@ -11,6 +11,8 @@ public class Expenses {
     private Integer id;
 
     private String Expensesname;
+    
+    private int userId;
 
     private int amount;
     
@@ -26,7 +28,12 @@ public class Expenses {
     public String expensesName() {
     	return this.Expensesname;
     }
-    
+    public int getUserID() {
+    	return this.userId;
+    }
+    public void setUserID(int i) {
+    	this.userId = i;
+    }
     
 
 }
