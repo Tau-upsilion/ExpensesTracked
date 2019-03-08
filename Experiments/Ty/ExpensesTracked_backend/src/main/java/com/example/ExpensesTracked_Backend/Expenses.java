@@ -16,6 +16,8 @@ public class Expenses {
 
     private int amount;
     
+    private String token;
+    
     public void setExpensesname(String n) {
     	this.Expensesname = n; 
     }
@@ -33,6 +35,12 @@ public class Expenses {
     }
     public void setUserID(int i) {
     	this.userId = i;
+    }
+    public String getToken() {
+    	return this.token;
+    }
+    public void setToken(String token) {
+    	this.token = token;
     }
     
 
