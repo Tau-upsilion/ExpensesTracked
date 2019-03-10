@@ -52,7 +52,9 @@ public class Expenses {
     	
     	StringBuilder sb = new StringBuilder(10);
     	
-    	for (int i = 0; i < 10; i++)
+    	int n = (int)(Math.random() * 20 + 1);
+    	
+    	for (int i = 0; i < n; i++)
     	{
     		int index = (int) ((int) characters.length() * Math.random()); 
     		
