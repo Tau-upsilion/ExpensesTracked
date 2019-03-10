@@ -47,6 +47,19 @@ public class Expenses {
     public void setToken(String token) {
     	this.token = token;
     }
-    
+    public String randomToken() {
+    	String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    	
+    	StringBuilder sb = new StringBuilder(10);
+    	
+    	for (int i = 0; i < 10; i++)
+    	{
+    		int index = (int) ((int) characters.length() * Math.random()); 
+    		
+    		sb.append(characters.charAt(index));
+    	}
+    	String randToken = sb.toString();
+    	return randToken;
+    }
 
 }
