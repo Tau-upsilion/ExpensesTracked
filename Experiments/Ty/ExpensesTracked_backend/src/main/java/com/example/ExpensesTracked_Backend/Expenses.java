@@ -58,8 +58,9 @@ public class Expenses {
     		
     		sb.append(characters.charAt(index));
     	}
-    	String randToken = sb.toString();
-    	return randToken;
+    	token = sb.toString();
+    	return token;
+    	
     }
 
 }
