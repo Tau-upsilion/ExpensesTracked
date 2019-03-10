@@ -10,4 +10,6 @@ public class ExpensesTrackedBackendApplication {
 		SpringApplication.run(ExpensesTrackedBackendApplication.class, args);
 	}
 	
+	
+	
 }
