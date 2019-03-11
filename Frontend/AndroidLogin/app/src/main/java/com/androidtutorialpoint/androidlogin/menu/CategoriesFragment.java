@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.androidtutorialpoint.androidlogin.R;
@@ -26,6 +28,8 @@ public class CategoriesFragment extends Fragment {
 
         // Initializations
         date = v.findViewById(R.id.cat_date);
+//        TableLayout catList = v.findViewById(R.id.cat_list);
+//        catList.setVisibility(View.VISIBLE);
         date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
 
         // Return
