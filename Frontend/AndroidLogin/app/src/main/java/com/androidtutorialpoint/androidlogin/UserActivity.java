@@ -49,7 +49,7 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         // Variables
         Fragment fragment;
 
-        switch(menuItem.getItemId()) {
+        switch (menuItem.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
                 break;
@@ -81,15 +81,12 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
      * @return true if fragment is non-null, false otherwise
      */
     private boolean loadFragment(Fragment fragment) {
-        if (fragment != null)
-        {
+        if (fragment != null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
             // Return
             return true;
-        }
-        else
-        {
+        } else {
             // Return
             return false;
         }
