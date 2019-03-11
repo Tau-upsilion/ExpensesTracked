@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,19 +76,19 @@ public class RegisterActivity extends AppCompatActivity {
         int selectedId = genderRadioGroup.getCheckedRadioButtonId();
         String gender;
 
-        if(selectedId == R.id.female_radio_btn)
+        if (selectedId == R.id.female_radio_btn)
             gender = "Female";
         else
             gender = "Male";
 
         registerUser(signupInputName.getText().toString(),
-                     signupInputEmail.getText().toString(),
-                     signupInputPassword.getText().toString(),
-                     gender,
-                     signupInputAge.getText().toString());
+                signupInputEmail.getText().toString(),
+                signupInputPassword.getText().toString(),
+                gender,
+                signupInputAge.getText().toString());
     }
 
-    private void registerUser(final String name,  final String email, final String password, final String gender, final String dob) {
+    private void registerUser(final String name, final String email, final String password, final String gender, final String dob) {
         // Tag used to cancel the request
         String cancel_req_tag = "register";
 
@@ -106,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user +", You are successfully Added!",
+                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!",
                                 Toast.LENGTH_SHORT).show();
 
                         // Launch login activity

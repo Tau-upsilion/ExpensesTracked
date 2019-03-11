@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginUser( final String email, final String password) {
+    private void loginUser(final String email, final String password) {
         // Tag used to cancel the request
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
@@ -126,13 +127,14 @@ public class LoginActivity extends AppCompatActivity {
 
         };
         // Adding request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq,cancel_req_tag);
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
     }
 
     private void showDialog() {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
+
     private void hideDialog() {
         if (progressDialog.isShowing())
             progressDialog.dismiss();

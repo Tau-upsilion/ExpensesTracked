@@ -32,8 +32,7 @@ public class CalendarFragment extends Fragment {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                switch(month)
-                {
+                switch (month) {
                     case 0:
                         selectedDate = "Jan " + dayOfMonth + ", " + year;
                         break;
