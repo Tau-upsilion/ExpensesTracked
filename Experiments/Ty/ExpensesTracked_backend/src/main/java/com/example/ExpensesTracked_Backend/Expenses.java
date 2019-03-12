@@ -50,12 +50,12 @@ public class Expenses {
     public String randomToken() {
     	String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     	
-    	StringBuilder sb = new StringBuilder(10);
-    	
     	int lower = 10;
     	int upper = 20;
     	
     	int n = (int) (Math.random() * (upper - lower)) + lower;
+    	
+    	StringBuilder sb = new StringBuilder(n);
     	
     	for (int i = 0; i < n; i++)
     	{

@@ -1,5 +1,7 @@
 package com.example.ExpensesTracked_Backend;
 
-public class CategoryRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface CategoryRepository extends CrudRepository<Expenses, Integer> {
 
 }
