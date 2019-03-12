@@ -92,7 +92,9 @@ public class LoginActivity extends AppCompatActivity {
                         String user = jObj.getJSONObject("user").getString("name");
                         // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                        intent.putExtra("username", user);
+                        CurrentUser cUser = new CurrentUser();
+                        cUser.setToken(user);
+//                        intent.putExtra("username", user);
                         hideDialog();
                         startActivity(intent);
                         finish();
