@@ -71,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void loginUser(final String email, final String password) {

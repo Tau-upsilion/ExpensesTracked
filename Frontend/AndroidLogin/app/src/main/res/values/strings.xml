@@ -30,43 +30,10 @@
     <string name="title_calendar">Calendar</string>
     <string name="placeholder">NULL</string>
 
-    <string name="filter_expenses">Filter</string>
-    <string name="filter_option_today">By Today</string>
-    <string name="filter_option_week">By Week</string>
-    <string name="filter_option_month">By Month</string>
-    <string name="filter_option_date">By Date</string>
-    <string name="filter_option_range">By Date range</string>
-    <string name="filter_todays_expenses">Today\'s expenses</string>
-    <string name="filter_weeks_expenses">Week\'s expenses</string>
-    <string name="filter_months_expenses">Month\'s expenses</string>
-    <string name="filter_date_expenses">For %s</string>
-    <string name="filter_date_range_expenses">%1$s - %2$s</string>
-
     <string name="default_string">Default</string>
     <string name="no_categories_string">&#60;No categories&#62;</string>
     <string name="no_expenses">There are no expenses.</string>
     <string name="total_string">Total</string>
-
-    <string name="pref_currency_title">Currency</string>
-    <string name="pref_currency_default">USD</string>
-    <string-array name="pref_currency_list_titles">
-        <item>US Dollar</item>
-        <item>Euro</item>
-        <item>British Pound</item>
-        <item>Canadian Dollar</item>
-        <item>Australian Dollar</item>
-        <item>Ukrainian Hryvnia</item>
-        <item>Russian Rouble</item>
-    </string-array>
-    <string-array name="pref_currency_list_values">
-        <item>USD</item>
-        <item>EUR</item>
-        <item>GBP</item>
-        <item>CAD</item>
-        <item>AUD</item>
-        <item>UAH</item>
-        <item>RUB</item>
-    </string-array>
 
     <!-- Starting expense categories -->
     <string name="cat_general">General</string>
