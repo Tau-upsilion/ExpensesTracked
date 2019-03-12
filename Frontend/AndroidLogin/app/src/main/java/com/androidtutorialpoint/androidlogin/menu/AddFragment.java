@@ -26,6 +26,14 @@ public class AddFragment extends Fragment {
         AppCompatSpinner dropDown = v.findViewById(R.id.add_dropdown);
         Button add = v.findViewById(R.id.add_addButton);
 
+        // Create an ArrayAdapter using the string array and spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.starting_categories,
+                android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        dropDown.setAdapter(adapter);
+
         // OnClick listener
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +53,6 @@ public class AddFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-        // Create an ArrayAdapter using the string array and spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.starting_categories,
-                android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        dropDown.setAdapter(adapter);
 
         // Return
         return v;
