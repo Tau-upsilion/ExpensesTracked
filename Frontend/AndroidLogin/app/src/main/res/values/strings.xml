@@ -68,7 +68,7 @@
         <item>RUB</item>
     </string-array>
 
-    <!-- Predefined expense categories -->
+    <!-- Starting expense categories -->
     <string name="cat_general">General</string>
     <string name="cat_clothes">Clothes</string>
     <string name="cat_entertainment">Entertainment</string>

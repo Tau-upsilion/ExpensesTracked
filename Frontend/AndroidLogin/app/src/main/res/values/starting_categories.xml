@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="predefined_categories">
+    <string-array name="starting_categories">
         <item>@string/cat_general</item>
         <item>@string/cat_clothes</item>
         <item>@string/cat_entertainment</item>
