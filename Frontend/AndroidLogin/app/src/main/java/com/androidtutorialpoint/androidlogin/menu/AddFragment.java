@@ -39,6 +39,7 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO - add expense to server
+
             }
         });
 
