@@ -20,6 +20,8 @@ public class User {
     
     private String gender;
     
+    private String token;
+    
     public void setGender(String gender) {
     	this.gender = gender;
     }
@@ -56,11 +58,17 @@ public class User {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getToken() {
+		return this.token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 
