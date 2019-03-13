@@ -88,6 +88,11 @@ public class RegisterActivity extends AppCompatActivity {
                 signupInputAge.getText().toString());
     }
 
+    private void showDialog() {
+        if (!progressDialog.isShowing())
+            progressDialog.show();
+    }
+
     private void registerUser(final String name, final String email, final String password, final String gender, final String dob) {
         // Tag used to cancel the request
         String cancel_req_tag = "register";
@@ -149,11 +154,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
-    }
-
-    private void showDialog() {
-        if (!progressDialog.isShowing())
-            progressDialog.show();
     }
 
     private void hideDialog() {

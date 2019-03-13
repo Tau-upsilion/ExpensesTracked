@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class CategoriesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_categories, null);
         String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
+
 
         // Initializations
         date = v.findViewById(R.id.cat_date);

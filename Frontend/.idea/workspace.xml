@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="150d324d-9ded-4dea-9251-0d1daa557497" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Experiments/Ty/ExpensesTracked_backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Experiments/Ty/ExpensesTracked_backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Experiments/Ty/ExpensesTracked_backend/src/main/java/com/example/ExpensesTracked_Backend/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Experiments/Ty/ExpensesTracked_backend/src/main/java/com/example/ExpensesTracked_Backend/MainController.java" afterDir="false" />
-    </list>
+    <list default="true" id="150d324d-9ded-4dea-9251-0d1daa557497" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +46,25 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1684298531">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -80,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidLogin/AndroidLogin/app/src/main/java/com/androidtutorialpoint/androidlogin/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="144">
+              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -113,7 +129,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="960" />
     <option name="height" value="1053" />
@@ -216,8 +232,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,10 +266,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="960" height="1053" extended-state="4" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.27427962" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2082671" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -300,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidLogin/AndroidLogin/app/src/main/java/com/androidtutorialpoint/androidlogin/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="144">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
         </state>
       </provider>
     </entry>
