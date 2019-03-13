@@ -13,10 +13,29 @@ public class Expenses {
     private String expensesName;
     
     private int userId;
+    
+    private String description;
+    
+    private String category; 
 
-    private int amount;
+    private String amount;
     
     private String token;
+    
+    public String getDescription() {
+    	return this.description;
+    }
+    public String getCategory() {
+    	return this.category;
+    }
+    public void setDescription(String s) {
+    	this.description = s;
+    }
+    
+    public void setCategory(String s) {
+    	this.category = s;
+    }
+    
     public void setId(Integer i) {
     	this.id = i;
     }
@@ -29,7 +48,7 @@ public class Expenses {
     public void setAmount(int m) {
     	this.amount = m;
     }
-    public int getAmount() {
+    public String getAmount() {
     	return this.amount;
     }
     public String getExpensesName() {
