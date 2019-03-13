@@ -9,6 +9,10 @@ public class Expenses {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
+    
+    private String description;
+    
+	private String category;
 
     private String expensesName;
     
@@ -66,5 +70,17 @@ public class Expenses {
     	token = sb.toString();
     	return token;
     }
+    public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 }
