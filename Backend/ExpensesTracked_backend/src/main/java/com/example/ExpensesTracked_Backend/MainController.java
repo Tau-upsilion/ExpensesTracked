@@ -88,7 +88,7 @@ public class MainController {
 		return "Saved";
 	}
 	@GetMapping(path="/category/{id}")
-	Expenses getCategory(@PathVariable int id) {
+	Category getCategory(@PathVariable int id) {
 		return categoryRepository.findById(id).orElseThrow();
 	}
 
