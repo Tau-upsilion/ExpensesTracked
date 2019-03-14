@@ -20,6 +20,8 @@ public class MainController {
 	private UserRepository userRepository;
 	@Autowired
 	private ExpensesRepository expenseRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 	@PostMapping(path="/add") // Map ONLY GET Requests
 	public @ResponseBody String addNewUser (@RequestBody User n) {
 		userRepository.save(n);
@@ -75,4 +77,20 @@ public class MainController {
 		return l;
 	}
 	
+	@GetMapping(path="/category/all")
+	public @ResponseBody Iterable<Category> getAllCategory(){
+		return categoryRepository.findAll();
+	}
+	
+	@PostMapping(path="/category/add")
+	public @ResponseBody String addNewCategory(@RequestBody Category n) {
+		categoryRepository.save(n);
+		return "Saved";
+	}
+	@GetMapping(path="/category/{id}")
+	Expenses getCategory(@PathVariable int id) {
+		return categoryRepository.findById(id).orElseThrow();
+	}
+
+
 }
