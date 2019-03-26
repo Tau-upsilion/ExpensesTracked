@@ -44,6 +44,7 @@ public class AddFragment extends Fragment {
     TextView desc;
     TextView amount;
     private String category;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -69,10 +70,8 @@ public class AddFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // TODO - add expense to server
+                // Add expense to server
                 addExpense(category, desc.getText().toString(), amount.getText().toString());
-
             }
         });
 
@@ -89,7 +88,6 @@ public class AddFragment extends Fragment {
             }
         });
 
-
         // Return
         return v;
     }
@@ -101,8 +99,7 @@ public class AddFragment extends Fragment {
         progressDialog.setMessage("Adding Expenses...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                URL_FOR_Adding, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -115,7 +112,7 @@ public class AddFragment extends Fragment {
 
                     if (!error) {
                         /*String user = jObj.getJSONObject("user").getString("name");*/
-                        Toast.makeText(getActivity().getApplicationContext(), "Hi " + "Your expense has been added succesfully!",
+                        Toast.makeText(getActivity().getApplicationContext(), "Hi. Your expense has been added succesfully!",
                                 Toast.LENGTH_SHORT).show();
 
                         // Launch login activity

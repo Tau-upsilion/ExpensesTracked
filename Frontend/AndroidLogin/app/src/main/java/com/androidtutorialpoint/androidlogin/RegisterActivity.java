@@ -100,9 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setMessage("Adding you ...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                URL_FOR_REGISTRATION, new Response.Listener<String>() {
-
+        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_REGISTRATION, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
@@ -114,8 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
 
                         // Launch login activity
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
