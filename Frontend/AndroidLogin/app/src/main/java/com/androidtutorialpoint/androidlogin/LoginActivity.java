@@ -22,6 +22,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class LoginActivity extends AppCompatActivity {
     // Instance variables
@@ -93,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         CurrentUser cUser = new CurrentUser();
                         cUser.setToken(user);
-//                        intent.putExtra("username", user);
+
                         hideDialog();
                         startActivity(intent);
                         finish();
@@ -127,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         };
+
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
     }

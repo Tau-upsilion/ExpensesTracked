@@ -27,16 +27,6 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        // Variables
-        TextView greetingTextView;
-        String user;
-
-        // Initializations
-        Bundle bundle = getIntent().getExtras();
-//        user = bundle.getString("username");          // Commented out bc causes app to crash
-        greetingTextView = (TextView) findViewById(R.id.greeting_text_view);
-//        greetingTextView.setText("Hello "+ user);     // Commented out bc causes app to crash
-
         // Set up navigation bar listener
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);

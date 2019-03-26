@@ -39,7 +39,7 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    private static final String URL_FOR_Adding = "https://ca7cc909-a77f-45a3-a46d-866a3ad49cc3.mock.pstmn.io/addingexpense";
+    private static final String URL_FOR_Adding = "http://cs309-yt-7.misc.iastate.edu:8080/demo/expenses/add";
     ProgressDialog progressDialog;
     TextView desc;
     TextView amount;
@@ -48,7 +48,6 @@ public class AddFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
-
         View v = inflater.inflate(R.layout.fragment_add, null);
         final AppCompatSpinner dropDown = v.findViewById(R.id.add_dropdown);
         Button add = v.findViewById(R.id.add_addButton);
