@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.expensesTracked;
+package com.expensesTracked;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.expensesTracked.menu;
+package expensesTracked.menu;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.androidtutorialpoint.expensesTracked.R;
+import com.expensesTracked.R;
 
 import java.text.DateFormat;
 import java.util.Date;

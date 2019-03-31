@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.expensesTracked.menu;
+package expensesTracked.menu;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -20,8 +20,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.androidtutorialpoint.expensesTracked.AppSingleton;
-import com.androidtutorialpoint.expensesTracked.R;
+import expensesTracked.AppSingleton;
+import com.expensesTracked.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

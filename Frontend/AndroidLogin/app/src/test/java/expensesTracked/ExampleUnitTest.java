@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.expensesTracked;
+package expensesTracked;
 
 import org.junit.Test;
 

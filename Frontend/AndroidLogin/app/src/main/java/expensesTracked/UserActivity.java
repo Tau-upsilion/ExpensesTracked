@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.expensesTracked;
+package expensesTracked;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,11 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.androidtutorialpoint.expensesTracked.menu.AddFragment;
-import com.androidtutorialpoint.expensesTracked.menu.CalendarFragment;
-import com.androidtutorialpoint.expensesTracked.menu.CategoriesFragment;
-import com.androidtutorialpoint.expensesTracked.menu.HomeFragment;
-import com.androidtutorialpoint.expensesTracked.menu.SettingsFragment;
+import com.expensesTracked.R;
+import expensesTracked.menu.AddFragment;
+import expensesTracked.menu.CalendarFragment;
+import expensesTracked.menu.CategoriesFragment;
+import expensesTracked.menu.HomeFragment;
+import expensesTracked.menu.SettingsFragment;
 
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
