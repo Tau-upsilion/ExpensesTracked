@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
+
                         // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         CurrentUser cUser = new CurrentUser();
