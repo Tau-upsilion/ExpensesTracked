@@ -1,24 +1,17 @@
-package com.androidtutorialpoint.androidlogin;
+package com.androidtutorialpoint.expensesTracked;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.androidtutorialpoint.androidlogin.menu.AddFragment;
-import com.androidtutorialpoint.androidlogin.menu.CalendarFragment;
-import com.androidtutorialpoint.androidlogin.menu.CategoriesFragment;
-import com.androidtutorialpoint.androidlogin.menu.HomeFragment;
-import com.androidtutorialpoint.androidlogin.menu.SettingsFragment;
-
-import java.text.DateFormat;
-import java.util.Date;
+import com.androidtutorialpoint.expensesTracked.menu.AddFragment;
+import com.androidtutorialpoint.expensesTracked.menu.CalendarFragment;
+import com.androidtutorialpoint.expensesTracked.menu.CategoriesFragment;
+import com.androidtutorialpoint.expensesTracked.menu.HomeFragment;
+import com.androidtutorialpoint.expensesTracked.menu.SettingsFragment;
 
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

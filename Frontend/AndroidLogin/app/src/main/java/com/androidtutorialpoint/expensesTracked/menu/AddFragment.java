@@ -1,8 +1,6 @@
-package com.androidtutorialpoint.androidlogin.menu;
+package com.androidtutorialpoint.expensesTracked.menu;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,14 +20,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.androidtutorialpoint.androidlogin.AppSingleton;
-import com.androidtutorialpoint.androidlogin.LoginActivity;
-import com.androidtutorialpoint.androidlogin.R;
-import com.androidtutorialpoint.androidlogin.RegisterActivity;
+import com.androidtutorialpoint.expensesTracked.AppSingleton;
+import com.androidtutorialpoint.expensesTracked.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;

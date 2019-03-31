@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin.menu;
+package com.androidtutorialpoint.expensesTracked.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.androidtutorialpoint.androidlogin.LoginActivity;
-import com.androidtutorialpoint.androidlogin.R;
+import com.androidtutorialpoint.expensesTracked.LoginActivity;
+import com.androidtutorialpoint.expensesTracked.R;
 
 public class SettingsFragment extends Fragment {
 

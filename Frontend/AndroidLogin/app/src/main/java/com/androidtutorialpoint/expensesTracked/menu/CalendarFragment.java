@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin.menu;
+package com.androidtutorialpoint.expensesTracked.menu;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import com.androidtutorialpoint.androidlogin.R;
+import com.androidtutorialpoint.expensesTracked.R;
 
 public class CalendarFragment extends Fragment {
     // Instance variables

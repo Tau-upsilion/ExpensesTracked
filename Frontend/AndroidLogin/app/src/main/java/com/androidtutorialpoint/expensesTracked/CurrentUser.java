@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin;
+package com.androidtutorialpoint.expensesTracked;
 
 public class CurrentUser {
     private Integer id;
