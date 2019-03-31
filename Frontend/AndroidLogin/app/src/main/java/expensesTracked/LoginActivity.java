@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     // Instance variables
     private static final String TAG = "LoginActivity";
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
+//    private static final String URL_FOR_LOGIN = "http://testing.edu";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
 
@@ -88,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
+
                         // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         CurrentUser cUser = new CurrentUser();
