@@ -20,12 +20,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import expensesTracked.AppSingleton;
-<<<<<<< HEAD:Frontend/AndroidLogin/app/src/main/java/expensesTracked/menu/AddFragment.java
-import com.androidtutorialpoint.androidlogin.R;
-=======
 import com.expensesTracked.R;
->>>>>>> master:Frontend/AndroidLogin/app/src/main/java/expensesTracked/menu/AddFragment.java
+
+import expensesTracked.AppSingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
