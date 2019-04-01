@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin;
+package expensesTracked;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.androidtutorialpoint.androidlogin.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     // Instance variables
     private static final String TAG = "LoginActivity";
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
-//    private static final String URL_FOR_LOGIN = "http://testing.edu";
+//    private static final String URL_FOR_LOGIN = "";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
 

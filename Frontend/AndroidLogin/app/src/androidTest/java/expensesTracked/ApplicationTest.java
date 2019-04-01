@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin;
+package expensesTracked;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
