@@ -14,7 +14,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+<<<<<<< HEAD:Frontend/AndroidLogin/app/src/main/java/expensesTracked/LoginActivity.java
 import com.androidtutorialpoint.androidlogin.R;
+=======
+import com.expensesTracked.R;
+>>>>>>> master:Frontend/AndroidLogin/app/src/main/java/expensesTracked/LoginActivity.java
 
 import org.json.JSONException;
 import org.json.JSONObject;

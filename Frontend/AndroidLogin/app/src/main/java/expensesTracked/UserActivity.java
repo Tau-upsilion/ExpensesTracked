@@ -7,7 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+<<<<<<< HEAD:Frontend/AndroidLogin/app/src/main/java/expensesTracked/UserActivity.java
 import com.androidtutorialpoint.androidlogin.R;
+=======
+import com.expensesTracked.R;
+>>>>>>> master:Frontend/AndroidLogin/app/src/main/java/expensesTracked/UserActivity.java
 import expensesTracked.menu.AddFragment;
 import expensesTracked.menu.CalendarFragment;
 import expensesTracked.menu.CategoriesFragment;

@@ -1,4 +1,4 @@
-package com.androidtutorialpoint.androidlogin;
+package com.expensesTracked;
 
 import org.junit.Test;
 

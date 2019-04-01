@@ -11,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import expensesTracked.LoginActivity;
+<<<<<<< HEAD:Frontend/AndroidLogin/app/src/main/java/expensesTracked/menu/SettingsFragment.java
 import com.androidtutorialpoint.androidlogin.R;
+=======
+import com.expensesTracked.R;
+>>>>>>> master:Frontend/AndroidLogin/app/src/main/java/expensesTracked/menu/SettingsFragment.java
 
 public class SettingsFragment extends Fragment {
 
