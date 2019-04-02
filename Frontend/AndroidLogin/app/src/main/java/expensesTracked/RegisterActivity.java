@@ -26,7 +26,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
-    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/registration";
+    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
     ProgressDialog progressDialog;
