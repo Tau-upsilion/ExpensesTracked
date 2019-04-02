@@ -9,24 +9,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name="expensesTracked.LoginActivity">
-=======
-        <activity android:name="com.expensesTracked.com.LoginActivity">
->>>>>>> master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name="expensesTracked.RegisterActivity" />
         <activity android:name="expensesTracked.UserActivity" />
-=======
-        <activity android:name="com.expensesTracked.com.RegisterActivity" />
-        <activity android:name="com.expensesTracked.com.UserActivity" />
->>>>>>> master
 
         <activity android:name=".activities.SettingsActivity"
             android:screenOrientation="portrait"
