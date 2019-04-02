@@ -1,4 +1,4 @@
-package com.example.ExpensesTracked_Backend;
+package com.example.ExpensesTracked_Backend.service.imp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
