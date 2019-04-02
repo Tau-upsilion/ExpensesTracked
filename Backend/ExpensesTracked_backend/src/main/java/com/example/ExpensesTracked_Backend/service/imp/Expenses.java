@@ -1,4 +1,4 @@
-package com.example.ExpensesTracked_Backend;
+package com.example.ExpensesTracked_Backend.service.imp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +21,8 @@ public class Expenses {
     private int amount;
     
     private String token;
+    
+    
     public void setId(Integer i) {
     	this.id = i;
     }
