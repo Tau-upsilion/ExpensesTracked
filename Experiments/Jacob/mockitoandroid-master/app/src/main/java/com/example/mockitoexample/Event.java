@@ -9,12 +9,10 @@ public class Event  {
     //Time is in format M/D/YYYY
     private String eventTime;
 
-
     public Event(String title, String time) {
         this.eventTitle = title;
         this.eventTime = time;
     }
-
 
     public String getEventTitle() {
         return eventTitle;
@@ -31,8 +29,6 @@ public class Event  {
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
     }
-
-
 
 
 }

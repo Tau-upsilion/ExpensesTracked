@@ -16,6 +16,7 @@ class Sorter {
         {
             Log.d("Test ", "sortByDate: " + toSort.get(i).getEventTime());
         }
+
         return toSort;
     }
 }
