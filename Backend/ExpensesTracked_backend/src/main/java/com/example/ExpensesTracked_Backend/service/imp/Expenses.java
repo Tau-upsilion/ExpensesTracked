@@ -22,6 +22,15 @@ public class Expenses {
     
     private String token;
     
+    public Expenses(Integer id, String description, String category, String expensesName, int userId, int amount, String token) {
+    	this.id = id;
+    	this.description = description;
+    	this.category = category;
+    	this.expensesName = expensesName;
+    	this.userId = userId;
+    	this.amount = amount;
+    	this.token = token;
+    }
     
     public void setId(Integer i) {
     	this.id = i;

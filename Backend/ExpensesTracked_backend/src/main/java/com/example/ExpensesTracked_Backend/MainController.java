@@ -63,7 +63,7 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		User user = userRepository.findByEmail(email);
+		User user = userRepository.getUserByEmail(email);
 		
 		if (user == null) {
 			throw new ServletException("User email not found.");
