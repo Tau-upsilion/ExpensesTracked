@@ -9,15 +9,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.expensesTracked.com.LoginActivity">
+        <activity android:name="expensesTracked.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.expensesTracked.com.RegisterActivity" />
-        <activity android:name="com.expensesTracked.com.UserActivity" />
+        <activity android:name="expensesTracked.RegisterActivity" />
+        <activity android:name="expensesTracked.UserActivity" />
 
         <activity android:name=".activities.SettingsActivity"
             android:screenOrientation="portrait"
