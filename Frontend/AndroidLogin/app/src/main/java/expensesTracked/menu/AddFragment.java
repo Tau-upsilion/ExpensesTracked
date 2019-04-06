@@ -21,7 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import expensesTracked.AppSingleton;
-import com.expensesTracked.R;
+import expensesTracked.R;
+import expensesTracked.UserActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
