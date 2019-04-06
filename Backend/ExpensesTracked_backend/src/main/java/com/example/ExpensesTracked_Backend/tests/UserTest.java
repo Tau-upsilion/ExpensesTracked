@@ -32,7 +32,7 @@ public class UserTest {
 	}
 	@Test
 	public void getUserByIdTest() {
-		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password",18,"male"));
+		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password","18","male"));
 		
 		User user = userserv.getUserByID(1);
 		
@@ -43,7 +43,7 @@ public class UserTest {
 	}
 	@Test 
 	public void getUserByEmailTest() {
-		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password",18,"male"));
+		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password","18","male"));
 		
 		User user = userserv.getUserByEmail("TestUser@test.com");
 		assertEquals("TestUser", user.getName());
