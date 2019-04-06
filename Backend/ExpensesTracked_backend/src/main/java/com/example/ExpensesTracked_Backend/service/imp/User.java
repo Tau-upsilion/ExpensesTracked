@@ -22,6 +22,15 @@ public class User {
     
     private String token;
     
+    public User(Integer id, String name, String email, String password, Integer age, String gender) {
+    	this.id = id;
+    	this.name = name;
+    	this.email = email;
+    	this.password = password;
+    	this.age = age;
+    	this.gender = gender;
+    }
+    
     public void setGender(String gender) {
     	this.gender = gender;
     }
