@@ -1,6 +1,9 @@
 package com.example.ExpensesTracked_Backend;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ExpensesTracked_Backend.service.CategoryRepository;
+import com.example.ExpensesTracked_Backend.service.ExpensesRepository;
+import com.example.ExpensesTracked_Backend.service.UserRepository;
+import com.example.ExpensesTracked_Backend.service.imp.Category;
+import com.example.ExpensesTracked_Backend.service.imp.Expenses;
+import com.example.ExpensesTracked_Backend.service.imp.User;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 
 @RestController    // This means that this class is a Controller
@@ -22,7 +35,10 @@ public class MainController {
 	private ExpensesRepository expenseRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
-	@PostMapping(path="/add") // Map ONLY GET Requests
+	
+	
+	
+	@PostMapping(path="/register") // Map ONLY GET Requests
 	public @ResponseBody String addNewUser (@RequestBody User n) {
 		userRepository.save(n);
 		return "Saved";
@@ -39,19 +55,30 @@ public class MainController {
 				.orElseThrow();
 	}
 	@PostMapping(path="/login")
-	public User register(@RequestBody User n) {
-		User result = null;
-		for(int i = 0; i < userRepository.count(); i++) {
-			String givenEmail = n.getEmail();
-			String givenPassword = n.getPassword();
-			String email = userRepository.findById(i).get().getEmail();
-			String password = userRepository.findById(i).get().getPassword();
-			if(givenEmail == email && givenPassword == password) {
-				result = userRepository.findById(i).get();
-				break;
-			}
+	public String login(@RequestBody User n) throws ServletException{
+		String jwtToken = "";
+		if(n.getEmail() == null || n.getPassword() == null) {
+			throw new ServletException("Please fill in username and password");
 		}
-		return result;
+		
+		String email = n.getEmail();
+		String password = n.getPassword();
+		User user = userRepository.getUserByEmail(email);
+		
+		if (user == null) {
+			throw new ServletException("User email not found.");
+		}
+		
+		String pwd = user.getPassword();
+		
+		if(!password.equals(pwd)) {
+			throw new ServletException("Invalid Login. Check email and password.");
+		}
+		
+		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
+				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
+		
+		return jwtToken;
 	}
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){

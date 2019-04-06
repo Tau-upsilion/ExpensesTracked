@@ -1,4 +1,4 @@
-package com.example.ExpensesTracked_Backend;
+package com.example.ExpensesTracked_Backend.service.imp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,11 +16,20 @@ public class User {
     
     private String password;
     
-    private Integer age;
+    private String age;
     
     private String gender;
     
     private String token;
+    
+    public User(Integer id, String name, String email, String password, String age, String gender) {
+    	this.id = id;
+    	this.name = name;
+    	this.email = email;
+    	this.password = password;
+    	this.age = age;
+    	this.gender = gender;
+    }
     
     public void setGender(String gender) {
     	this.gender = gender;
@@ -28,10 +37,10 @@ public class User {
     public String getGender() {
     	return gender;
     }
-    public void setAge(Integer age) {
+    public void setAge(String age) {
     	this.age = age;
     }
-    public Integer getAge() {
+    public String getAge() {
     	return age;
     }
     public String getPassword() {

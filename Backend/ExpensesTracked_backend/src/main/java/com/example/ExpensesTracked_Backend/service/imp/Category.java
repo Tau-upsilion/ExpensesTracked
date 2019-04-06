@@ -1,4 +1,7 @@
-package com.example.ExpensesTracked_Backend;
+package com.example.ExpensesTracked_Backend.service.imp;
+
+import javax.persistence.Entity;
+
 
 //Main controller: git mapping and URL for all catergories
 
@@ -6,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+@Entity
 public class Category {
 	
 	@Id
