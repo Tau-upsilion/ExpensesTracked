@@ -83,8 +83,6 @@ public class RegisterActivity extends AppCompatActivity {
         else
             gender = "Male";
 
-        User user = new User();
-        user.setAge();
         registerUser(signupInputName.getText().toString(),
                 signupInputEmail.getText().toString(),
                 signupInputPassword.getText().toString(),
