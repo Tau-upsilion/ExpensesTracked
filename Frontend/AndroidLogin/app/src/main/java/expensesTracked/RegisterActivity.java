@@ -17,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.expensesTracked.R;
 
-import expensesTracked.model.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -83,11 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
         else
             gender = "Male";
 
-        registerUser(signupInputName.getText().toString(),
-                signupInputEmail.getText().toString(),
-                signupInputPassword.getText().toString(),
-                gender,
-                signupInputAge.getText().toString());
+        registerUser(signupInputName.getText().toString(), signupInputEmail.getText().toString(), signupInputPassword.getText().toString(),
+                gender, signupInputAge.getText().toString());
     }
 
     private void showDialog() {
