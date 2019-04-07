@@ -29,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/add";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
+    boolean isValidLogin = false, isValidEmail, isValidPassword;
     ProgressDialog progressDialog;
 
     @Override
@@ -60,7 +61,12 @@ public class RegisterActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitForm();
+                // Check for valid email and password on signup
+                isValidLogin = checkCredentials(signupInputEmail.getText().toString(), signupInputPassword.getText().toString());
+
+                // Try register
+                if (isValidLogin)
+                    submitForm();
             }
         });
         btnLinkLogin.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +76,39 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private boolean checkCredentials(String email, String password) {
+        // Check for valid email
+        isValidEmail = email.length() >= 8 && email.contains("@") && email.contains(".") && (email.indexOf("@") < email.indexOf('.'));
+        // Check for valid password
+        isValidPassword = password.length() >= 8;
+
+        // Display invalid input messages
+        if (!isValidEmail && isValidPassword)
+        {
+            // Invalid email
+            Toast.makeText(getApplicationContext(), "Invalid email. Try again", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (isValidEmail && !isValidPassword)
+        {
+            // Invalid password
+            Toast.makeText(getApplicationContext(), "Invalid password. Try again", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (!isValidEmail) // only have to check if email validity because of else ifs
+        {
+            // Invalid email and password
+            Toast.makeText(getApplicationContext(), "Invalid email and password. Try again", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else
+        {
+            // All valid credentials
+            return true;
+        }
+
     }
 
     private void submitForm() {
