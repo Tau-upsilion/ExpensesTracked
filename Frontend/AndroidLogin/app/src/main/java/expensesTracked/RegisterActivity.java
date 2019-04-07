@@ -16,7 +16,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
-import expensesTracked.model.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
