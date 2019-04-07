@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.expensesTracked.R;
 
@@ -27,7 +28,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
-    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/add";
+    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
     ProgressDialog progressDialog;
@@ -100,58 +101,39 @@ public class RegisterActivity extends AppCompatActivity {
 
         progressDialog.setMessage("Adding you ...");
         showDialog();
-
-        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_REGISTRATION, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Register Response: " + response.toString());
-                hideDialog();
-
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-
-                    if (!error) {
-                        String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
-
-                        // Launch login activity
-                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("name", name);
+        params.put("email", email);
+        params.put("password", password);
+        params.put("gender", gender);
+        params.put("age", dob);
+        JSONObject req = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_REGISTRATION, req,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean error = response.getBoolean("error");
+                            if (!error) {
+                                String user = response.getString("name");
+                                Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
                 hideDialog();
             }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-                params.put("gender", gender);
-                params.put("age", dob);
-                return params;
-            }
-        };
-
-        // Adding request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+        });
+                AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
 
     private void hideDialog() {

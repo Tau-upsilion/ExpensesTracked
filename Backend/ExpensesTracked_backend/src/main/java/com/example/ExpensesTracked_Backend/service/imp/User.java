@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User {
+public class User implements Cloneable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
@@ -22,8 +22,34 @@ public class User {
     
     private String token;
     
+    private boolean error;
+    
+    public boolean isError() {
+		return error;
+	}
+
+	public void setError(boolean error) {
+		this.error = error;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+	}
+
+	public User() {
+		this.error = false;
+    }
+	
+    
     public User(Integer id, String name, String email, String password, String age, String gender) {
-    	this.id = id;
+    	this.name = name;
+    	this.email = email;
+    	this.password = password;
+    	this.age = age;
+    	this.gender = gender;
+    }
+    public User(String name, String email, String password, String age, String gender) {
     	this.name = name;
     	this.email = email;
     	this.password = password;
@@ -50,7 +76,7 @@ public class User {
     	this.password = password;
     }
 
-	public Integer getId() {
+	public Integer getID() {
 		return id;
 	}
 

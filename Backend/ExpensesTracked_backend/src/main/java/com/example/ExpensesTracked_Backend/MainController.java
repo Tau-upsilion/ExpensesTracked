@@ -39,9 +39,10 @@ public class MainController {
 	
 	
 	@PostMapping(path="/register") // Map ONLY GET Requests
-	public @ResponseBody String addNewUser (@RequestBody User n) {
+	public @ResponseBody User addNewUser (@RequestBody User n) throws CloneNotSupportedException {
+		User result =(User) n.clone();
 		userRepository.save(n);
-		return "Saved";
+		return result;
 	}
 
 	@GetMapping(path="/all")
@@ -63,7 +64,7 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		User user = userRepository.getUserByEmail(email);
+		User user = userRepository.getUserByemail(email);
 		
 		if (user == null) {
 			throw new ServletException("User email not found.");
