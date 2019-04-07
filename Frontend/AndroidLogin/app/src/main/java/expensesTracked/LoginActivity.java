@@ -5,17 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.*;
+import com.android.volley.toolbox.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,14 +19,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.content.SharedPreferences;
-
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
+
     //localhost testing
-    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
+//    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
     //server link
-    //private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu/demo/login";
+    private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu/demo/login";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
 
@@ -73,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
     /* SHUB's Code
     private void loginUser(final String email, final String password) {
         String cancel_req_tag = "login";
@@ -129,15 +125,15 @@ public class LoginActivity extends AppCompatActivity {
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
     } */
 
-
-
     private void loginUser(final String email, final String password){
         String cancel_req_tag = "login";
         showDialog();
+
         Map<String, String> params = new HashMap<>();
         params.put("email", email);
         params.put("password", password);
         JSONObject req = new JSONObject(params);
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -149,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String token = response.getString("token");
                                 saveToken(getApplicationContext(), "TOKEN",token);
                                 hideDialog();
+
                                 startActivity(intent);
                                 finish();
                             }
@@ -165,6 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                             hideDialog();
                         }
                     });
+
                     AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
 
     }
@@ -193,8 +191,8 @@ public class LoginActivity extends AppCompatActivity {
         String text;
         settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
         text = settings.getString(key, null);
+
         return text;
     }
-
 
 }

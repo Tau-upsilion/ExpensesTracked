@@ -11,11 +11,8 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.*;
+import com.android.volley.toolbox.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,9 +24,9 @@ public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
     //localhost testing (comment out if demoing)
-    private static final String URL_FOR_REGISTRATION = "http://10.0.2.2:8080/demo/register";
+//    private static final String URL_FOR_REGISTRATION = "http://10.0.2.2:8080/demo/register";
     //server Implementation comment (uncomment if demo)
-    //private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
+    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
     ProgressDialog progressDialog;
@@ -84,11 +81,8 @@ public class RegisterActivity extends AppCompatActivity {
             gender = "Female";
         else
             gender = "Male";
-        registerUser(signupInputName.getText().toString(),
-                signupInputEmail.getText().toString(),
-                signupInputPassword.getText().toString(),
-                gender,
-                signupInputAge.getText().toString());
+        registerUser(signupInputName.getText().toString(), signupInputEmail.getText().toString(), signupInputPassword.getText().toString(),
+                gender, signupInputAge.getText().toString());
     }
 
     private void showDialog() {
