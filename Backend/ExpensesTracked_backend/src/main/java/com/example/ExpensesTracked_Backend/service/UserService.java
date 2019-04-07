@@ -9,10 +9,10 @@ public class UserService{
 	@Autowired
 	private UserRepository repo;
 	
-	public User getUserByID(int id) {
-		return repo.getUserByID(id);
+	public User getUserByID(Integer id) {
+		return repo.getUserByid(id);
 	}
 	public User getUserByEmail(String email) {
-		return repo.getUserByEmail(email);
+		return repo.getUserByemail(email);
 	}
 }
