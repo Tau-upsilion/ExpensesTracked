@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import com.expensesTracked.R;
+import expensesTracked.R;
 
 public class CalendarFragment extends Fragment {
     // Instance variables
