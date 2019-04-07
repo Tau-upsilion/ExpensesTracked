@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
-    private boolean isValidEmail, isValidPassword;
+    private boolean isValidLogin = false;
     ProgressDialog progressDialog;
 
     @Override
@@ -61,7 +61,12 @@ public class RegisterActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitForm();
+                // Check for valid email and password on signup
+                isValidLogin = checkCredentials(signupInputEmail.getText().toString(), signupInputPassword.getText().toString());
+
+                // Try register
+                if (isValidLogin)
+                    submitForm();
             }
         });
         btnLinkLogin.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +79,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean checkCredentials(String email, String password) {
+        // Declare variables
+        boolean isValidEmail, isValidPassword;
+
         // Check for valid email
         isValidEmail = email.length() >= 8 && email.contains("@") && email.contains(".") && (email.indexOf("@") < email.indexOf('.'));
         // Check for valid password
