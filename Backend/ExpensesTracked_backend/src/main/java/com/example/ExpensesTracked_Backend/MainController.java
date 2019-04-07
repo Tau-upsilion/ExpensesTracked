@@ -56,7 +56,7 @@ public class MainController {
 				.orElseThrow();
 	}
 	@PostMapping(path="/login")
-	public String login(@RequestBody User n) throws ServletException{
+	public User login(@RequestBody User n) throws ServletException{
 		String jwtToken = "";
 		if(n.getEmail() == null || n.getPassword() == null) {
 			throw new ServletException("Please fill in username and password");
@@ -79,7 +79,8 @@ public class MainController {
 		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
 				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 		
-		return jwtToken;
+		user.setToken(jwtToken);
+		return user;
 	}
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){
