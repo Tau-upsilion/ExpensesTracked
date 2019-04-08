@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.*;
-import com.android.volley.toolbox.*;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         
     }
 
-    /* SHUB's Code
+    /* Shub's Code
     private void loginUser(final String email, final String password) {
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
@@ -123,10 +125,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
-    } */
+    }*/
     
     private void loginUser(final String email, final String password){
         String cancel_req_tag = "login";
+        progressDialog.setMessage("Logging you in...");
         showDialog();
         
         Map<String, String> params = new HashMap<>();
@@ -154,7 +157,12 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, new Response.ErrorListener(){
+                    
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
                 Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
