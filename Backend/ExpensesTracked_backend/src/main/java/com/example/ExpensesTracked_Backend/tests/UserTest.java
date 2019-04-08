@@ -32,24 +32,24 @@ public class UserTest {
 	}
 	@Test
 	public void getUserByIdTest() {
-		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password",18,"male"));
+		when(repo.getUserByid(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password","18","male"));
 		
 		User user = userserv.getUserByID(1);
 		
 		assertEquals("TestUser", user.getName());
 		assertEquals("TestUser@test.com",user.getEmail());
 		assertEquals("password",user.getPassword());
-		assertEquals((Integer)18,user.getAge());
+		assertEquals("18",user.getAge());
 	}
 	@Test 
 	public void getUserByEmailTest() {
-		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password",18,"male"));
+		when(repo.getUserByid(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password","18","male"));
 		
 		User user = userserv.getUserByEmail("TestUser@test.com");
 		assertEquals("TestUser", user.getName());
 		assertEquals("TestUser@test.com",user.getEmail());
 		assertEquals("password",user.getPassword());
-		assertEquals((Integer)18,user.getAge());
+		assertEquals("18",user.getAge());
 	}
 
 }

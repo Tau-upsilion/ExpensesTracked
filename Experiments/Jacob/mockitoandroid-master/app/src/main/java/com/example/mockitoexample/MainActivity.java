@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8eee0333b712eb5d23bdce45b50183e6b4f8788a
     }
 
     public boolean tryLogin(String username, String password, LoginHandler loginHandler) throws JSONException {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+<<<<<<< HEAD
 
 
 
@@ -40,3 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
+=======
+}
+>>>>>>> 8eee0333b712eb5d23bdce45b50183e6b4f8788a

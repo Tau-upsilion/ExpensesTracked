@@ -15,4 +15,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< HEAD
 </android.support.constraint.ConstraintLayout>
+=======
+</android.support.constraint.ConstraintLayout>
+>>>>>>> 8eee0333b712eb5d23bdce45b50183e6b4f8788a

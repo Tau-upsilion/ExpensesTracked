@@ -1,20 +1,17 @@
 package expensesTracked;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.expensesTracked.R;
+import com.android.volley.*;
+import com.android.volley.toolbox.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,33 +20,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    // Instance variables
     private static final String TAG = "LoginActivity";
+    //localhost testing
+//    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
+    //server link
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
-//    private static final String URL_FOR_LOGIN = "";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        // Variables
+        
         Button btnlogin, btnLinkSignup, btnBypass;
-
-        // Initializations
+        
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
-
+        
         btnlogin = findViewById(R.id.btn_login);
         btnLinkSignup = findViewById(R.id.btn_link_signup);
         btnBypass = findViewById(R.id.btn_bypass); // remove after login implementation working
-
+        
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
-
-        // OnClick listeners
+        
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,17 +65,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goHome);
             }
         });
-
+        
     }
 
+    /* SHUB's Code
     private void loginUser(final String email, final String password) {
-        // Tag used to cancel the request
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_LOGIN, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
@@ -90,12 +84,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
-
-                        // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         CurrentUser cUser = new CurrentUser();
                         cUser.setToken(user);
-
                         hideDialog();
                         startActivity(intent);
                         finish();
@@ -121,7 +112,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting params to login url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", password);
@@ -130,18 +120,79 @@ public class LoginActivity extends AppCompatActivity {
 
         };
 
+
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+    } */
+    
+    private void loginUser(final String email, final String password){
+        String cancel_req_tag = "login";
+        showDialog();
+        
+        Map<String, String> params = new HashMap<>();
+        params.put("email", email);
+        params.put("password", password);
+        JSONObject req = new JSONObject(params);
+        
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response){
+                        try{
+                            boolean error = response.getBoolean("error");
+                            if(!error){
+                                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                                String token = response.getString("token");
+                                saveToken(getApplicationContext(), "TOKEN",token);
+                                hideDialog();
+                                
+                                startActivity(intent);
+                                finish();
+                            }
+                            
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
+                hideDialog();
+            }
+        });
+        
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
-
+    
     private void showDialog() {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
-
+    
     private void hideDialog() {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
     }
-
+    
+    private void saveToken(Context context, String key, String text) {
+        android.content.SharedPreferences settings;
+        android.content.SharedPreferences.Editor editor;
+        
+        settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
+        editor = settings.edit();
+        editor.putString(key, text);
+        editor.apply();
+    }
+    
+    public String getToken(Context context, String key) {
+        android.content.SharedPreferences settings;
+        String text;
+        settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
+        text = settings.getString(key, null);
+        
+        return text;
+    }
+    
 }

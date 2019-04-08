@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.expensesTracked.R;
+import expensesTracked.LoginActivity;
+import expensesTracked.R;
 
 import expensesTracked.LoginActivity;
 
