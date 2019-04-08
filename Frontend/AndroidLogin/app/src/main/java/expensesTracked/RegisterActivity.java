@@ -1,6 +1,7 @@
 package expensesTracked;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -78,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean checkCredentials(String email, String password) {
+    public boolean checkCredentials(String email, String password) {
         // Declare variables
         boolean isValidEmail, isValidPassword;
 
@@ -115,7 +116,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void submitForm() {
-
         int selectedId = genderRadioGroup.getCheckedRadioButtonId();
         String gender;
 
@@ -123,6 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
             gender = "Female";
         else
             gender = "Male";
+
         registerUser(signupInputName.getText().toString(), signupInputEmail.getText().toString(), signupInputPassword.getText().toString(),
                 gender, signupInputAge.getText().toString());
     }

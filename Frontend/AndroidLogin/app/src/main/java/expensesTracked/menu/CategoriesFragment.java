@@ -24,7 +24,6 @@ public class CategoriesFragment extends Fragment {
         String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
 
-
         // Initializations
         date = v.findViewById(R.id.cat_date);
 //        TableLayout catList = v.findViewById(R.id.cat_list);
