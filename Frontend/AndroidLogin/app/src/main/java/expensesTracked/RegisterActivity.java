@@ -1,11 +1,9 @@
 package expensesTracked;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioGroup genderRadioGroup;
     private boolean isValidLogin = false;
     ProgressDialog progressDialog;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,12 +137,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         progressDialog.setMessage("Adding you...");
         showDialog();
+        
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);
         params.put("email", email);
         params.put("password", password);
         params.put("gender", gender);
         params.put("age", dob);
+        
         JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_REGISTRATION, req,
                 new Response.Listener<JSONObject>() {
@@ -171,7 +171,8 @@ public class RegisterActivity extends AppCompatActivity {
                 hideDialog();
             }
         });
-                AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+        
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
 
     private void hideDialog() {

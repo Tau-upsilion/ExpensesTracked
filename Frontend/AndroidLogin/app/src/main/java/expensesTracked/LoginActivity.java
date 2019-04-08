@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    // Instance variables
     private static final String TAG = "LoginActivity";
     //localhost testing
 //    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
@@ -30,27 +29,24 @@ public class LoginActivity extends AppCompatActivity {
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        // Variables
+        
         Button btnlogin, btnLinkSignup, btnBypass;
-
-        // Initializations
+        
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
-
+        
         btnlogin = findViewById(R.id.btn_login);
         btnLinkSignup = findViewById(R.id.btn_link_signup);
         btnBypass = findViewById(R.id.btn_bypass); // remove after login implementation working
-
+        
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
-
-        // OnClick listeners
+        
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,17 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goHome);
             }
         });
-
+        
     }
 
     /* Shub's Code
     private void loginUser(final String email, final String password) {
-        // Tag used to cancel the request
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
         showDialog();
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_LOGIN, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
@@ -91,12 +85,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (!error) {
                         String user = jObj.getJSONObject("user").getString("name");
-
-                        // Launch User activity
                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                         CurrentUser cUser = new CurrentUser();
                         cUser.setToken(user);
-
                         hideDialog();
                         startActivity(intent);
                         finish();
@@ -122,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting params to login url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", password);
@@ -130,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         };
+
 
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
@@ -169,7 +160,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error){
                 Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
-                
                 hideDialog();
             }
         });
@@ -181,7 +171,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
-
+    
     private void hideDialog() {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
@@ -202,6 +192,7 @@ public class LoginActivity extends AppCompatActivity {
         String text;
         settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
         text = settings.getString(key, null);
+        
         return text;
     }
     
