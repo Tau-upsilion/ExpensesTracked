@@ -1,6 +1,7 @@
 package expensesTracked;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
-    boolean isValidLogin = false;
+    private boolean isValidLogin = false;
     ProgressDialog progressDialog;
 
     @Override
@@ -78,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean checkCredentials(String email, String password) {
+    public boolean checkCredentials(String email, String password) {
         // Declare variables
         boolean isValidEmail, isValidPassword;
 

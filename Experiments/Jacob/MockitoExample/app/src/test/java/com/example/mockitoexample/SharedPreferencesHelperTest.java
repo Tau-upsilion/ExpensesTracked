@@ -44,10 +44,11 @@ public class SharedPreferencesHelperTest {
     @Before
     public void initMocks() {
         // Create SharedPreferenceEntry to persist.
-        mSharedPreferenceEntry = new SharedPreferenceEntry(TEST_NAME, TEST_DATE_OF_BIRTH,
-                TEST_EMAIL);
+        mSharedPreferenceEntry = new SharedPreferenceEntry(TEST_NAME, TEST_DATE_OF_BIRTH, TEST_EMAIL);
+
         // Create a mocked SharedPreferences.
         mMockSharedPreferencesHelper = createMockSharedPreference();
+
         // Create a mocked SharedPreferences that fails at saving data.
         mMockBrokenSharedPreferencesHelper = createBrokenMockSharedPreference();
     }

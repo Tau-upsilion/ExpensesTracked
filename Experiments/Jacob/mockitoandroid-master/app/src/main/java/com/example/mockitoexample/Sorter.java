@@ -12,14 +12,12 @@ class Sorter {
         List<Event> toSort = new ArrayList<Event>();
         toSort.addAll(unsortedEvents);
         Collections.sort(toSort,new DateComparator());
+        
         for (int i = 0; i < toSort.size(); i++)
         {
             Log.d("Test ", "sortByDate: " + toSort.get(i).getEventTime());
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> b2097dc10b8e4be99b887478ba9a639ca4580dd0
+        
         return toSort;
     }
 }
