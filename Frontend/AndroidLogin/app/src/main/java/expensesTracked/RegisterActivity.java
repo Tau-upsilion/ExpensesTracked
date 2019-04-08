@@ -135,14 +135,16 @@ public class RegisterActivity extends AppCompatActivity {
         // Tag used to cancel the request
         String cancel_req_tag = "register";
 
-        progressDialog.setMessage("Adding you ...");
+        progressDialog.setMessage("Adding you...");
         showDialog();
+        
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);
         params.put("email", email);
         params.put("password", password);
         params.put("gender", gender);
         params.put("age", dob);
+        
         JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_REGISTRATION, req,
                 new Response.Listener<JSONObject>() {
@@ -169,7 +171,8 @@ public class RegisterActivity extends AppCompatActivity {
                 hideDialog();
             }
         });
-                AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+        
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
 
     private void hideDialog() {
