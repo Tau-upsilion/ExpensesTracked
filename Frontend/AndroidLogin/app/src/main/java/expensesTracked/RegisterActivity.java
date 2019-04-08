@@ -155,6 +155,8 @@ public class RegisterActivity extends AppCompatActivity {
                             if (!error) {
                                 String user = response.getString("name");
                                 Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                                hideDialog();
+                                
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
