@@ -137,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Tag used to cancel the request
         String cancel_req_tag = "register";
 
-        progressDialog.setMessage("Adding you ...");
+        progressDialog.setMessage("Adding you...");
         showDialog();
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);
