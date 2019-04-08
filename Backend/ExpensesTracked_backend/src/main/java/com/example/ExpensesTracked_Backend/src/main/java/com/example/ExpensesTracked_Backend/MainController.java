@@ -39,10 +39,9 @@ public class MainController {
 	
 	
 	@PostMapping(path="/register") // Map ONLY GET Requests
-	public @ResponseBody User addNewUser (@RequestBody User n) throws CloneNotSupportedException {
-		User result =(User) n.clone();
+	public @ResponseBody String addNewUser (@RequestBody User n) {
 		userRepository.save(n);
-		return result;
+		return "Saved";
 	}
 
 	@GetMapping(path="/all")
@@ -56,7 +55,7 @@ public class MainController {
 				.orElseThrow();
 	}
 	@PostMapping(path="/login")
-	public User login(@RequestBody User n) throws ServletException{
+	public String login(@RequestBody User n) throws ServletException{
 		String jwtToken = "";
 		if(n.getEmail() == null || n.getPassword() == null) {
 			throw new ServletException("Please fill in username and password");
@@ -64,11 +63,7 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-<<<<<<< Updated upstream
-		User user = userRepository.getUserByemail(email);
-=======
 		User user = userRepository.getUserByEmail(email);
->>>>>>> Stashed changes
 		
 		if (user == null) {
 			throw new ServletException("User email not found.");
@@ -83,8 +78,7 @@ public class MainController {
 		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
 				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 		
-		user.setToken(jwtToken);
-		return user;
+		return jwtToken;
 	}
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){

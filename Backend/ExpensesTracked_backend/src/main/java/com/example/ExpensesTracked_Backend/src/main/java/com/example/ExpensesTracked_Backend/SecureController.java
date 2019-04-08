@@ -37,11 +37,7 @@ public class SecureController {
 	
 	@RequestMapping(value ="/user/email", method = RequestMethod.POST)
 	public User findByEmail(@RequestBody String email) {
-<<<<<<< Updated upstream
-		return userService.getUserByemail(email);
-=======
 		return userService.getUserByEmail(email);
->>>>>>> Stashed changes
 	}
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
 	public User updateUser(@RequestBody User user) {
