@@ -172,10 +172,9 @@ public class LoginActivity extends AppCompatActivity {
                 hideDialog();
             }
         });
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
         
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
-    
     
     private void showDialog() {
         if (!progressDialog.isShowing())
