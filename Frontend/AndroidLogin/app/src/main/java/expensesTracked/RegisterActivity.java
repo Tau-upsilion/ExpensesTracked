@@ -116,7 +116,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void submitForm() {
-
         int selectedId = genderRadioGroup.getCheckedRadioButtonId();
         String gender;
 
