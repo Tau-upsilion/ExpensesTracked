@@ -138,37 +138,32 @@ public class LoginActivity extends AppCompatActivity {
         
         JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response){
-                        try{
-                            boolean error = response.getBoolean("error");
-                            if(!error){
-                                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                                String token = response.getString("token");
-                                saveToken(getApplicationContext(), "TOKEN",token);
-                                hideDialog();
-                                
-                                startActivity(intent);
-                                finish();
-                            }
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response){
+                    try{
+                        boolean error = response.getBoolean("error");
+                        if(!error){
+                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                            String token = response.getString("token");
+                            saveToken(getApplicationContext(), "TOKEN",token);
+                            hideDialog();
                             
-                        } catch (JSONException e){
-                            e.printStackTrace();
+                            startActivity(intent);
+                            finish();
                         }
+                        
+                    } catch (JSONException e){
+                        e.printStackTrace();
                     }
-                    
-                } catch (JSONException e){
-                    e.printStackTrace();
                 }
-            }
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error){
-                Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
-                error.printStackTrace();
-                hideDialog();
-            }
+            }, new Response.ErrorListener(){
+                @Override
+                public void onErrorResponse(VolleyError error){
+                    Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                    hideDialog();
+                }
         });
         
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
