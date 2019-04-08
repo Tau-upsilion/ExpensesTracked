@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <activity android:name=".mockEx.Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+=======
+>>>>>>> b2097dc10b8e4be99b887478ba9a639ca4580dd0
+>>>>>>> 8eee0333b712eb5d23bdce45b50183e6b4f8788a
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

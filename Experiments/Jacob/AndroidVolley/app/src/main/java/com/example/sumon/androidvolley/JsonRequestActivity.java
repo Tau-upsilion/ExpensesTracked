@@ -67,23 +67,24 @@ public class JsonRequestActivity extends Activity implements OnClickListener {
      * */
     private void makeJsonObjReq() {
         showProgressDialog();
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Method.GET, Const.URL_JSON_OBJECT, null,
-            new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d(TAG, response.toString());
-                    msgResponse.setText(response.toString());
-                    hideProgressDialog();
-                }
-            },
-            new Response.ErrorListener() {
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Method.GET,
+                Const.URL_JSON_OBJECT, null,
+                new Response.Listener<JSONObject>() {
+
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                    VolleyLog.d(TAG, "Error: " + error.getMessage());
-                    hideProgressDialog();
-                }
-             })
-        {
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, response.toString());
+                        msgResponse.setText(response.toString());
+                        hideProgressDialog();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                hideProgressDialog();
+            }
+        }) {
 
             /**
              * Passing some request headers
@@ -102,14 +103,14 @@ public class JsonRequestActivity extends Activity implements OnClickListener {
                 params.put("email", "abc@androidhive.info");
                 params.put("pass", "password123");
 
-                // Return
                 return params;
             }
 
         };
 
         // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        AppController.getInstance().addToRequestQueue(jsonObjReq,
+                tag_json_obj);
 
         // Cancelling request
         // ApplicationController.getInstance().getRequestQueue().cancelAll(tag_json_obj);
@@ -137,7 +138,8 @@ public class JsonRequestActivity extends Activity implements OnClickListener {
         });
 
         // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(req, tag_json_arry);
+        AppController.getInstance().addToRequestQueue(req,
+                tag_json_arry);
 
         // Cancelling request
         // ApplicationController.getInstance().getRequestQueue().cancelAll(tag_json_arry);

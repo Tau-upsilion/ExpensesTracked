@@ -6,6 +6,11 @@ import java.util.Comparator;
 
 public class DateComparator implements Comparator<Event> {
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 8eee0333b712eb5d23bdce45b50183e6b4f8788a
     @Override
     public int compare(Event o1, Event o2) {
         //Time is in format M/D/YYYY
