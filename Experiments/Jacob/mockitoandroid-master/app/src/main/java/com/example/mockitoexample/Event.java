@@ -9,11 +9,19 @@ public class Event  {
     //Time is in format M/D/YYYY
     private String eventTime;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2097dc10b8e4be99b887478ba9a639ca4580dd0
     public Event(String title, String time) {
         this.eventTitle = title;
         this.eventTime = time;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2097dc10b8e4be99b887478ba9a639ca4580dd0
     public String getEventTitle() {
         return eventTitle;
     }
@@ -30,5 +38,8 @@ public class Event  {
         this.eventTime = eventTime;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b2097dc10b8e4be99b887478ba9a639ca4580dd0
 }
