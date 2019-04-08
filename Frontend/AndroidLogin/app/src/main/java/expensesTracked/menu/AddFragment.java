@@ -1,6 +1,7 @@
 package expensesTracked.menu;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,9 +21,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
 import expensesTracked.AppSingleton;
 import expensesTracked.R;
-import expensesTracked.UserActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -110,10 +111,9 @@ public class AddFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "Hi. Your expense has been added succesfully!",
                                 Toast.LENGTH_SHORT).show();
 
-                        // Launch login activity
-                        /*Intent intent = new Intent(AddFragment.this);
+                        // Launch new add expense activity
+                        Intent intent = new Intent(getActivity(), AddFragment.class);
                         startActivity(intent);
-                        finish();*/
                     } else {
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getActivity().getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();

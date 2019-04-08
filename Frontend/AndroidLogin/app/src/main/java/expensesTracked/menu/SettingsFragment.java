@@ -13,6 +13,8 @@ import android.widget.Button;
 import expensesTracked.LoginActivity;
 import expensesTracked.R;
 
+import expensesTracked.LoginActivity;
+
 public class SettingsFragment extends Fragment {
 
     @Nullable

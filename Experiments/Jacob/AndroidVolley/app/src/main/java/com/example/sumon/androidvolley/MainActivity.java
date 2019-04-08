@@ -7,12 +7,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
+    private Button btnJson, btnString, btnImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Variables
-        Button btnJson, btnString, btnImage;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

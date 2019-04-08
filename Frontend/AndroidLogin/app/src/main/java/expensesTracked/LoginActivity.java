@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
         showDialog();
+
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_LOGIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -136,19 +137,25 @@ public class LoginActivity extends AppCompatActivity {
         params.put("password", password);
         
         JSONObject req = new JSONObject(params);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response){
-                try{
-                    boolean error = response.getBoolean("error");
-                    if(!error){
-                        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                        String token = response.getString("token");
-                        saveToken(getApplicationContext(), "TOKEN", token);
-                        hideDialog();
-                        
-                        startActivity(intent);
-                        finish();
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response){
+                        try{
+                            boolean error = response.getBoolean("error");
+                            if(!error){
+                                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                                String token = response.getString("token");
+                                saveToken(getApplicationContext(), "TOKEN",token);
+                                hideDialog();
+                                
+                                startActivity(intent);
+                                finish();
+                            }
+                            
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
                     }
                     
                 } catch (JSONException e){
