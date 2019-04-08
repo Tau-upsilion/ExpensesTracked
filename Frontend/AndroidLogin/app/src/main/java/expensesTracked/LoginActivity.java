@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     //localhost testing
 //    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
     //server link
-    private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu/demo/login";
+    private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
 
