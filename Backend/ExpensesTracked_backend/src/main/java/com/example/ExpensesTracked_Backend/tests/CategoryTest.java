@@ -19,7 +19,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CategoryTest {
+public class CategoryTest
+{
+	@InjectMocks
+	CategoryService catService;
 	
 	@Mock
 	CategoryRepository repo;
@@ -52,8 +55,8 @@ public class CategoryTest {
 		when(repo.findAllByID(1)).thenReturn(c);
 		
 		
-		//List<Category> testList =  catserv.getCategoryByID(1);
-		//Assert.assertEquals(c, testList);
+		List<Category> testList =  catService.getCategoryByID(1);
+		Assert.assertEquals(c, testList);
 		
 	}
 	
