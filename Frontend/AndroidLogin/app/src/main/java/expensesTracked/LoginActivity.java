@@ -132,8 +132,8 @@ public class LoginActivity extends AppCompatActivity {
         Map<String, String> params = new HashMap<>();
         params.put("email", email);
         params.put("password", password);
-        JSONObject req = new JSONObject(params);
         
+        JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
                 new Response.Listener<JSONObject>() {
                     @Override
