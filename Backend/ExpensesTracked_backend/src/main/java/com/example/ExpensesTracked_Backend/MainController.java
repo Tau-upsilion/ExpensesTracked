@@ -40,8 +40,15 @@ public class MainController {
 	
 	@PostMapping(path="/register") // Map ONLY GET Requests
 	public @ResponseBody User addNewUser (@RequestBody User n) throws CloneNotSupportedException {
+		ArrayList<User> s = (ArrayList<User>) userRepository.findAllByemail(n.getEmail());
 		User result =(User) n.clone();
-		userRepository.save(n);
+		if(s.size() > 1) {
+			result.setError(true);
+			result.setError_msg("You are already registered!");
+			return result;
+		} else {
+			userRepository.save(n);
+		}
 		return result;
 	}
 

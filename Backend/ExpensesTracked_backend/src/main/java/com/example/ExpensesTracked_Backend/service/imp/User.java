@@ -24,6 +24,8 @@ public class User implements Cloneable{
     
     private boolean error;
     
+    private String error_msg;
+    
     public boolean isError() {
 		return error;
 	}
@@ -104,6 +106,14 @@ public class User implements Cloneable{
 	}
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getError_msg() {
+		return error_msg;
+	}
+
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
 
 

@@ -24,9 +24,9 @@ public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
     //localhost testing (comment out if demoing)
-//    private static final String URL_FOR_REGISTRATION = "http://10.0.2.2:8080/demo/register";
+    private static final String URL_FOR_REGISTRATION = "http://10.0.2.2:8080/demo/register";
     //server Implementation comment (uncomment if demo)
-    private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
+    //private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
     private boolean isValidLogin = false;
@@ -154,6 +154,12 @@ public class RegisterActivity extends AppCompatActivity {
                             if (!error) {
                                 String user = response.getString("name");
                                 Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                String error_MSG = response.getString("error_msg");
+                                Toast.makeText(getApplicationContext(), error_MSG, Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();

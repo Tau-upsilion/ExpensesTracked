@@ -15,4 +15,7 @@ public class UserService{
 	public User getUserByEmail(String email) {
 		return repo.getUserByemail(email);
 	}
+	public Iterable<User> findAllByName(String name){
+		return repo.findAllByname(name);
+	}
 }
