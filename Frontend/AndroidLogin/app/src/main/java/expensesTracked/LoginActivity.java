@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.*;
-import com.android.volley.toolbox.*;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         
     }
 
-    /* SHUB's Code
+    /* Shub's Code
     private void loginUser(final String email, final String password) {
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
@@ -122,38 +124,38 @@ public class LoginActivity extends AppCompatActivity {
 
         // Adding request to request queue
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
-    } */
+    }*/
     
     private void loginUser(final String email, final String password){
         String cancel_req_tag = "login";
+        progressDialog.setMessage("Logging you in...");
         showDialog();
         
         Map<String, String> params = new HashMap<>();
         params.put("email", email);
         params.put("password", password);
-        JSONObject req = new JSONObject(params);
         
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response){
-                        try{
-                            boolean error = response.getBoolean("error");
-                            if(!error){
-                                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                                String token = response.getString("token");
-                                saveToken(getApplicationContext(), "TOKEN",token);
-                                hideDialog();
-                                
-                                startActivity(intent);
-                                finish();
-                            }
-                            
-                        } catch (JSONException e){
-                            e.printStackTrace();
-                        }
+        JSONObject req = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LOGIN, req, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response){
+                try{
+                    boolean error = response.getBoolean("error");
+                    if(!error){
+                        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                        String token = response.getString("token");
+                        saveToken(getApplicationContext(), "TOKEN", token);
+                        hideDialog();
+                        
+                        startActivity(intent);
+                        finish();
                     }
-                }, new Response.ErrorListener(){
+                    
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
                 Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
