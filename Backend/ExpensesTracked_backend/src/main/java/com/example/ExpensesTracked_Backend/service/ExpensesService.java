@@ -18,4 +18,8 @@ public class ExpensesService {
 	public List<Expenses> getExpensesByID(int ID) {
 		return (List<Expenses>) repo.findAllByID(ID);
 	}
+	
+	public List<Expenses> getExpensesByDescription(String description) {
+		return (List<Expenses>) repo.findAllByDescription(description);
+	}
 }

@@ -9,4 +9,6 @@ public interface ExpensesRepository extends CrudRepository<Expenses, Integer> {
 	public Iterable<Expenses> findAllByToken(String token);
 	
 	public Iterable<Expenses> findAllByID(int ID);
+	
+	public Iterable<Expenses> findAllByDescription(String Description);
 }
