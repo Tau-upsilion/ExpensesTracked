@@ -14,4 +14,8 @@ public class ExpensesService {
 	public List<Expenses> getExpensesByToken(String token) {
 		return (List<Expenses>) repo.findAllByToken(token);
 	}
+	
+	public List<Expenses> getExpensesByID(int ID) {
+		return (List<Expenses>) repo.findAllByID(ID);
+	}
 }
