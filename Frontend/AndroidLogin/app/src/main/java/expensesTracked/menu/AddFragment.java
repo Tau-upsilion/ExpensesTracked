@@ -94,8 +94,8 @@ public class AddFragment extends Fragment {
         progressDialog.setMessage("Adding Expense...");
         showDialog();
 
+        // TODO - add token to add expense
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
-                // Add token to add
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Adding Response: " + response.toString());
