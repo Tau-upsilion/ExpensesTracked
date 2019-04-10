@@ -1,5 +1,4 @@
 package com.example.ExpensesTracked_Backend.tests;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Assert;
@@ -13,12 +12,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.example.ExpensesTracked_Backend.service.imp.Expenses;
 import com.example.ExpensesTracked_Backend.service.ExpensesRepository;
 import com.example.ExpensesTracked_Backend.service.ExpensesService;
-import com.example.ExpensesTracked_Backend.service.imp.Expenses;
 
 
-public class ExpensesTest {
+public class expenseTest {
 	@InjectMocks
 	ExpensesService expenseserv;
 	@Mock
