@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import expensesTracked.LoginActivity;
-import expensesTracked.R;
+import com.expensesTracked.R;
 
 public class SettingsFragment extends Fragment {
 

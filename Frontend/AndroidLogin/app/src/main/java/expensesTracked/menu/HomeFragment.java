@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import expensesTracked.R;
+import com.expensesTracked.R;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -19,7 +19,7 @@ public class Category {
 
     private String categoryName;
     
-    public Category(Integer id, String categoryName)
+    public Category (Integer id, String categoryName)
     {
     	this.id = id;
     	this.categoryName = categoryName;

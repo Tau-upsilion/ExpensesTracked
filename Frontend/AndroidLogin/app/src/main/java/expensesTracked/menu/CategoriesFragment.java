@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import expensesTracked.R;
+import com.expensesTracked.R;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -23,6 +23,7 @@ public class CategoriesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_categories, null);
         String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
+
 
         // Initializations
         date = v.findViewById(R.id.cat_date);

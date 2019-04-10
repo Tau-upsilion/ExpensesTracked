@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User implements Cloneable{
+public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
@@ -16,45 +16,14 @@ public class User implements Cloneable{
     
     private String password;
     
-    private String age;
+    private Integer age;
     
     private String gender;
     
     private String token;
     
-<<<<<<< Updated upstream
-    private boolean error;
-    
-    public boolean isError() {
-		return error;
-	}
-
-	public void setError(boolean error) {
-		this.error = error;
-	}
-	
-	@Override
-	public Object clone() throws CloneNotSupportedException{
-		return super.clone();
-	}
-
-	public User() {
-		this.error = false;
-    }
-	
-    
-    public User(Integer id, String name, String email, String password, String age, String gender) {
-    	this.name = name;
-    	this.email = email;
-    	this.password = password;
-    	this.age = age;
-    	this.gender = gender;
-    }
-    public User(String name, String email, String password, String age, String gender) {
-=======
     public User(Integer id, String name, String email, String password, Integer age, String gender) {
     	this.id = id;
->>>>>>> Stashed changes
     	this.name = name;
     	this.email = email;
     	this.password = password;
@@ -68,10 +37,10 @@ public class User implements Cloneable{
     public String getGender() {
     	return gender;
     }
-    public void setAge(String age) {
+    public void setAge(Integer age) {
     	this.age = age;
     }
-    public String getAge() {
+    public Integer getAge() {
     	return age;
     }
     public String getPassword() {
@@ -81,7 +50,7 @@ public class User implements Cloneable{
     	this.password = password;
     }
 
-	public Integer getID() {
+	public Integer getId() {
 		return id;
 	}
 
