@@ -49,7 +49,7 @@ public class AddFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
 
-//        name = v.findViewById(R.id.add_nameText);     // TODO - ID is not showing up???
+        name = v.findViewById(R.id.add_nameText);
         desc = v.findViewById(R.id.add_descriptionText);
         amount = v.findViewById(R.id.add_amountText);
 

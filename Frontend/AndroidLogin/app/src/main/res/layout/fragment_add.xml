@@ -115,6 +115,50 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/add_container5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/add_expense_purchase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expense or Purchase?"
+            android:textSize="25sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top">
+
+            <RadioGroup
+                android:id="@+id/add_expense_purchase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/add_expense_radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expense" />
+
+                <RadioButton
+                    android:id="@+id/add_purchase_radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/add_addButton"
         android:layout_width="wrap_content"
