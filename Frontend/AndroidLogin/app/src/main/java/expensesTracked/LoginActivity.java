@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                             String token = response.getString("token");
                             saveToken(getApplicationContext(), "TOKEN", token);
                             hideDialog();
-                            
                             startActivity(intent);
                             finish();
                         }

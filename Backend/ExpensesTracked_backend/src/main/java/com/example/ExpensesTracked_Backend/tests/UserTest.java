@@ -43,7 +43,11 @@ public class UserTest {
 	}
 	@Test 
 	public void getUserByEmailTest() {
+<<<<<<< HEAD
+		when(repo.getUserByemail("TestUser@test.com")).thenReturn(new User(1,"TestUser", "TestUser@test.com","password","18","male"));
+=======
 		when(repo.getUserByID(1)).thenReturn(new User(1,"TestUser", "TestUser@test.com","password",18,"male"));
+>>>>>>> 8cff186cf7e56caea0a2fd11bccf2993dbfa30db
 		
 		User user = userserv.getUserByEmail("TestUser@test.com");
 		assertEquals("TestUser", user.getName());
