@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,8 +39,7 @@ public class AddFragment extends Fragment {
     private static final String TAG = "Adding expenses";
     private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/demo/expenses/add";
     ProgressDialog progressDialog;
-    TextView desc;
-    TextView amount;
+    private EditText name, desc, amount;
     private String category;
 
     @Nullable
@@ -52,8 +52,9 @@ public class AddFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
 
-        desc = (TextView) v.findViewById(R.id.add_description);
-        amount = (TextView) v.findViewById(R.id.add_amount);
+//        name = v.findViewById(R.id.add_nameText);
+        desc = v.findViewById(R.id.add_descriptionText);
+        amount = v.findViewById(R.id.add_amountText);
 
         // Create an ArrayAdapter using the string array and spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.starting_categories,
@@ -68,7 +69,7 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                addExpense(category, desc.getText().toString(), amount.getText().toString());
+                addExpense(category, desc.toString(), amount.toString());
             }
         });
 
@@ -82,6 +83,7 @@ public class AddFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+            
             }
         });
 
@@ -109,8 +111,7 @@ public class AddFragment extends Fragment {
                         try{
                             boolean error = response.getBoolean("error");
                             if(!error){
-                                Toast.makeText(getActivity(), "Your expense has been added succesfully!",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Your expense has been added succesfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(), AddFragment.class);
                                 hideDialog();
                             
