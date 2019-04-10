@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User implements Cloneable{
+public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
@@ -16,12 +16,13 @@ public class User implements Cloneable{
     
     private String password;
     
-    private String age;
+    private Integer age;
     
     private String gender;
     
     private String token;
     
+<<<<<<< HEAD
     private boolean error;
     
     private String error_msg;
@@ -52,6 +53,10 @@ public class User implements Cloneable{
     	this.gender = gender;
     }
     public User(String name, String email, String password, String age, String gender) {
+=======
+    public User(Integer id, String name, String email, String password, Integer age, String gender) {
+    	this.id = id;
+>>>>>>> 11-backend-mockito
     	this.name = name;
     	this.email = email;
     	this.password = password;
@@ -65,10 +70,10 @@ public class User implements Cloneable{
     public String getGender() {
     	return gender;
     }
-    public void setAge(String age) {
+    public void setAge(Integer age) {
     	this.age = age;
     }
-    public String getAge() {
+    public Integer getAge() {
     	return age;
     }
     public String getPassword() {
@@ -78,7 +83,7 @@ public class User implements Cloneable{
     	this.password = password;
     }
 
-	public Integer getID() {
+	public Integer getId() {
 		return id;
 	}
 
