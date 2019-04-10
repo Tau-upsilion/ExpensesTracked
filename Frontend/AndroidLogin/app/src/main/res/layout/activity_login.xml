@@ -61,11 +61,4 @@
         android:text="@string/btn_link_register"
         android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/btn_bypass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/btn_bypass" />
-
 </LinearLayout>

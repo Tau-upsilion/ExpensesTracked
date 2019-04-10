@@ -35,14 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        Button btnlogin, btnLinkSignup, btnBypass;
+        Button btnlogin, btnLinkSignup;
         
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
         
         btnlogin = findViewById(R.id.btn_login);
         btnLinkSignup = findViewById(R.id.btn_link_signup);
-        btnBypass = findViewById(R.id.btn_bypass); // remove after login implementation working
         
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -58,13 +57,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goRegister = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(goRegister);
-            }
-        });
-        btnBypass.setOnClickListener(new View.OnClickListener() {   // TODO - remove after login implementation working
-            @Override
-            public void onClick(View view) {
-                Intent goHome = new Intent(LoginActivity.this, UserActivity.class);
-                startActivity(goHome);
             }
         });
         
@@ -89,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(!error){
                             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             String token = response.getString("token");
-                            saveToken(getApplicationContext(), "TOKEN",token);
+                            saveToken(getApplicationContext(), "TOKEN", token);
                             hideDialog();
                             startActivity(intent);
                             finish();
@@ -129,15 +121,6 @@ public class LoginActivity extends AppCompatActivity {
         editor = settings.edit();
         editor.putString(key, text);
         editor.apply();
-    }
-    
-    public String getToken(Context context, String key) {
-        android.content.SharedPreferences settings;
-        String text;
-        settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
-        text = settings.getString(key, null);
-        
-        return text;
     }
     
     /* Shub's Code

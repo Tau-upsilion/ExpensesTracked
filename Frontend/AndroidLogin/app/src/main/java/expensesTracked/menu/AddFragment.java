@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatSpinner;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +19,12 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import expensesTracked.AppSingleton;
+import expensesTracked.LoginActivity;
 import expensesTracked.R;
+import expensesTracked.UserActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +36,7 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    private static final String URL_FOR_Adding = "http://cs309-yt-7.misc.iastate.edu:8080/demo/expenses/add";
+    private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/demo/expenses/add";
     ProgressDialog progressDialog;
     TextView desc;
     TextView amount;
@@ -88,13 +89,51 @@ public class AddFragment extends Fragment {
         return v;
     }
 
-    private void addExpense(final String category,final String description , final String amount) {
+    private void addExpense(final String category, final String description , final String amount) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
         progressDialog.setMessage("Adding Expense...");
         showDialog();
-
-        // TODO - add token to add expense
+    
+        Map<String, String> params = new HashMap<>();
+        params.put("category", category);
+        params.put("description", description);
+        params.put("amount", amount);
+        params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
+    
+        JSONObject req = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_ADDING, req,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response){
+                        try{
+                            boolean error = response.getBoolean("error");
+                            if(!error){
+                                Toast.makeText(getActivity(), "Your expense has been added succesfully!",
+                                        Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(), AddFragment.class);
+                                hideDialog();
+                            
+                                startActivity(intent);
+//                                finish();
+                            }
+                        
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
+                hideDialog();
+            }
+        });
+    
+        AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+        
+        /*
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -106,7 +145,7 @@ public class AddFragment extends Fragment {
                     boolean error = jObj.getBoolean("error");
 
                     if (!error) {
-                        /*String user = jObj.getJSONObject("user").getString("name");*/
+//                        String user = jObj.getJSONObject("user").getString("name");
                         Toast.makeText(getActivity().getApplicationContext(), "Hi. Your expense has been added succesfully!",
                                 Toast.LENGTH_SHORT).show();
 
@@ -138,14 +177,14 @@ public class AddFragment extends Fragment {
                 params.put("Category", category);
                 params.put("Description", description);
                 params.put("Amount", amount);
-                /*params.put("gender", gender);
-                params.put("age", dob);*/
+//                params.put("gender", gender);
+//                params.put("age", dob);
                 return params;
             }
         };
 
         // Adding request to request queue
-        AppSingleton.getInstance(getActivity().getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+        AppSingleton.getInstance(getActivity().getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);*/
     }
 
     private void hideDialog() {

@@ -37,5 +37,15 @@ public class AppSingleton {
         req.setTag(tag);
         getRequestQueue().add(req);
     }
+    
+    public String getToken(Context context, String key) {
+        android.content.SharedPreferences settings;
+        String text;
+        settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
+        text = settings.getString(key, null);
+        
+        return text;
+    }
+    
 }
 
