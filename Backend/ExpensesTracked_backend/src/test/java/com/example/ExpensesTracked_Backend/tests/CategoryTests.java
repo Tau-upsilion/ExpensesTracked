@@ -60,4 +60,23 @@ public class CategoryTests
 		
 	}
 	
+	@Test
+	public void getCategoryByNameTest()
+	{
+		Category cat1 = new Category(1,"category1");
+		Category cat2 = new Category(2,"category1");
+		Category cat3 = new Category(3,"category1");
+
+		List<Category> c = new ArrayList<Category>();
+		c.add(cat1);
+		c.add(cat2);
+		c.add(cat3);
+		
+		when(repo.findAllByName("category1")).thenReturn(c);
+		
+		
+		List<Category> testList =  catService.getCategoryByName("category1");
+		Assert.assertEquals(c, testList);
+	}
+	
 }
