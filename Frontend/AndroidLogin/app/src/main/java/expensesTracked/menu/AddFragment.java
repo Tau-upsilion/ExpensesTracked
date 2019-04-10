@@ -91,12 +91,11 @@ public class AddFragment extends Fragment {
     private void addExpense(final String category,final String description , final String amount) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
-
-        progressDialog.setMessage("Adding Expenses...");
+        progressDialog.setMessage("Adding Expense...");
         showDialog();
 
+        // TODO - add token to add expense
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Adding Response: " + response.toString());
