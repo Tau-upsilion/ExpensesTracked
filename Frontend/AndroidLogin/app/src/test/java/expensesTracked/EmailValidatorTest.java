@@ -1,12 +1,15 @@
+/*
 package expensesTracked;
 
 import org.junit.Test;
         import static org.junit.Assert.assertFalse;
         import static org.junit.Assert.assertTrue;
 
+*/
 /**
  * Unit tests for the EmailValidator logic.
- */
+ *//*
+
 public class EmailValidatorTest {
 
     @Test
@@ -37,4 +40,4 @@ public class EmailValidatorTest {
     public void emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(EmailValidator.isValidEmail(null));
     }
-}
+}*/

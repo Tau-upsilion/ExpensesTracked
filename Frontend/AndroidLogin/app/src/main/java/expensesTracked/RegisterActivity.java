@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioGroup genderRadioGroup;
     private boolean isValidLogin = false;
     ProgressDialog progressDialog;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
