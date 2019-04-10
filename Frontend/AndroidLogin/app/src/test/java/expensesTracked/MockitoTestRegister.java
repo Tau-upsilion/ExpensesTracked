@@ -30,14 +30,14 @@ public class MockitoTestRegister {
     @Mock
     RegisterActivity regActivity;
 
-    @Test
+    /*@Test
     public void checkCredentials_CorrectEmailSimple_ReturnsTrue() {
         assertTrue(activity.checkCredentials("name@email.com","qwertyuio12"));
     }
     @Test
     public void checkCredentials_CorrectEmailSubDomain_ReturnsTrue() {
         assertTrue(activity.checkCredentials("name@email.co.uk", "qwertyuio12"));
-    }
+    }*/
     @Test
     public void checkCredentials_InvalidEmailNoTld_ReturnsFalse() {
         assertFalse(activity.checkCredentials("name@email","qwertyuio12"));
