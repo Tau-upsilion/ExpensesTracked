@@ -49,7 +49,7 @@ public class AddFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
 
-//        name = v.findViewById(R.id.add_nameText);
+//        name = v.findViewById(R.id.add_nameText);     // TODO - ID is not showing up???
         desc = v.findViewById(R.id.add_descriptionText);
         amount = v.findViewById(R.id.add_amountText);
 
@@ -66,7 +66,7 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                addExpense(category, desc.toString(), amount.toString());
+                addExpense(name.toString(), category, desc.toString(), amount.toString());
             }
         });
 
@@ -88,13 +88,14 @@ public class AddFragment extends Fragment {
         return v;
     }
 
-    private void addExpense(final String category, final String description , final String amount) {
+    private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
         progressDialog.setMessage("Adding Expense...");
         showDialog();
     
         Map<String, String> params = new HashMap<>();
+        params.put("name", name);
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
@@ -113,7 +114,7 @@ public class AddFragment extends Fragment {
                                 hideDialog();
                             
                                 startActivity(intent);
-//                                finish();
+                                getActivity().finish();
                             }
                         
                         } catch (JSONException e){
