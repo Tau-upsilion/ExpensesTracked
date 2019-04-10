@@ -10,10 +10,10 @@ public class UserService{
 	private UserRepository repo;
 	
 	public User getUserByID(int id) {
-		return repo.getUserByID(id);
+		return repo.getUserByid(id);
 	}
 	public User getUserByEmail(String email) {
-		return repo.getUserByEmail(email);
+		return repo.getUserByemail(email);
 	}
 	public Iterable<User> findAllByName(String name){
 		return repo.findAllByname(name);

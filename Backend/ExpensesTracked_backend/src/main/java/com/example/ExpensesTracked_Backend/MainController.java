@@ -39,7 +39,6 @@ public class MainController {
 	
 	
 	@PostMapping(path="/register") // Map ONLY GET Requests
-<<<<<<< HEAD
 	public @ResponseBody User addNewUser (@RequestBody User n) throws CloneNotSupportedException {
 		ArrayList<User> s = (ArrayList<User>) userRepository.findAllByemail(n.getEmail());
 		User result =(User) n.clone();
@@ -51,13 +50,7 @@ public class MainController {
 			userRepository.save(n);
 		}
 		return result;
-=======
-	public @ResponseBody String addNewUser (@RequestBody User n) {
-		userRepository.save(n);
-		return "Saved";
->>>>>>> 11-backend-mockito
 	}
-
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		// This returns a JSON or XML with the users
@@ -77,7 +70,7 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		User user = userRepository.getUserByEmail(email);
+		User user = userRepository.getUserByemail(email);
 		
 		if (user == null) {
 			throw new ServletException("User email not found.");

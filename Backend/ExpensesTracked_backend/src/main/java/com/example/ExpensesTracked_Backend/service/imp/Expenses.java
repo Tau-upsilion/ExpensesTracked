@@ -18,20 +18,22 @@ public class Expenses {
     
     private int userId;
 
-    private int amount;
+    private String amount;
     
     private String token;
     
-    public Expenses(Integer id, String description, String category, String expensesName, int userId, int amount, String token) {
-    	this.id = id;
+    private boolean error;
+    
+    private String error_msg;
+    
+    public Expenses(String description, String category, String expensesName, String amount, String token) {
     	this.description = description;
     	this.category = category;
     	this.expensesName = expensesName;
-    	this.userId = userId;
     	this.amount = amount;
     	this.token = token;
+    	this.error = false;
     }
-    
     public void setId(Integer i) {
     	this.id = i;
     }
@@ -41,10 +43,10 @@ public class Expenses {
     public void setExpensesname(String n) {
     	this.expensesName = n; 
     }
-    public void setAmount(int m) {
+    public void setAmount(String m) {
     	this.amount = m;
     }
-    public int getAmount() {
+    public String getAmount() {
     	return this.amount;
     }
     public String getExpensesName() {
@@ -92,6 +94,22 @@ public class Expenses {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public boolean isError() {
+		return error;
+	}
+
+	public void setError(boolean error) {
+		this.error = error;
+	}
+
+	public String getError_msg() {
+		return error_msg;
+	}
+
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
 
 }

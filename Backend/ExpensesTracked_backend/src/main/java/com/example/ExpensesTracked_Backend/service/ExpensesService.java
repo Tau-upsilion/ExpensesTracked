@@ -16,7 +16,7 @@ public class ExpensesService {
 	}
 	
 	public List<Expenses> getExpensesByID(int ID) {
-		return (List<Expenses>) repo.findAllByID(ID);
+		return (List<Expenses>) repo.findAllByid(ID);
 	}
 	
 	public List<Expenses> getExpensesByDescription(String description) {

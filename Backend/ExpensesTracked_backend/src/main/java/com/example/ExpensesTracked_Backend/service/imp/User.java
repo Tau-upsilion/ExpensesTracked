@@ -16,13 +16,12 @@ public class User {
     
     private String password;
     
-    private Integer age;
+    private String age;
     
     private String gender;
     
     private String token;
     
-<<<<<<< HEAD
     private boolean error;
     
     private String error_msg;
@@ -52,17 +51,6 @@ public class User {
     	this.age = age;
     	this.gender = gender;
     }
-    public User(String name, String email, String password, String age, String gender) {
-=======
-    public User(Integer id, String name, String email, String password, Integer age, String gender) {
-    	this.id = id;
->>>>>>> 11-backend-mockito
-    	this.name = name;
-    	this.email = email;
-    	this.password = password;
-    	this.age = age;
-    	this.gender = gender;
-    }
     
     public void setGender(String gender) {
     	this.gender = gender;
@@ -70,10 +58,10 @@ public class User {
     public String getGender() {
     	return gender;
     }
-    public void setAge(Integer age) {
+    public void setAge(String age) {
     	this.age = age;
     }
-    public Integer getAge() {
+    public String getAge() {
     	return age;
     }
     public String getPassword() {

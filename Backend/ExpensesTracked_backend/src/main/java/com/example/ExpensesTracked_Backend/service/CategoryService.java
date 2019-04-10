@@ -15,10 +15,10 @@ public class CategoryService
 	private CategoryRepository repo;
 	
 	public List<Category> getCategoryByID(int ID) {
-		return (List<Category>) repo.findAllByID(ID);
+		return (List<Category>) repo.findAllByid(ID);
 	}
 	
 	public List<Category> getCategoryByName(String categoryName) {
-		return (List<Category>) repo.findAllByName(categoryName);
+		return (List<Category>) repo.findAllBycategoryName(categoryName);
 	}
 }

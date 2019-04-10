@@ -52,7 +52,7 @@ public class CategoryTests
 		c.add(cat2);
 		c.add(cat3);
 		
-		when(repo.findAllByID(1)).thenReturn(c);
+		when(repo.findAllByid(1)).thenReturn(c);
 		
 		
 		List<Category> testList =  catService.getCategoryByID(1);
@@ -72,7 +72,7 @@ public class CategoryTests
 		c.add(cat2);
 		c.add(cat3);
 		
-		when(repo.findAllByName("category1")).thenReturn(c);
+		when(repo.findAllBycategoryName("category1")).thenReturn(c);
 		
 		
 		List<Category> testList =  catService.getCategoryByName("category1");
