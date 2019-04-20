@@ -159,6 +159,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 String error_MSG = response.getString("error_msg");
                                 Toast.makeText(getApplicationContext(), error_MSG, Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                hideDialog();
                                 startActivity(intent);
                                 finish();
                             }
