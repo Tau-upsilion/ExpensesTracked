@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,11 +55,6 @@ public class MainController {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
-	@GetMapping("/users/{id}")
-	User one(@PathVariable Integer id) {
-		return userRepository.findById(id)
-				.orElseThrow();
-	}
 	@PostMapping(path="/login")
 	public String login(@RequestBody User n) throws ServletException{
 		String jwtToken = "";
@@ -96,35 +90,9 @@ public class MainController {
 		expenseRepository.save(n);
 		return "Saved";
 	}
-	@GetMapping(path="/expenses/{id}")
-	Expenses getExpense(@PathVariable int id) {
-		return expenseRepository.findById(id).orElseThrow();
-	}
-	@GetMapping(path="/expenses/user/{id}")
-	public @ResponseBody Iterable<Expenses> getAllExpensesByUser(@PathVariable int id){
-		ArrayList<Expenses> l = new ArrayList<Expenses>();
-		for(int i = 0; i < expenseRepository.count(); i++) {
-			if(expenseRepository.findById(i).get().getUserID() == id) {
-				l.add(expenseRepository.findById(i).orElseThrow());
-			}
-		}
-		return l;
-	}
-	
-	@GetMapping(path="/category/all")
-	public @ResponseBody Iterable<Category> getAllCategory(){
-		return categoryRepository.findAll();
-	}
-	
 	@PostMapping(path="/category/add")
 	public @ResponseBody String addNewCategory(@RequestBody Category n) {
 		categoryRepository.save(n);
 		return "Saved";
 	}
-	@GetMapping(path="/category/{id}")
-	Category getCategory(@PathVariable int id) {
-		return categoryRepository.findById(id).orElseThrow();
-	}
-
-
 }

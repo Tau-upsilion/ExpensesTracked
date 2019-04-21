@@ -8,7 +8,9 @@ import com.example.ExpensesTracked_Backend.service.imp.Expenses;
 public interface ExpensesRepository extends CrudRepository<Expenses, Integer> {
 	public Iterable<Expenses> findAllByToken(String token);
 	
-	public Iterable<Expenses> findAllByid(int ID);
+	public Iterable<Expenses> findAllByid(int id);
 	
 	public Iterable<Expenses> findAllByDescription(String Description);
+	
+	public Expenses findByid(int id);
 }

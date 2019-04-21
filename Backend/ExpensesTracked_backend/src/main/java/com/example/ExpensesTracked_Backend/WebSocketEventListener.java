@@ -1,6 +1,4 @@
 package com.example.ExpensesTracked_Backend;
-
-import com.example.ExpensesTracked_Backend.ChatController;
 import com.example.ExpensesTracked_Backend.service.imp.ChatMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

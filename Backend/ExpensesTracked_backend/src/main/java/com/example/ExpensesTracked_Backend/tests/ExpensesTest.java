@@ -1,6 +1,4 @@
 package com.example.ExpensesTracked_Backend.tests;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Assert;
 import static org.mockito.Mockito.when;

@@ -22,4 +22,7 @@ public class ExpensesService {
 	public List<Expenses> getExpensesByDescription(String description) {
 		return (List<Expenses>) repo.findAllByDescription(description);
 	}
+	public Expenses getExpensesByid(int id) {
+		return repo.findByid(id);
+	}
 }

@@ -57,14 +57,14 @@ public class SecureController {
 	}
 	@GetMapping(path="/expenses/{id}")
 	Expenses getExpense(@PathVariable int id) {
-		return expenseRepository.findById(id).orElseThrow();
+		return expenseRepository.findByid(id);
 	}
 	@GetMapping(path="/expenses/user/{id}")
 	public @ResponseBody Iterable<Expenses> getAllExpensesByUser(@PathVariable int id){
 		ArrayList<Expenses> l = new ArrayList<Expenses>();
 		for(int i = 0; i < expenseRepository.count(); i++) {
 			if(expenseRepository.findById(i).get().getUserID() == id) {
-				l.add(expenseRepository.findById(i).orElseThrow());
+				l.add(expenseRepository.findByid(id));
 			}
 		}
 		return l;
@@ -82,6 +82,6 @@ public class SecureController {
 	}
 	@GetMapping(path="/category/{id}")
 	Category getCategory(@PathVariable int id) {
-		return categoryRepository.findById(id).orElseThrow();
+		return categoryRepository.findByid(id);
 	}
 }

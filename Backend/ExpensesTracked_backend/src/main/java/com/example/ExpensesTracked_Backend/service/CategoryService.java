@@ -21,4 +21,7 @@ public class CategoryService
 	public List<Category> getCategoryByName(String categoryName) {
 		return (List<Category>) repo.findAllBycategoryName(categoryName);
 	}
+	public Category findByid(int id) {
+		return repo.findByid(id);
+	}
 }
