@@ -32,30 +32,30 @@ autodeploy:
         - sudo systemctl stop system-expensestracked-demo
         - sudo systemctl start system-expensestracked-demo
         
-android-build:
-    image: javiersantos/android-ci:latest
-    stage: androidbuild
-    before_script:
-        - export GRADLE_USER_HOME=`pwd`/.gradle
-        - ls
-        - chmod +x ./gradlew
-    tags:
-        - frontend
-    script:
-        - cd Frontend/AndroidLogin
-        - ./gradlew assemble
-    artifacts:
-        paths:
-        - Frontend/AndroidLogin/app/build/outputs/
-        
-unitTests: 
-    image: javiersantos/android-ci:latest
-    stage: androidtest
-    before_script:
-        - export GRADLE_USER_HOME=`pwd`/.gradle
-        - chmod +x ./androidTest/gradlew
-    tags:
-        - frontend
-    script:
-        - cd Frontend/AndroidLogin/app/src/test
-        - ./gradlew test
+#android-build:
+ #   image: javiersantos/android-ci:latest
+  #  stage: androidbuild
+ #   before_script:
+ #       - export GRADLE_USER_HOME=`pwd`/.gradle
+ #       - ls
+  #       - chmod +x ./gradlew
+ #   tags:
+  #      - frontend
+#    script:
+#        - cd Frontend/AndroidLogin
+#        - ./gradlew assemble
+#    artifacts:
+#        paths:
+#        - Frontend/AndroidLogin/app/build/outputs/
+#        
+#unitTests: 
+#    image: javiersantos/android-ci:latest
+#    stage: androidtest
+#    before_script:
+#        - export GRADLE_USER_HOME=`pwd`/.gradle
+#        - chmod +x ./androidTest/gradlew
+#    tags:
+#        - frontend
+#    script:
+#        - cd Frontend/AndroidLogin/app/src/test
+#        - ./gradlew test /*
