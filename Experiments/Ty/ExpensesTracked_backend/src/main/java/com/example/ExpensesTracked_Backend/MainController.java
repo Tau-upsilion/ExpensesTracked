@@ -89,7 +89,7 @@ public class MainController {
 	}
 	@GetMapping(path="/category/{id}")
 	Expenses getCategory(@PathVariable int id) {
-		return categoryRepository.findById(id).orElseThrow();
+		return categoryRepository.findById(id);
 	}
 
 
