@@ -87,7 +87,7 @@ public class CategoriesFragment extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "An error occurred while getting your information.", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
             }
         });

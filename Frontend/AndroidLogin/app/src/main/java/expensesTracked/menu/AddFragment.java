@@ -109,7 +109,7 @@ public class AddFragment extends Fragment {
                         try{
                             boolean error = response.getBoolean("error");
                             if(!error){
-                                Toast.makeText(getActivity(), "Your expense has been added succesfully!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Added successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(), AddFragment.class);
                                 hideDialog();
                             
@@ -124,7 +124,7 @@ public class AddFragment extends Fragment {
                 }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
-                Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "An error occurred while adding, please try again.", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
                 hideDialog();
             }

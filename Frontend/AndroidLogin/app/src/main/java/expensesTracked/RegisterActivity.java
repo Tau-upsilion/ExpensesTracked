@@ -149,7 +149,7 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean error = response.getBoolean("error");
                             if (!error) {
                                 String user = response.getString("name");
-                                Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Hi " + user + ", you have successfully registered!", Toast.LENGTH_SHORT).show();
                                 hideDialog();
                                 
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -170,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"An error occurred while registering, please try again.",Toast.LENGTH_LONG).show();
                 error.printStackTrace();
                 hideDialog();
             }

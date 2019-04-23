@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             }, new Response.ErrorListener(){
                 @Override
                 public void onErrorResponse(VolleyError error){
-                    Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "An error occurred while logging in, please try again.", Toast.LENGTH_LONG).show();
                     error.printStackTrace();
                     hideDialog();
                 }
