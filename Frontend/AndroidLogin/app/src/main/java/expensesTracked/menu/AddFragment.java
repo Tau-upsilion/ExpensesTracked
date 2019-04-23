@@ -131,8 +131,19 @@ public class AddFragment extends Fragment {
         });
     
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
-        
-        /*
+    }
+
+    private void hideDialog() {
+        if (progressDialog.isShowing())
+            progressDialog.dismiss();
+    }
+    private void showDialog() {
+        if (!progressDialog.isShowing())
+            progressDialog.show();
+    }
+    
+    
+    /*      // STRING REQUEST - NO LONGER USING
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -184,15 +195,5 @@ public class AddFragment extends Fragment {
 
         // Adding request to request queue
         AppSingleton.getInstance(getActivity().getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);*/
-    }
-
-    private void hideDialog() {
-        if (progressDialog.isShowing())
-            progressDialog.dismiss();
-    }
-    private void showDialog() {
-        if (!progressDialog.isShowing())
-            progressDialog.show();
-    }
 
 }
