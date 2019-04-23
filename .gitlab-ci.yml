@@ -37,7 +37,8 @@ android-build:
     stage: androidbuild
     before_script:
         - export GRADLE_USER_HOME=`pwd`/.gradle
-        - chmod +x ./androidTest/gradlew
+        - ls
+        - chmod +x ./gradlew
     tags:
         - frontend
     script:
