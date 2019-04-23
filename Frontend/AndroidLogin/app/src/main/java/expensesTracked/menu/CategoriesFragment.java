@@ -1,6 +1,5 @@
 package expensesTracked.menu;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,10 +15,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import expensesTracked.AppSingleton;
+import expensesTracked.Expenses;
 import expensesTracked.R;
 
 import java.text.DateFormat;
@@ -29,7 +30,7 @@ import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
     
-    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";  // TODO - change
+    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
     
     @Nullable
     @Override
@@ -56,28 +57,23 @@ public class CategoriesFragment extends Fragment {
     {
         // Tag used to cancel the request
         String cancel_req_tag = "listed";
-//            progressDialog.setMessage("Adding Expense...");
-//            showDialog();
         
         Map<String, String> params = new HashMap<>();
-//        params.put("name", name);
-//        params.put("category", category);
-//        params.put("description", description);
-//        params.put("amount", amount);
         params.put("token", token);
         
         JSONObject req = new JSONObject(params);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_FOR_LISTING, req,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LISTING, req,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             boolean error = response.getBoolean("error");
                             if (!error) {
-                                Toast.makeText(getActivity(), "Hello!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Successful!", Toast.LENGTH_SHORT).show();
+                                JSONArray expenses = response.getJSONArray("allexpenses");
                                 
                                 // TODO - Add the expenses to the page
-                                
+                                getExpenses(expenses);
                             }
                             
                         } catch (JSONException e) {
@@ -93,6 +89,11 @@ public class CategoriesFragment extends Fragment {
         });
         
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+    }
+    
+    private void getExpenses(JSONArray expenses) {
+    
+    
     }
 
 }

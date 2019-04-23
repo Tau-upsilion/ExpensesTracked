@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import expensesTracked.AppSingleton;
+import expensesTracked.Expenses;
 import expensesTracked.R;
 
 import org.json.JSONException;
@@ -34,7 +35,7 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/demo/expenses/add";
+    private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
     ProgressDialog progressDialog;
     private EditText name, desc, amount;
     private String category;
@@ -91,7 +92,7 @@ public class AddFragment extends Fragment {
     private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
-        progressDialog.setMessage("Adding Expense...");
+        progressDialog.setMessage("Adding Income/Expense...");
         showDialog();
     
         Map<String, String> params = new HashMap<>();
@@ -109,7 +110,7 @@ public class AddFragment extends Fragment {
                         try{
                             boolean error = response.getBoolean("error");
                             if(!error){
-                                Toast.makeText(getActivity(), "Added successfully!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(), AddFragment.class);
                                 hideDialog();
                             
@@ -141,7 +142,6 @@ public class AddFragment extends Fragment {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
-    
     
     /*      // STRING REQUEST - NO LONGER USING
         StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
