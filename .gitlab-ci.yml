@@ -39,13 +39,13 @@ android-build:
         - export GRADLE_USER_HOME=`pwd`/.gradle
         - chmod +x ./Android_test/gradlew
     tags:
-        - android
+        - frontend
     script:
-        - cd Frontend/AndroidLogin/app/src/test
+        - cd Frontend/AndroidLogin
         - ./gradlew assemble
     artifacts:
         paths:
-        - Android_test/app/build/outputs/
+        - Frontend/AndroidLogin/app/build/outputs/
         
 unitTests: 
     image: javiersantos/android-ci:latest
@@ -54,7 +54,7 @@ unitTests:
         - export GRADLE_USER_HOME=`pwd`/.gradle
         - chmod +x ./Android_test/gradlew
     tags:
-        - android
+        - frontend
     script:
         - cd Frontend/AndroidLogin/app/src/test
         - ./gradlew test
