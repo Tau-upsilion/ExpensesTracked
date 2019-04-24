@@ -26,18 +26,13 @@ import java.util.Map;
  */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    //localhost testing
+//    localhost testing;
 //    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
     //server link
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
     
-    /**
-     * onCreate overridden method
-     *
-     * @param savedInstanceState -
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(!error){
                             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             String token = response.getString("token");
-                            saveToken(getApplicationContext(), "TOKEN", token);
+                            saveToken(getApplicationContext(), token);
                             hideDialog();
                             
                             startActivity(intent);
@@ -127,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     
     /**
-     * Helper method to show the progress dialog
+     * Private method to show the progress dialog
      */
     private void showDialog() {
         if (!progressDialog.isShowing())
@@ -135,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     
     /**
-     * Helper method to hide the progress dialog
+     * Private method to hide the progress dialog
      */
     private void hideDialog() {
         if (progressDialog.isShowing())
@@ -145,75 +140,17 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Helper method to save the token created by the server and returned from the JSON Object Request
      *
-     * @param context -
-     * @param key -
-     * @param text -
+     * @param context - Application context
+     * @param text - The token
      */
-    private void saveToken(Context context, String key, String text) {
+    private void saveToken(Context context, String text) {
         android.content.SharedPreferences settings;
         android.content.SharedPreferences.Editor editor;
         
         settings = context.getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
         editor = settings.edit();
-        editor.putString(key, text);
+        editor.putString("TOKEN", text);
         editor.apply();
     }
-    
-    /* Shub's Code
-    private void loginUser(final String email, final String password) {
-        String cancel_req_tag = "login";
-        progressDialog.setMessage("Logging you in...");
-        showDialog();
-
-        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_LOGIN, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Register Response: " + response.toString());
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-
-                    if (!error) {
-                        String user = jObj.getJSONObject("user").getString("name");
-                        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                        CurrentUser cUser = new CurrentUser();
-                        cUser.setToken(user);
-                        hideDialog();
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
-                        hideDialog();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("email", email);
-                params.put("password", password);
-                return params;
-            }
-
-        };
-
-
-        // Adding request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
-    }*/
     
 }
