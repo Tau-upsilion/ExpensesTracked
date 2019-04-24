@@ -19,6 +19,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Register Activity class
+ */
 public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
@@ -30,7 +33,12 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioGroup genderRadioGroup;
     private boolean isValidLogin = false;
     ProgressDialog progressDialog;
-
+    
+    /**
+     * onCreate overridden method
+     *
+     * @param savedInstanceState -
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

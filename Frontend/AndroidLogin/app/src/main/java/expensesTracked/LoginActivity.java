@@ -21,6 +21,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Login Activity class
+ */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     //localhost testing
@@ -30,6 +33,11 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
     
+    /**
+     * onCreate overridden method
+     *
+     * @param savedInstanceState -
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +78,12 @@ public class LoginActivity extends AppCompatActivity {
         
     }
     
+    /**
+     * Private method to login a user using a JSON Object Request
+     *
+     * @param email - Email entered by the user to be checked with the different user emails located on the server
+     * @param password - Password entered by the user to be checked with the  located on the server
+     */
     private void loginUser(final String email, final String password){
         String cancel_req_tag = "login";
         progressDialog.setMessage("Logging you in...");
@@ -112,16 +126,29 @@ public class LoginActivity extends AppCompatActivity {
         AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
     
+    /**
+     * Helper method to show the progress dialog
+     */
     private void showDialog() {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
     
+    /**
+     * Helper method to hide the progress dialog
+     */
     private void hideDialog() {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
     }
     
+    /**
+     * Helper method to save the token created by the server and returned from the JSON Object Request
+     *
+     * @param context -
+     * @param key -
+     * @param text -
+     */
     private void saveToken(Context context, String key, String text) {
         android.content.SharedPreferences settings;
         android.content.SharedPreferences.Editor editor;

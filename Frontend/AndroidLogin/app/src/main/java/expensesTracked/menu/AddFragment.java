@@ -31,6 +31,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
@@ -39,7 +42,15 @@ public class AddFragment extends Fragment {
     ProgressDialog progressDialog;
     private EditText name, desc, amount;
     private String category;
-
+    
+    /**
+     * Method
+     *
+     * @param inflater -
+     * @param container -
+     * @param savedInstanceState -
+     * @return -
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,6 +79,7 @@ public class AddFragment extends Fragment {
             public void onClick(View v) {
                 // Add expense to server
                 addExpense(name.toString(), category, desc.toString(), amount.toString());
+//                addIncome(name.toString(), category, desc.toString(), amount.toString());
             }
         });
 
@@ -88,20 +100,29 @@ public class AddFragment extends Fragment {
         // Return
         return v;
     }
-
+    
+    /**
+     * Private method that takes the Name, Category, Description, Amount, and the user's Token and sends a JSON Object Request to the server
+     * to add the expense to the server
+     *
+     * @param name - Name of the income to be added to the server
+     * @param category -
+     * @param description -
+     * @param amount -
+     */
     private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
         progressDialog.setMessage("Adding Income/Expense...");
         showDialog();
-    
+        
         Map<String, String> params = new HashMap<>();
         params.put("name", name);
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
         params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
-    
+        
         JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_ADDING, req,
                 new Response.Listener<JSONObject>() {
@@ -113,11 +134,11 @@ public class AddFragment extends Fragment {
                                 Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(), AddFragment.class);
                                 hideDialog();
-                            
+                                
                                 startActivity(intent);
                                 getActivity().finish();
                             }
-                        
+                            
                         } catch (JSONException e){
                             e.printStackTrace();
                         }
@@ -130,9 +151,55 @@ public class AddFragment extends Fragment {
                 hideDialog();
             }
         });
-    
+        
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
+    
+    /*
+    private void addIncome(final String name, final String category, final String description , final String amount) {
+        // Tag used to cancel the request
+        String cancel_req_tag = "added";
+        progressDialog.setMessage("Adding Income/Expense...");
+        showDialog();
+        
+        Map<String, String> params = new HashMap<>();
+        params.put("name", name);
+        params.put("category", category);
+        params.put("description", description);
+        params.put("amount", amount);
+        params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
+        
+        JSONObject req = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_ADDING, req,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response){
+                        try{
+                            boolean error = response.getBoolean("error");
+                            if(!error){
+                                Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(), AddFragment.class);
+                                hideDialog();
+                                
+                                startActivity(intent);
+                                getActivity().finish();
+                            }
+                            
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Toast.makeText(getActivity(), "An error occurred while adding, please try again.", Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                hideDialog();
+            }
+        });
+        
+        AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+    }   */
 
     private void hideDialog() {
         if (progressDialog.isShowing())

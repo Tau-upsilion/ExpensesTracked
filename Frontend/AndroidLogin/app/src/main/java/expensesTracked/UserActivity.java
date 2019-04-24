@@ -13,8 +13,16 @@ import expensesTracked.menu.CategoriesFragment;
 import expensesTracked.menu.HomeFragment;
 import expensesTracked.menu.SettingsFragment;
 
+/**
+ * User Activity class
+ */
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
+    
+    /**
+     *
+     *
+     * @param savedInstanceState -
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +33,13 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         navigation.setOnNavigationItemSelectedListener(this);
         loadFragment(new HomeFragment());
     }
-
+    
+    /**
+     * Public class for selecting the fragment to load based on which item was selected from the navigation bar
+     *
+     * @param menuItem - The selected item from the navigation bar
+     * @return True if the fragment to be loaded on the screen is non-null, false otherwise
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         // Variables
