@@ -23,7 +23,10 @@ import com.example.ExpensesTracked_Backend.service.imp.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-
+/**
+ * main controller class
+ *
+ */
 @RestController    // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 public class MainController {
@@ -36,7 +39,12 @@ public class MainController {
 	private CategoryRepository categoryRepository;
 	
 	
-	
+	/**
+	 * adds new user to the user repositiory, sends error message if user already exists 
+	 * @param n
+	 * @return results
+	 * @throws CloneNotSupportedException
+	 */
 	@PostMapping(path="/register") // Map ONLY GET Requests
 	public @ResponseBody User addNewUser (@RequestBody User n) throws CloneNotSupportedException {
 		ArrayList<User> s = (ArrayList<User>) userRepository.findAllByemail(n.getEmail());
@@ -50,11 +58,24 @@ public class MainController {
 		}
 		return result;
 	}
+	
+	/**
+	 * Method that returns all the users in the system
+	 * @return userRepository.findAll()
+	 */
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
+	
+	/**
+	 * method that logs in the user, if email, password, user is null throw servlet exception
+	 * throws servlet exception if password is incorrect
+	 * @param n
+	 * @return user
+	 * @throws ServletException
+	 */
 	@PostMapping(path="/login")
 	public User login(@RequestBody User n) throws ServletException{
 		String jwtToken = "";
@@ -82,15 +103,29 @@ public class MainController {
 		
 		return user;
 	}
+	/**
+	 * Method that returns all the expenses in the expense repository
+	 * @return expenseRepository.findAll()
+	 */
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){
 		return expenseRepository.findAll();
 	}
+	/**
+	 * Method to add a new expense in the expenses repository
+	 * @param n
+	 * @return "saved"
+	 */
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody String addNewExpense(@RequestBody Expenses n) {
 		expenseRepository.save(n);
 		return "Saved";
 	}
+	/**
+	 * Method to add a new category to the category repository
+	 * @param n
+	 * @return "saved"
+	 */
 	@PostMapping(path="/category/add")
 	public @ResponseBody String addNewCategory(@RequestBody Category n) {
 		categoryRepository.save(n);

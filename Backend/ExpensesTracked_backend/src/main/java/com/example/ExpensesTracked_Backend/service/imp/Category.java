@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
+/**
+ * Category Class
+ *
+ */
 @Entity
 public class Category {
 	
@@ -19,27 +22,48 @@ public class Category {
 
     private String categoryName;
     
+    /**
+     * Category Constructor
+     * @param id
+     * @param categoryName
+     */
     public Category (Integer id, String categoryName)
     {
     	this.id = id;
     	this.categoryName = categoryName;
     }
 	
+    /**
+     * sets ID
+     * @param i
+     */
     public void setId(Integer i)
     {
     	this.id = i;
     }
     
+    /**
+     * gets ID
+     * @return id
+     */
     public Integer getId()
     {
     	return this.id;
     }
     
+    /**
+     * sets Category Name
+     * @param n
+     */
     public void setCategoryName(String n)
     {
     	this.categoryName = n; 
     }
     
+    /**
+     * returns category name
+     * @return categoryName
+     */
     public String getCategoryName()
     {
     	return this.categoryName;

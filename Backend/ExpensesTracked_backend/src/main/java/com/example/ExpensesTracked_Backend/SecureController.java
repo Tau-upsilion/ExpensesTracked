@@ -30,24 +30,51 @@ public class SecureController {
 	@Autowired
 	private UserRepository userService;
 	
+	/**
+	 * method to successfully login in a user 
+	 * @param token
+	 * @return "Login Successful! " + token
+	 */
 	@GetMapping("/user/users")
 	public String loginSucess(@RequestHeader("authorization") String token) {
 		return "Login Successful! " + token;
 	}
 	
+	/**
+	 * Method to find a user by their email
+	 * @param email
+	 * @return userService.getUserByemail(email)
+	 */
 	@RequestMapping(value ="/user/email", method = RequestMethod.POST)
 	public User findByEmail(@RequestBody String email) {
 		return userService.getUserByemail(email);
 	}
+	/**
+	 * Method to update user
+	 * @param user
+	 * @return userService.save(user)
+	 */
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
 	public User updateUser(@RequestBody User user) {
 		return userService.save(user);
 	}
+	/**
+	 * Method to find all expenses related to a certain token 
+	 * @param token
+	 * @return expenseRepository.findAllByToken(tk)
+	 */
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(@RequestHeader("authorization") String token){
 		String tk = token.substring(7);
 		return expenseRepository.findAllByToken(tk);
 	}
+	
+	/**
+	 * Method to add a new expensed related to a certain token 
+	 * @param token
+	 * @param n
+	 * @return "saved"
+	 */
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody String addNewExpense(@RequestHeader("authorization")String token, @RequestBody Expenses n) {
 		String tk = token.substring(7);
@@ -55,6 +82,12 @@ public class SecureController {
 		expenseRepository.save(n);
 		return "Saved";
 	}
+	
+	/**
+	 * returns an array list of all expenses from a certain user 
+	 * @param id
+	 * @return l
+	 */
 	@GetMapping(path="/expenses/{id}")
 	Expenses getExpense(@PathVariable int id) {
 		return expenseRepository.findByid(id);
@@ -70,11 +103,20 @@ public class SecureController {
 		return l;
 	}
 	
+	/**
+	 * Method that returns every category in the category repository 
+	 * @return categoryRepository.findAll()
+	 */
 	@GetMapping(path="/category/all")
 	public @ResponseBody Iterable<Category> getAllCategory(){
 		return categoryRepository.findAll();
 	}
 	
+	/**
+	 * method that adds a new category to the category repository
+	 * @param n
+	 * @return "saved"
+	 */
 	@PostMapping(path="/category/add")
 	public @ResponseBody String addNewCategory(@RequestBody Category n) {
 		categoryRepository.save(n);
