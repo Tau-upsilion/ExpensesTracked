@@ -88,13 +88,13 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		user = userRepository.getUserByemail(email);
 		
 		if (userRepository.getUserByemail(email)==null) {
 			user.setError(true);
 			user.setError_msg("Email is not associated with any accounts");
 			return user;
 		}
+		user = userRepository.getUserByemail(email);
 		
 		String pwd = user.getPassword();
 		
