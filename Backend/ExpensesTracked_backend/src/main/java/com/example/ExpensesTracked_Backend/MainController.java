@@ -77,24 +77,31 @@ public class MainController {
 	 * @throws ServletException
 	 */
 	@PostMapping(path="/login")
-	public User login(@RequestBody User n) throws ServletException{
+	public User login(@RequestBody User n){
 		String jwtToken = "";
+		User user = new User();
 		if(n.getEmail() == null || n.getPassword() == null) {
-			throw new ServletException("Please fill in username and password");
+			user.setError(true);
+			user.setError_msg("Please Fill in both user and password");
+			return user;
 		}
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		User user = userRepository.getUserByemail(email);
+		user = userRepository.getUserByemail(email);
 		
-		if (user == null) {
-			throw new ServletException("User email not found.");
+		if (userRepository.getUserByemail(email)==null) {
+			user.setError(true);
+			user.setError_msg("Email is not associated with any accounts");
+			return user;
 		}
 		
 		String pwd = user.getPassword();
 		
 		if(!password.equals(pwd)) {
-			throw new ServletException("Invalid Login. Check email and password.");
+			user.setError(true);
+			user.setError_msg("Email/passowrd combination does not match any records");
+			return user;
 		}
 		
 		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())

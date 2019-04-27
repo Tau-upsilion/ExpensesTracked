@@ -76,8 +76,8 @@ public class SecureController {
 	 * @return "saved"
 	 */
 	@PostMapping(path="/expenses/add")
-	public @ResponseBody String addNewExpense(@RequestHeader("authorization")String token, @RequestBody Expenses n) {
-		String tk = token.substring(7);
+	public @ResponseBody String addNewExpense(@RequestBody Expenses n) {
+		String tk = n.getToken();
 		n.setToken(tk);
 		expenseRepository.save(n);
 		return "Saved";
