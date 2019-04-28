@@ -26,6 +26,9 @@ public class Expenses {
     
     private String error_msg;
     
+    public Expenses() {}
+   
+    
     /**
      * expenses constructor
      * @param description

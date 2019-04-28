@@ -103,6 +103,10 @@ public class LoginActivity extends AppCompatActivity {
                             
                             startActivity(intent);
                             finish();
+                        } else {
+                            String error_msg = response.getString("error_msg");
+                            Toast.makeText(getApplicationContext(), error_msg,Toast.LENGTH_LONG).show();
+                            hideDialog();
                         }
                         
                     } catch (JSONException e){

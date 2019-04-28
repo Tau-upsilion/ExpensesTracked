@@ -88,13 +88,13 @@ public class MainController {
 		
 		String email = n.getEmail();
 		String password = n.getPassword();
-		user = userRepository.getUserByemail(email);
 		
 		if (userRepository.getUserByemail(email)==null) {
 			user.setError(true);
 			user.setError_msg("Email is not associated with any accounts");
 			return user;
 		}
+		user = userRepository.getUserByemail(email);
 		
 		String pwd = user.getPassword();
 		
@@ -124,9 +124,16 @@ public class MainController {
 	 * @return "saved"
 	 */
 	@PostMapping(path="/expenses/add")
-	public @ResponseBody String addNewExpense(@RequestBody Expenses n) {
+	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
+		Expenses result = new Expenses();
+		if(n.getAmount() == " " | n.getCategory() == " " | n.getExpensesName() == " " | n.getToken() == null) {
+			result.setError(true);
+			result.setError_msg("One or more fields is empty");
+			return result;
+		}
 		expenseRepository.save(n);
-		return "Saved";
+		result.setError(false);
+		return result;
 	}
 	/**
 	 * Method to add a new category to the category repository

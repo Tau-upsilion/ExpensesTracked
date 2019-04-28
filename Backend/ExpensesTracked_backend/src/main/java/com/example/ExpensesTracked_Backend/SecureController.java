@@ -76,11 +76,16 @@ public class SecureController {
 	 * @return "saved"
 	 */
 	@PostMapping(path="/expenses/add")
-	public @ResponseBody String addNewExpense(@RequestBody Expenses n) {
-		String tk = n.getToken();
-		n.setToken(tk);
+	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
+		Expenses result = new Expenses();
+		if(n.getAmount() == null | n.getCategory() == null | n.getExpensesName() == null | n.getToken() == null) {
+			result.setError(true);
+			result.setError_msg("One or more fields is empty");
+			return result;
+		}
 		expenseRepository.save(n);
-		return "Saved";
+		result.setError(false);
+		return result;
 	}
 	
 	/**
@@ -118,7 +123,7 @@ public class SecureController {
 	 * @return "saved"
 	 */
 	@PostMapping(path="/category/add")
-	public @ResponseBody String addNewCategory(@RequestBody Category n) {
+	public @ResponseBody String addNewCategory(@RequestHeader("authorization") String token, @RequestBody Category n) {
 		categoryRepository.save(n);
 		return "Saved";
 	}
