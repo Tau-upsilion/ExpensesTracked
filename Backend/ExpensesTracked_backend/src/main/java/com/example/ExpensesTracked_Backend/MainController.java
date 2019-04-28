@@ -126,7 +126,7 @@ public class MainController {
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
 		Expenses result = new Expenses();
-		if(n.getAmount() == null | n.getCategory() == null | n.getExpensesName() == null | n.getToken() == null) {
+		if(n.getAmount() == " " | n.getCategory() == " " | n.getExpensesName() == " " | n.getToken() == null) {
 			result.setError(true);
 			result.setError_msg("One or more fields is empty");
 			return result;

@@ -82,7 +82,12 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
+                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|amount.getText().toString().matches("")){
+                    Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
+                }
 //                addIncome(name.toString(), category, desc.toString(), amount.toString());
             }
         });
