@@ -25,6 +25,8 @@ public class Expenses {
     private boolean error;
     
     private String error_msg;
+    
+    public Expenses() {}
    
     
     /**

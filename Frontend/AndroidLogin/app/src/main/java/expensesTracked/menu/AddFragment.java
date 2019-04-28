@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatSpinner;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -81,7 +82,7 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                addExpense(name.toString(), category, desc.toString(), amount.toString());
+                addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
 //                addIncome(name.toString(), category, desc.toString(), amount.toString());
             }
         });
@@ -124,7 +125,7 @@ public class AddFragment extends Fragment {
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
-        params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
+        params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "TOKEN"));
         
         JSONObject req = new JSONObject(params);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_ADDING, req,
@@ -135,11 +136,10 @@ public class AddFragment extends Fragment {
                             boolean error = response.getBoolean("error");
                             if(!error){
                                 Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getActivity(), AddFragment.class);
                                 hideDialog();
-                                
-                                startActivity(intent);
-                                getActivity().finish();
+                            } else {
+                                Toast.makeText(getActivity(), response.getString("error_msg"), Toast.LENGTH_SHORT).show();
+                                hideDialog();
                             }
                             
                         } catch (JSONException e){
@@ -166,52 +166,6 @@ public class AddFragment extends Fragment {
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
         System.out.println(jsonObjectRequest);
     }
-    
-    /*
-    private void addIncome(final String name, final String category, final String description , final String amount) {
-        // Tag used to cancel the request
-        String cancel_req_tag = "added";
-        progressDialog.setMessage("Adding Income/Expense...");
-        showDialog();
-        
-        Map<String, String> params = new HashMap<>();
-        params.put("name", name);
-        params.put("category", category);
-        params.put("description", description);
-        params.put("amount", amount);
-        params.put("token", AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
-        
-        JSONObject req = new JSONObject(params);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_ADDING, req,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response){
-                        try{
-                            boolean error = response.getBoolean("error");
-                            if(!error){
-                                Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getActivity(), AddFragment.class);
-                                hideDialog();
-                                
-                                startActivity(intent);
-                                getActivity().finish();
-                            }
-                            
-                        } catch (JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error){
-                Toast.makeText(getActivity(), "An error occurred while adding, please try again.", Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-                hideDialog();
-            }
-        });
-        
-        AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
-    }   */
 
     private void hideDialog() {
         if (progressDialog.isShowing())
@@ -221,58 +175,6 @@ public class AddFragment extends Fragment {
         if (!progressDialog.isShowing())
             progressDialog.show();
     }
-    
-    /*      // STRING REQUEST - NO LONGER USING
-        StringRequest strReq = new StringRequest(Request.Method.POST, URL_FOR_Adding, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Adding Response: " + response.toString());
-                hideDialog();
 
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-
-                    if (!error) {
-//                        String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getActivity().getApplicationContext(), "Hi. Your expense has been added succesfully!",
-                                Toast.LENGTH_SHORT).show();
-
-                        // Launch new add expense activity
-                        Intent intent = new Intent(getActivity(), AddFragment.class);
-                        startActivity(intent);
-                    } else {
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getActivity().getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Category", category);
-                params.put("Description", description);
-                params.put("Amount", amount);
-//                params.put("gender", gender);
-//                params.put("age", dob);
-                return params;
-            }
-        };
-
-        // Adding request to request queue
-        AppSingleton.getInstance(getActivity().getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);*/
 
 }
