@@ -118,7 +118,7 @@ public class SecureController {
 	 * @return "saved"
 	 */
 	@PostMapping(path="/category/add")
-	public @ResponseBody String addNewCategory(@RequestBody Category n) {
+	public @ResponseBody String addNewCategory(@RequestHeader("authorization") String token, @RequestBody Category n) {
 		categoryRepository.save(n);
 		return "Saved";
 	}

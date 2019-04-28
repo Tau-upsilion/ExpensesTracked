@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatSpinner;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -118,7 +120,7 @@ public class AddFragment extends Fragment {
         showDialog();
         
         Map<String, String> params = new HashMap<>();
-        params.put("name", name);
+        params.put("expensesName", name);
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
@@ -151,9 +153,18 @@ public class AddFragment extends Fragment {
                 error.printStackTrace();
                 hideDialog();
             }
-        });
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError{
+                Map<String, String> header = new HashMap<>();
+                header.put("authorization", "Bearer "  + AppSingleton.getInstance(getContext()).getToken(getContext(),"TOKEN"));
+                Log.d("THIS IS THE HEADER:", header.toString());
+                return header;
+            }
+        };
         
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
+        System.out.println(jsonObjectRequest);
     }
     
     /*

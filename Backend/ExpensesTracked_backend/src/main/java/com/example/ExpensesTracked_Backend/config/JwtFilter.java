@@ -28,7 +28,7 @@ public class JwtFilter extends GenericFilterBean {
 		} else {
 
 			if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-				throw new ServletException("Missing or invalid Authorization header");
+				throw new ServletException("Missing or invalid Authorization header" + authHeader);
 			}
 
 			final String token = authHeader.substring(7);
