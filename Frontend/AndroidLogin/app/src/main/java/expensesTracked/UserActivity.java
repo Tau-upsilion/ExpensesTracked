@@ -18,11 +18,6 @@ import expensesTracked.menu.SettingsFragment;
  */
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     
-    /**
-     *
-     *
-     * @param savedInstanceState -
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

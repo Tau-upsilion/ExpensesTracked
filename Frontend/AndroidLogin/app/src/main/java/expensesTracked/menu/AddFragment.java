@@ -47,14 +47,6 @@ public class AddFragment extends Fragment {
     private EditText name, desc, amount;
     private String category;
     
-    /**
-     * Method
-     *
-     * @param inflater -
-     * @param container -
-     * @param savedInstanceState -
-     * @return -
-     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,7 +74,8 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|amount.getText().toString().matches("")){
+                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|
+                           amount.getText().toString().matches("")){
                     Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
