@@ -1,12 +1,10 @@
 package expensesTracked.menu;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatSpinner;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import expensesTracked.AppSingleton;
-import expensesTracked.Expenses;
 import expensesTracked.R;
 
 import org.json.JSONException;
@@ -35,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Add Fragment class
  */
 public class AddFragment extends Fragment {
     // Instance variables
@@ -47,14 +44,6 @@ public class AddFragment extends Fragment {
     private EditText name, desc, amount;
     private String category;
     
-    /**
-     * Method
-     *
-     * @param inflater -
-     * @param container -
-     * @param savedInstanceState -
-     * @return -
-     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,9 +71,9 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add expense to server
-                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|amount.getText().toString().matches("")){
+                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|
+                           amount.getText().toString().matches("")){
                     Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
-                    return;
                 } else {
                     addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
                 }
@@ -114,10 +103,10 @@ public class AddFragment extends Fragment {
      * Private method that takes the Name, Category, Description, Amount, and the user's Token and sends a JSON Object Request to the server
      * to add the expense to the server
      *
-     * @param name - Name of the income to be added to the server
-     * @param category -
-     * @param description -
-     * @param amount -
+     * @param name Name of the expense to be added to the server
+     * @param category Category of the expense to be added to the server
+     * @param description Description of the expense to be added to the server
+     * @param amount Amount of the expense to be added to the server
      */
     private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request

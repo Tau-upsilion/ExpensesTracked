@@ -76,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Private method to login a user using a JSON Object Request
      *
-     * @param email - Email entered by the user to be checked with the different user emails located on the server
-     * @param password - Password entered by the user to be checked with the  located on the server
+     * @param email Email entered by the user to be checked with the different user emails located on the server
+     * @param password Password entered by the user to be checked with the  located on the server
      */
     private void loginUser(final String email, final String password){
         String cancel_req_tag = "login";
@@ -144,8 +144,8 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Helper method to save the token created by the server and returned from the JSON Object Request
      *
-     * @param context - Application context
-     * @param text - The token
+     * @param context Application context
+     * @param text The token
      */
     private void saveToken(Context context, String text) {
         android.content.SharedPreferences settings;

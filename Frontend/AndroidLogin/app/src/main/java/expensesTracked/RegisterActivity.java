@@ -34,11 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean isValidLogin = false;
     ProgressDialog progressDialog;
     
-    /**
-     * onCreate overridden method
-     *
-     * @param savedInstanceState -
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

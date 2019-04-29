@@ -18,11 +18,6 @@ import expensesTracked.menu.SettingsFragment;
  */
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     
-    /**
-     *
-     *
-     * @param savedInstanceState -
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +32,7 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
     /**
      * Public class for selecting the fragment to load based on which item was selected from the navigation bar
      *
-     * @param menuItem - The selected item from the navigation bar
+     * @param menuItem The selected item from the navigation bar
      * @return True if the fragment to be loaded on the screen is non-null, false otherwise
      */
     @Override
@@ -73,8 +68,8 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
     /**
      * Helper method to load the fragment layout class that is called in as a parameter
      *
-     * @param fragment - the fragment layout class that is to be loaded onto the screen
-     * @return true if fragment is non-null, false otherwise
+     * @param fragment The fragment layout class that is to be loaded onto the screen
+     * @return True if fragment is non-null, false otherwise
      */
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
