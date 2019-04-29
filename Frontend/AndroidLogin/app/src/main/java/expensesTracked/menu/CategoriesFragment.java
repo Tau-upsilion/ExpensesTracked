@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
     
-    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
+    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change?
     
     @Nullable
     @Override
