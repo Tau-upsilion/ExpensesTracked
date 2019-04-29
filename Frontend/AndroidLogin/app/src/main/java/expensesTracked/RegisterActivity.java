@@ -25,9 +25,9 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     // Instance Variables
     private static final String TAG = "RegisterActivity";
-//    localhost testing (comment out if demoing)
+    // localhost testing (comment out if demoing)
 //    private static final String URL_FOR_REGISTRATION = "http://10.0.2.2:8080/demo/register";
-//    server Implementation comment (uncomment if demo)
+    // server testing (uncomment if demo)
     private static final String URL_FOR_REGISTRATION = "http://cs309-yt-7.misc.iastate.edu:8080/demo/register";
     private EditText signupInputName, signupInputEmail, signupInputPassword, signupInputAge;
     private RadioGroup genderRadioGroup;
@@ -155,7 +155,8 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean error = response.getBoolean("error");
                             if (!error) {
                                 String user = response.getString("name");
-                                Toast.makeText(getApplicationContext(), "Hi " + user + ", you have successfully registered!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Hi " + user + ", you have successfully registered!",
+                                        Toast.LENGTH_SHORT).show();
                                 hideDialog();
                                 
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
