@@ -38,8 +38,8 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
-    //private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
+    //private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
+    private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
     ProgressDialog progressDialog;
     private EditText name, desc, amount;
     private String category;

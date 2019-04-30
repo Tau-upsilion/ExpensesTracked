@@ -41,8 +41,8 @@ import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
     
-    //private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
-    private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
+    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
+    //private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
 
 
     private RecyclerView recyclerView;
