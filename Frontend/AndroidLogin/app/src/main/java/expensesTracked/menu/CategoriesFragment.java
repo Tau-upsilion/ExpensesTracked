@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +23,25 @@ import org.json.JSONObject;
 
 import expensesTracked.AppSingleton;
 import expensesTracked.Expenses;
+import expensesTracked.ListItem;
 import expensesTracked.R;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
     
     private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
-    
+
+
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private List<ListItem> listItems;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +51,7 @@ public class CategoriesFragment extends Fragment {
         TextView date;
         
         // Initializations
-        date = v.findViewById(R.id.cat_date);
+        date = v.findViewById(R.id.cal_date);
 //        TableLayout catList = v.findViewById(R.id.cat_list);
 //        catList.setVisibility(View.VISIBLE);
         date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
@@ -50,6 +60,12 @@ public class CategoriesFragment extends Fragment {
         listIncomeAndExpenses(AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
         
         // Return
+
+        recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        listItems = new ArrayList<>();
         return v;
     }
     
