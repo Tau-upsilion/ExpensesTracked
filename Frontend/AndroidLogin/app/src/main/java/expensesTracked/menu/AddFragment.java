@@ -105,22 +105,10 @@ public class AddFragment extends Fragment {
      * Private method that takes the Name, Category, Description, Amount, and the user's Token and sends a JSON Object Request to the server
      * to add the expense to the server
      *
-<<<<<<< HEAD
      * @param name - Name of the expense to be added to the server
      * @param category - Category of the expense to be added to the server
      * @param description - Description of the expense to be added to the server
      * @param amount - Amount of the expense to be added to the server
-||||||| merged common ancestors
-     * @param name - Name of the income to be added to the server
-     * @param category -
-     * @param description -
-     * @param amount -
-=======
-     * @param name Name of the expense to be added to the server
-     * @param category Category of the expense to be added to the server
-     * @param description Description of the expense to be added to the server
-     * @param amount Amount of the expense to be added to the server
->>>>>>> 13-displaying-category-and-expenses
      */
     private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request

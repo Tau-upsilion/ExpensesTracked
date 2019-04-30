@@ -1,7 +1,6 @@
 package com.example.ExpensesTracked_Backend;
 import java.util.ArrayList;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,24 +63,10 @@ public class SecureController {
 	 * @param token
 	 * @return expenseRepository.findAllByToken(tk)
 	 */
-	@SuppressWarnings("unchecked")
 	@GetMapping(path="/expenses/all")
-	public @ResponseBody JSONObject getAllExpenses(@RequestHeader("authorization") String token){
+	public @ResponseBody Iterable<Expenses> getAllExpenses(@RequestHeader("authorization") String token){
 		String tk = token.substring(7);
-		User user = userService.findBytoken(tk);
-		int userId = user.getId();
-		ArrayList<Expenses> list = (ArrayList<Expenses>) expenseRepository.findAllByuserId(userId);
-		JSONArray arr = new JSONArray();
-		for(Expenses e: list) {
-			JSONObject n = new JSONObject();
-			n.put("name", e.getExpensesName());
-			n.put("description",e.getDescription());
-			n.put("amount", e.getAmount());
-			arr.add(n);
-		}
-		JSONObject result = new JSONObject();
-		result.put("expenses", arr);
-		return result;
+		return expenseRepository.findAllByToken(tk);
 	}
 	
 	/**
@@ -98,8 +83,6 @@ public class SecureController {
 			result.setError_msg("One or more fields is empty");
 			return result;
 		}
-		User user = userService.findBytoken(n.getToken());
-		n.setUserID(user.getId());
 		expenseRepository.save(n);
 		result.setError(false);
 		return result;

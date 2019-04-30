@@ -1,26 +1,19 @@
 package expensesTracked.menu;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,110 +21,79 @@ import org.json.JSONObject;
 
 import expensesTracked.AppSingleton;
 import expensesTracked.Expenses;
-import expensesTracked.ListItem;
-import expensesTracked.MyAdapter;
 import expensesTracked.R;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
     
-<<<<<<< HEAD
     private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change?
     
-||||||| merged common ancestors
-    private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
-    
-=======
-    //private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
-    private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
-
-
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private List<ListItem> listItems;
->>>>>>> 13-displaying-category-and-expenses
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
-        View v = inflater.inflate(R.layout.fragment_categories, container, false);
+        View v = inflater.inflate(R.layout.fragment_categories, null);
         String strDate = DateFormat.getDateInstance(1).format(new Date());
         TextView date;
         
         // Initializations
-        //date = v.findViewById(R.id.cal_date);
+        date = v.findViewById(R.id.cat_date);
 //        TableLayout catList = v.findViewById(R.id.cat_list);
 //        catList.setVisibility(View.VISIBLE);
-        //date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
+        date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
     
         // Get the income/expenses list
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        listItems = new ArrayList<>();
         listIncomeAndExpenses(AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
         
         // Return
-
         return v;
     }
     
-    private void listIncomeAndExpenses(final String token) {
-        final ProgressDialog progressDialog = new ProgressDialog(this.getContext());
-        progressDialog.setMessage("loading...");
-        progressDialog.show();
+    private void listIncomeAndExpenses(final String token)
+    {
+        // Tag used to cancel the request
         String cancel_req_tag = "listed";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_FOR_LISTING,
-                new Response.Listener<String>() {
+        
+        Map<String, String> params = new HashMap<>();
+        params.put("token", token);
+        
+        JSONObject req = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_FOR_LISTING, req,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
-                        progressDialog.dismiss();
+                    public void onResponse(JSONObject response) {
                         try {
-                            Log.d("REPONSE FROM SERVER", response);
-                            JSONObject jsonObject = new JSONObject(response);
-                            Log.d("JSON OBJECT",jsonObject.toString());
-                            JSONArray array = jsonObject.getJSONArray("expenses");
-
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject o = array.getJSONObject(i);
-                                ListItem item = new ListItem(
-                                        o.getString("name"),
-                                        o.getString("description"),
-                                        o.getString("amount")
-                                );
-                                listItems.add(item);
+                            boolean error = response.getBoolean("error");
+                            if (!error) {
+                                Toast.makeText(getActivity(), "Successful!", Toast.LENGTH_SHORT).show();
+                                JSONArray expenses = response.getJSONArray("allexpenses");
+                                
+                                // TODO - Add the expenses to the page
+                                getExpenses(expenses);
                             }
-                            Log.d("JSON OBJECT RETURNED", listItems.toString());
-
+                            
                         } catch (JSONException e) {
                             e.printStackTrace();
-
                         }
-                        adapter = new MyAdapter(listItems, getContext());
-                        recyclerView.setAdapter(adapter);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "An error occurred while getting your information.", Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
             }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> header = new HashMap<>();
-                header.put("authorization", "Bearer " + AppSingleton.getInstance(getContext()).getToken(getContext(), "TOKEN"));
-                Log.d("THIS IS THE HEADER:", header.toString());
-                return header;
-            }
-        };
-        AppSingleton.getInstance(getContext()).addToRequestQueue(stringRequest, cancel_req_tag);
+        });
+        
+        AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
     }
+    
+    private void getExpenses(JSONArray expenses) {
+    
+    
+    }
+
 }
