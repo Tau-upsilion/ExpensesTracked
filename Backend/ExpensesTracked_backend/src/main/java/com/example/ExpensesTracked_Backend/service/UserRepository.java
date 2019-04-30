@@ -25,4 +25,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 	 * @param email
 	 */
 	public Iterable<User> findAllByemail(String email);
+	public User findBytoken(String token);
 }

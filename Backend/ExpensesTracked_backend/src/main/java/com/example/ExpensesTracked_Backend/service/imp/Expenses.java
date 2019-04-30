@@ -8,8 +8,7 @@ import javax.persistence.Id;
 public class Expenses {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    
+    private int id;
     private String description;
     
 	private String category;
@@ -44,20 +43,6 @@ public class Expenses {
     	this.amount = amount;
     	this.token = token;
     	this.error = false;
-    }
-    /**
-	 * sets ID
-	 * @param id
-	 */
-    public void setId(Integer i) {
-    	this.id = i;
-    }
-    /**
-     * gets ID
-     * @return id
-     */
-    public Integer getId() {
-    	return this.id;
     }
     /**
      * sets expense's name

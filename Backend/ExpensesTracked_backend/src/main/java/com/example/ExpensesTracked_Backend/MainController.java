@@ -107,6 +107,7 @@ public class MainController {
 		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
 				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 		user.setToken(jwtToken);
+		userRepository.save(user);
 		
 		return user;
 	}
