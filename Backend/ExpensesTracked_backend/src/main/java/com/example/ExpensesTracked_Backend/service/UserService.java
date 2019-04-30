@@ -35,4 +35,7 @@ public class UserService{
 	public Iterable<User> findAllByName(String name){
 		return repo.findAllByname(name);
 	}
+	public User findBytoken(String token) {
+		return repo.findBytoken(token);
+	}
 }

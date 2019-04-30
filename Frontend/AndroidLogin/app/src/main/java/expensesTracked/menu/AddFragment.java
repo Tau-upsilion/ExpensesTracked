@@ -38,10 +38,8 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    // localhost testing
-//    private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
-    // server testing
-    private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
+    private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
+    //private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
     ProgressDialog progressDialog;
     private EditText name, desc, amount;
     private String category;
@@ -105,10 +103,10 @@ public class AddFragment extends Fragment {
      * Private method that takes the Name, Category, Description, Amount, and the user's Token and sends a JSON Object Request to the server
      * to add the expense to the server
      *
-     * @param name - Name of the expense to be added to the server
-     * @param category - Category of the expense to be added to the server
-     * @param description - Description of the expense to be added to the server
-     * @param amount - Amount of the expense to be added to the server
+     * @param name Name of the expense to be added to the server
+     * @param category Category of the expense to be added to the server
+     * @param description Description of the expense to be added to the server
+     * @param amount Amount of the expense to be added to the server
      */
     private void addExpense(final String name, final String category, final String description , final String amount) {
         // Tag used to cancel the request
@@ -162,21 +160,15 @@ public class AddFragment extends Fragment {
         AppSingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest, cancel_req_tag);
         System.out.println(jsonObjectRequest);
     }
-    
-    /**
-     * Private method to show the progress dialog
-     */
-    private void showDialog() {
-        if (!progressDialog.isShowing())
-            progressDialog.show();
-    }
-    
-    /**
-     * Private method to hide the progress dialog
-     */
+
     private void hideDialog() {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
     }
+    private void showDialog() {
+        if (!progressDialog.isShowing())
+            progressDialog.show();
+    }
+
 
 }

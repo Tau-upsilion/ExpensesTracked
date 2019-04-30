@@ -60,7 +60,7 @@ public class MainController {
 	}
 	
 	/**
-	 * Method that returns all the users in the user repository
+	 * Method that returns all the users in the system
 	 * @return userRepository.findAll()
 	 */
 	@GetMapping(path="/all")
@@ -70,7 +70,7 @@ public class MainController {
 	}
 	
 	/**
-	 * method that logs in the user, if email, password, or user is null throw servlet exception
+	 * method that logs in the user, if email, password, user is null throw servlet exception
 	 * throws servlet exception if password is incorrect
 	 * @param n
 	 * @return user
@@ -107,12 +107,13 @@ public class MainController {
 		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
 				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 		user.setToken(jwtToken);
+		userRepository.save(user);
 		
 		return user;
 	}
 	/**
-	 * The method returns all the expenses in the expenses repository
-	 *  @return all expenses in repository
+	 * Method that returns all the expenses in the expense repository
+	 * @return expenseRepository.findAll()
 	 */
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){
@@ -121,7 +122,7 @@ public class MainController {
 	/**
 	 * Method to add a new expense in the expenses repository
 	 * @param n
-	 * @return String with the new expense
+	 * @return "saved"
 	 */
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
@@ -136,10 +137,9 @@ public class MainController {
 		return result;
 	}
 	/**
-	 * Method to add a new category to the category repository 
-	 * and sends user message that new category was saved
+	 * Method to add a new category to the category repository
 	 * @param n
-	 * @return String "saved"
+	 * @return "saved"
 	 */
 	@PostMapping(path="/category/add")
 	public @ResponseBody String addNewCategory(@RequestBody Category n) {

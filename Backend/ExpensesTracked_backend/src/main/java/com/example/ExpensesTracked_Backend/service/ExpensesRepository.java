@@ -29,4 +29,6 @@ public interface ExpensesRepository extends CrudRepository<Expenses, Integer> {
 	 * @param id
 	 */
 	public Expenses findByid(int id);
+
+	public Iterable<Expenses> findAllByuserId(int userId);
 }

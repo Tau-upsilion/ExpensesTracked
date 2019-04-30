@@ -46,4 +46,7 @@ public class ExpensesService {
 	public Expenses getExpensesByid(int id) {
 		return repo.findByid(id);
 	}
+	public Iterable<Expenses> findAllByuserId(int userId){
+		return repo.findAllByuserId(userId);
+	}
 }
