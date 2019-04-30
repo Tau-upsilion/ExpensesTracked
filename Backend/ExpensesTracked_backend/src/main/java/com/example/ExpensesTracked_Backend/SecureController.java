@@ -68,7 +68,9 @@ public class SecureController {
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody JSONObject getAllExpenses(@RequestHeader("authorization") String token){
 		String tk = token.substring(7);
-		ArrayList<Expenses> list = (ArrayList<Expenses>) expenseRepository.findAllByToken(tk);
+		User user = userService.findBytoken(tk);
+		int userId = user.getId();
+		ArrayList<Expenses> list = (ArrayList<Expenses>) expenseRepository.findAllByuserId(userId);
 		JSONArray arr = new JSONArray();
 		for(Expenses e: list) {
 			JSONObject n = new JSONObject();
@@ -96,6 +98,8 @@ public class SecureController {
 			result.setError_msg("One or more fields is empty");
 			return result;
 		}
+		User user = userService.findBytoken(n.getToken());
+		n.setUserID(user.getId());
 		expenseRepository.save(n);
 		result.setError(false);
 		return result;
