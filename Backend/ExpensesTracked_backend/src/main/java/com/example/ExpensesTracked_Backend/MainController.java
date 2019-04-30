@@ -60,7 +60,7 @@ public class MainController {
 	}
 	
 	/**
-	 * Method that returns all the users in the system
+	 * Method that returns all the users in the user repository
 	 * @return userRepository.findAll()
 	 */
 	@GetMapping(path="/all")
@@ -70,7 +70,7 @@ public class MainController {
 	}
 	
 	/**
-	 * method that logs in the user, if email, password, user is null throw servlet exception
+	 * method that logs in the user, if email, password, or user is null throw servlet exception
 	 * throws servlet exception if password is incorrect
 	 * @param n
 	 * @return user
@@ -111,8 +111,8 @@ public class MainController {
 		return user;
 	}
 	/**
-	 * Method that returns all the expenses in the expense repository
-	 * @return expenseRepository.findAll()
+	 * The method returns all the expenses in the expenses repository
+	 *  @return all expenses in repository
 	 */
 	@GetMapping(path="/expenses/all")
 	public @ResponseBody Iterable<Expenses> getAllExpenses(){
@@ -121,7 +121,7 @@ public class MainController {
 	/**
 	 * Method to add a new expense in the expenses repository
 	 * @param n
-	 * @return "saved"
+	 * @return String with the new expense
 	 */
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
@@ -136,9 +136,10 @@ public class MainController {
 		return result;
 	}
 	/**
-	 * Method to add a new category to the category repository
+	 * Method to add a new category to the category repository 
+	 * and sends user message that new category was saved
 	 * @param n
-	 * @return "saved"
+	 * @return String "saved"
 	 */
 	@PostMapping(path="/category/add")
 	public @ResponseBody String addNewCategory(@RequestBody Category n) {

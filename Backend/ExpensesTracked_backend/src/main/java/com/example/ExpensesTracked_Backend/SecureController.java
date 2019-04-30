@@ -33,7 +33,7 @@ public class SecureController {
 	/**
 	 * method to successfully login in a user 
 	 * @param token
-	 * @return "Login Successful! " + token
+	 * @return message of sucessful login in and user token
 	 */
 	@GetMapping("/user/users")
 	public String loginSucess(@RequestHeader("authorization") String token) {
@@ -71,10 +71,10 @@ public class SecureController {
 	
 	/**
 	 * Method to add a new expensed related to a certain token 
+	 * and a message to let user know the new expenese was saved
 	 * @param token
 	 * @param n
-	 * @return "saved"
-	 */
+	 * @return String "saved"
 	@PostMapping(path="/expenses/add")
 	public @ResponseBody Expenses addNewExpense(@RequestBody Expenses n) {
 		Expenses result = new Expenses();
