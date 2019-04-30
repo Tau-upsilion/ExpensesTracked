@@ -29,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         ListItem listItem = listItems.get(i);
         holder.textViewHead.setText(listItem.getHeader());
         holder.textViewDescription.setText(listItem.getDesc());
-        holder.textViewAmount.setText(listItem.getDesc());
+        holder.textViewAmount.setText(listItem.getAmount());
     }
 
     @Override
