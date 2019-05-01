@@ -11,15 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
@@ -27,14 +24,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import expensesTracked.AppSingleton;
-import expensesTracked.Expenses;
 import expensesTracked.ListItem;
 import expensesTracked.MyAdapter;
 import expensesTracked.R;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,24 +37,18 @@ public class CategoriesFragment extends Fragment {
     
     private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
     //private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
-
-
+    
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
+    
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Variables
         View v = inflater.inflate(R.layout.fragment_categories, container, false);
-        String strDate = DateFormat.getDateInstance(1).format(new Date());
-        TextView date;
         
         // Initializations
-        //date = v.findViewById(R.id.cal_date);
-//        TableLayout catList = v.findViewById(R.id.cat_list);
-//        catList.setVisibility(View.VISIBLE);
-        //date.setText(strDate.substring(0, strDate.indexOf(" ")));   // Month
     
         // Get the income/expenses list
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
@@ -71,7 +59,6 @@ public class CategoriesFragment extends Fragment {
         listIncomeAndExpenses(AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
         
         // Return
-
         return v;
     }
     
@@ -86,7 +73,7 @@ public class CategoriesFragment extends Fragment {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         try {
-                            Log.d("REPONSE FROM SERVER", response);
+                            Log.d("RESPONSE FROM SERVER", response);
                             JSONObject jsonObject = new JSONObject(response);
                             Log.d("JSON OBJECT",jsonObject.toString());
                             JSONArray array = jsonObject.getJSONArray("expenses");
@@ -124,6 +111,7 @@ public class CategoriesFragment extends Fragment {
                 return header;
             }
         };
+        
         AppSingleton.getInstance(getContext()).addToRequestQueue(stringRequest, cancel_req_tag);
     }
 }
