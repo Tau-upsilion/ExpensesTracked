@@ -72,6 +72,7 @@ public class CategoriesFragment extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         progressDialog.dismiss();
+                        
                         try {
                             Log.d("RESPONSE FROM SERVER", response);
                             JSONObject jsonObject = new JSONObject(response);
@@ -85,14 +86,15 @@ public class CategoriesFragment extends Fragment {
                                         o.getString("description"),
                                         o.getString("amount")
                                 );
+                                
                                 listItems.add(item);
                             }
+                            
                             Log.d("JSON OBJECT RETURNED", listItems.toString());
-
                         } catch (JSONException e) {
                             e.printStackTrace();
-
                         }
+                        
                         adapter = new MyAdapter(listItems, getContext());
                         recyclerView.setAdapter(adapter);
                     }

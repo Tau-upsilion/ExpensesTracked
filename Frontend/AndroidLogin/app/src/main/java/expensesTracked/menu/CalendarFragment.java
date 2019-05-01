@@ -78,6 +78,8 @@ public class CalendarFragment extends Fragment {
                 date.setText(selectedDate);
             }
         });
+        
+        
 
         // Return
         return v;

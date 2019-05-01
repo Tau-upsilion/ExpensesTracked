@@ -38,14 +38,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        Button btnlogin, btnLinkSignup, btnBypass;  // TODO - delete bypass when login full functional
+        Button btnlogin, btnLinkSignup;
+//        Button btnBypass;  // TODO - delete bypass when login full functional
         
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
         
         btnlogin = findViewById(R.id.btn_login);
         btnLinkSignup = findViewById(R.id.btn_link_signup);
-        btnBypass = findViewById(R.id.btn_bypass);  // TODO - delete
+//        btnBypass = findViewById(R.id.btn_bypass);  // TODO - delete
         
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -63,13 +64,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goRegister);
             }
         });
-        btnBypass.setOnClickListener(new View.OnClickListener() {   // TODO - delete
-            @Override
-            public void onClick(View view) {
-                Intent goRegister = new Intent(LoginActivity.this, UserActivity.class);
-                startActivity(goRegister);
-            }
-        });
+//        btnBypass.setOnClickListener(new View.OnClickListener() {   // TODO - delete
+//            @Override
+//            public void onClick(View view) {
+//                Intent goRegister = new Intent(LoginActivity.this, UserActivity.class);
+//                startActivity(goRegister);
+//            }
+//        });
         
     }
     
