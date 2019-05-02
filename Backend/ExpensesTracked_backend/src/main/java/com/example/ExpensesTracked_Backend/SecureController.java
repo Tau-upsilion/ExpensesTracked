@@ -62,7 +62,7 @@ public class SecureController {
 	/**
 	 * Method to find all expenses related to a certain token 
 	 * @param token
-	 * @return expenseRepository.findAllByToken(tk)
+	 * @return all expenses from a token
 	 */
 	@SuppressWarnings("unchecked")
 	@GetMapping(path="/expenses/all")
