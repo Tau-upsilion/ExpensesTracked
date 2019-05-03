@@ -21,24 +21,17 @@ public class Category {
     private Integer id;
 
     private String categoryName;
-    
-    private String categoryType;
-    
-    private String date;
+
     
     /**
      * Category Constructor
      * @param id
      * @param categoryName
-     * @param date
-     * @param categoryType
      */
-    public Category (Integer id, String categoryName, String date, String categoryType)
+    public Category (Integer id, String categoryName)
     {
     	this.id = id;
     	this.categoryName = categoryName;
-    	this.categoryType = categoryType;
-    	this.date = date;
     }
 	
     /**
@@ -75,25 +68,5 @@ public class Category {
     public String getCategoryName()
     {
     	return this.categoryName;
-    }
-    
-    public void setCategoryDate (String d)
-    {
-    	this.date = d;
-    }
-    
-    public String getCategoryDate()
-    {
-    	return this.date;
-    }
-    
-    public void setCategoryType (String type)
-    {
-    	this.categoryType = type;
-    }
-    
-    public String getCategoryType()
-    {
-    	return this.categoryType;
     }
 }
