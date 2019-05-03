@@ -74,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name: "
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <EditText
@@ -99,6 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date: "
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <EditText
@@ -124,6 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category: "
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <android.support.v7.widget.AppCompatSpinner
@@ -147,6 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description: "
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <EditText
@@ -172,6 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount (USD): "
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <EditText
@@ -189,7 +194,8 @@
         android:id="@+id/add_addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
         android:text="@string/title_add" />
 
 </LinearLayout>
