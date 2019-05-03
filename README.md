@@ -5,3 +5,4 @@ This group consisted of four people who have contributed to the overall function
 We have used Android Studio for Frontend and Springboot for Backend. 
 
 Description of the app- The app is a budget tracker of your expenses and income. Everything is stored on the server.
+Done
