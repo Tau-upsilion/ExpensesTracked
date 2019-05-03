@@ -30,8 +30,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="139dp"
-        android:textSize="45sp"
-        android:text="TextView" />
-
+        android:layout_marginTop="30dp"
+        android:textColor="@color/bg_main"
+        android:textSize="25sp"
+        android:text="@string/placeholder"
+        android:textAlignment="center" />
 
 </LinearLayout>

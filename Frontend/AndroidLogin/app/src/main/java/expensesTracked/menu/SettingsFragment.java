@@ -22,7 +22,7 @@ public class SettingsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_settings, null);
         Button btnSignout;
 
-        // Find ids
+        // Initializations
         btnSignout = v.findViewById(R.id.btn_logout);
 
         // On click listeners
@@ -33,7 +33,6 @@ public class SettingsFragment extends Fragment {
                 startActivity(logoutIntent);
             }
         });
-
 
         // Return
         return v;

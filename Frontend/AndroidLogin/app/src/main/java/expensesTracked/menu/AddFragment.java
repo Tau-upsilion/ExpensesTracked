@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -22,14 +23,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import expensesTracked.AppSingleton;
-import expensesTracked.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import expensesTracked.AppSingleton;
+import expensesTracked.R;
 
 /**
  * Add Fragment class
@@ -38,11 +39,12 @@ public class AddFragment extends Fragment {
     // Instance variables
     private long categoryId = -1;
     private static final String TAG = "Adding expenses";
-    //private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
+//    private static final String URL_FOR_ADDING = "http://10.0.2.2:8080/secure/expenses/add";
     private static final String URL_FOR_ADDING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/add";
+    private EditText name, dateText, desc, amount;
+    private String expenseOrIncome, date, category;
+    private RadioGroup exOrInRadioGroup;
     ProgressDialog progressDialog;
-    private EditText name, desc, amount;
-    private String category;
     
     @Nullable
     @Override
@@ -51,12 +53,16 @@ public class AddFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_add, null);
         final AppCompatSpinner dropDown = v.findViewById(R.id.add_dropdown);
         Button add = v.findViewById(R.id.add_addButton);
+        
+        // Initializations
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
 
         name = v.findViewById(R.id.add_nameText);
         desc = v.findViewById(R.id.add_descriptionText);
         amount = v.findViewById(R.id.add_amountText);
+        dateText = v.findViewById(R.id.add_dateText);
+        exOrInRadioGroup = v.findViewById(R.id.add_expense_purchase_radioGroup);
 
         // Create an ArrayAdapter using the string array and spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.starting_categories,
@@ -70,14 +76,34 @@ public class AddFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add expense to server
-                if(name.getText().toString().matches("")|desc.getText().toString().matches("")|
-                           amount.getText().toString().matches("")){
-                    Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
-                } else {
-                    addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
+                // Determine if income or expense
+                int selectedId = exOrInRadioGroup.getCheckedRadioButtonId();
+                
+                if (selectedId == R.id.add_income_radioButton)
+                    expenseOrIncome = "Income";
+                else
+                    expenseOrIncome = "Expense";
+                
+                // Get the date
+                date = dateText.getText().toString();
+                
+                // Check if valid date before adding expense
+                if (date.length() == 10 && date.indexOf('/') == 2 && date.lastIndexOf('/') == 5) {    // Valid date
+    
+                    // Add expense to server
+                    if (name.getText().toString().matches("") | desc.getText().toString().matches("") |
+                                amount.getText().toString().matches("")) {
+                        Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
+                    } else {
+                        addExpense(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
+                    }
                 }
-//                addIncome(name.toString(), category, desc.toString(), amount.toString());
+                else    // Not a valid date
+                {
+                    Toast.makeText(getContext(), "Date format incorrect (MM/DD/YYYY)", Toast.LENGTH_SHORT).show();
+                }
+                
+//                addIncome(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
             }
         });
 
@@ -108,14 +134,17 @@ public class AddFragment extends Fragment {
      * @param description Description of the expense to be added to the server
      * @param amount Amount of the expense to be added to the server
      */
-    private void addExpense(final String name, final String category, final String description , final String amount) {
+    private void addExpense(final String name, final String date, final String category, final String description , final String amount,
+                            final String expenseOrIncome) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
         progressDialog.setMessage("Adding Income/Expense...");
         showDialog();
         
         Map<String, String> params = new HashMap<>();
+//        params.put("expenseOrIncome", expenseOrIncome);
         params.put("expensesName", name);
+//        params.put("date", date);
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
@@ -131,6 +160,11 @@ public class AddFragment extends Fragment {
                             if(!error){
                                 Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
                                 hideDialog();
+                                
+                                /*  Doesn't seem to work properly
+                                Intent goAdd = new Intent(getActivity(), AddFragment.class);
+                                startActivity(goAdd);
+                                getActivity().finish(); */
                             } else {
                                 Toast.makeText(getActivity(), response.getString("error_msg"), Toast.LENGTH_SHORT).show();
                                 hideDialog();
