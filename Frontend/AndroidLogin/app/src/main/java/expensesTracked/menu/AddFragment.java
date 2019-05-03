@@ -95,7 +95,11 @@ public class AddFragment extends Fragment {
                                 amount.getText().toString().matches("")) {
                         Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
                     } else {
+<<<<<<< HEAD
                         addExpense(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
+=======
+                        addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
+>>>>>>> master
                     }
                 }
                 else    // Not a valid date
@@ -103,7 +107,10 @@ public class AddFragment extends Fragment {
                     Toast.makeText(getContext(), "Date format incorrect (MM/DD/YYYY)", Toast.LENGTH_SHORT).show();
                 }
                 
+<<<<<<< HEAD
 //                addIncome(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
+=======
+>>>>>>> master
             }
         });
 
