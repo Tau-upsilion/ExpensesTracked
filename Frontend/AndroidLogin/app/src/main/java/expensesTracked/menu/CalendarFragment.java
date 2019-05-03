@@ -74,6 +74,7 @@ public class CalendarFragment extends Fragment {
                         break;
                 }
 
+                String expense = test(selectedDate);
                 // Set the text of the TextView to the date
                 date.setText(selectedDate);
             }
@@ -83,4 +84,7 @@ public class CalendarFragment extends Fragment {
         return v;
     }
 
+        public String test(String e){
+            return "100";
+        }
 }
