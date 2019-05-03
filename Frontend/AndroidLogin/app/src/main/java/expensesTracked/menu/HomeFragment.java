@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
         return v;
     }
     
-    private void listTotalAmount() {
+    private void listTotalAmount(final String token) {
         final ProgressDialog progressDialog = new ProgressDialog(this.getContext());
         progressDialog.setMessage("loading...");
         progressDialog.show();
