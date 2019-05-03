@@ -1,6 +1,7 @@
 package expensesTracked.menu;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -156,6 +157,10 @@ public class AddFragment extends Fragment {
                             if(!error){
                                 Toast.makeText(getActivity(), "Added income/expense successfully!", Toast.LENGTH_SHORT).show();
                                 hideDialog();
+                                
+//                                Intent goAdd = new Intent(getActivity(), AddFragment.class);
+//                                startActivity(goAdd);
+//                                getActivity().finish();
                             } else {
                                 Toast.makeText(getActivity(), response.getString("error_msg"), Toast.LENGTH_SHORT).show();
                                 hideDialog();
