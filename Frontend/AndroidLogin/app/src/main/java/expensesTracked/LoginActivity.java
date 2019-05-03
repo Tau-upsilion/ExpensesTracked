@@ -26,9 +26,7 @@ import java.util.Map;
  */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-//    localhost testing;
-    //private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
-    //server link
+//    private static final String URL_FOR_LOGIN = "http://10.0.2.2:8080/demo/login";
     private static final String URL_FOR_LOGIN = "http://cs309-yt-7.misc.iastate.edu:8080/demo/login";
     private EditText loginInputEmail, loginInputPassword;
     private ProgressDialog progressDialog;
@@ -38,14 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        Button btnlogin, btnLinkSignup, btnBypass;  // TODO - delete bypass when login full functional
+        Button btnlogin, btnLinkSignup;
         
         loginInputEmail = findViewById(R.id.login_input_email);
         loginInputPassword = findViewById(R.id.login_input_password);
         
         btnlogin = findViewById(R.id.btn_login);
         btnLinkSignup = findViewById(R.id.btn_link_signup);
-        btnBypass = findViewById(R.id.btn_bypass);  // TODO - delete
         
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -60,13 +57,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goRegister = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(goRegister);
-            }
-        });
-        btnBypass.setOnClickListener(new View.OnClickListener() {   // TODO - delete
-            @Override
-            public void onClick(View view) {
-                Intent goRegister = new Intent(LoginActivity.this, UserActivity.class);
                 startActivity(goRegister);
             }
         });
@@ -158,3 +148,4 @@ public class LoginActivity extends AppCompatActivity {
     }
     
 }
+

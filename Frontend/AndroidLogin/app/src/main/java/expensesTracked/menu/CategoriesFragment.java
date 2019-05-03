@@ -34,10 +34,9 @@ import java.util.List;
 import java.util.Map;
 
 public class CategoriesFragment extends Fragment {
-    
+    // Instance variables
+//    private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
     private static final String URL_FOR_LISTING = "http://cs309-yt-7.misc.iastate.edu:8080/secure/expenses/all";  // TODO - change
-    //private static final String URL_FOR_LISTING = "http://10.0.2.2:8080/secure/expenses/all";
-    
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
@@ -49,7 +48,6 @@ public class CategoriesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_categories, container, false);
         
         // Initializations
-    
         // Get the income/expenses list
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -85,14 +83,15 @@ public class CategoriesFragment extends Fragment {
                                         o.getString("description"),
                                         o.getString("amount")
                                 );
+                                
                                 listItems.add(item);
                             }
+                            
                             Log.d("JSON OBJECT RETURNED", listItems.toString());
-
                         } catch (JSONException e) {
                             e.printStackTrace();
-
                         }
+                        
                         adapter = new MyAdapter(listItems, getContext());
                         recyclerView.setAdapter(adapter);
                     }
@@ -108,6 +107,7 @@ public class CategoriesFragment extends Fragment {
                 Map<String, String> header = new HashMap<>();
                 header.put("authorization", "Bearer " + AppSingleton.getInstance(getContext()).getToken(getContext(), "TOKEN"));
                 Log.d("THIS IS THE HEADER:", header.toString());
+                
                 return header;
             }
         };

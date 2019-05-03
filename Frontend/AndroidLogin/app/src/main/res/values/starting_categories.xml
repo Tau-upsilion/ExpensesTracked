@@ -12,5 +12,11 @@
         <item>@string/cat_presents</item>
         <item>@string/cat_sports</item>
         <item>@string/cat_transportation</item>
+        <item>@string/cat_general2</item>
+        <item>@string/cat_salary</item>
+        <item>@string/cat_bank</item>
+        <item>@string/cat_investment</item>
+        <item>@string/cat_award</item>
+        <item>@string/cat_gift</item>
     </string-array>
 </resources>

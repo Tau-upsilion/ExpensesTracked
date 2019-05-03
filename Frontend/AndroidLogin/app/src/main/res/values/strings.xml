@@ -35,7 +35,7 @@
     <string name="total_string">Total</string>
 
     <!-- Starting expense categories -->
-    <string name="cat_general">General</string>
+    <string name="cat_general">General expense</string>
     <string name="cat_clothes">Clothes</string>
     <string name="cat_entertainment">Entertainment</string>
     <string name="cat_food">Food</string>
@@ -46,4 +46,13 @@
     <string name="cat_presents">Presents</string>
     <string name="cat_sports">Sports</string>
     <string name="cat_transportation">Transportation</string>
+
+    <!-- Starting income categories -->
+    <string name="cat_general2">General income</string>
+    <string name="cat_salary">Salary</string>
+    <string name="cat_bank">Bank</string>
+    <string name="cat_investment">Investment</string>
+    <string name="cat_award">Award</string>
+    <string name="cat_gift">Gift</string>
+
 </resources>
