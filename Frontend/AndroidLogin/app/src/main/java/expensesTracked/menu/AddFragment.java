@@ -95,7 +95,11 @@ public class AddFragment extends Fragment {
                                 amount.getText().toString().matches("")) {
                         Toast.makeText(getContext(), "One or more fields is/are empty", Toast.LENGTH_SHORT).show();
                     } else {
+<<<<<<< HEAD
+                        addExpense(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
+=======
                         addExpense(name.getText().toString(), category, desc.getText().toString(), amount.getText().toString());
+>>>>>>> master
                     }
                 }
                 else    // Not a valid date
@@ -103,6 +107,10 @@ public class AddFragment extends Fragment {
                     Toast.makeText(getContext(), "Date format incorrect (MM/DD/YYYY)", Toast.LENGTH_SHORT).show();
                 }
                 
+<<<<<<< HEAD
+//                addIncome(name.getText().toString(), date, category, desc.getText().toString(), amount.getText().toString(), expenseOrIncome);
+=======
+>>>>>>> master
             }
         });
 
@@ -133,14 +141,17 @@ public class AddFragment extends Fragment {
      * @param description Description of the expense to be added to the server
      * @param amount Amount of the expense to be added to the server
      */
-    private void addExpense(final String name, final String category, final String description , final String amount) {
+    private void addExpense(final String name, final String date, final String category, final String description , final String amount,
+                            final String expenseOrIncome) {
         // Tag used to cancel the request
         String cancel_req_tag = "added";
         progressDialog.setMessage("Adding Income/Expense...");
         showDialog();
         
         Map<String, String> params = new HashMap<>();
+//        params.put("expenseOrIncome", expenseOrIncome);
         params.put("expensesName", name);
+//        params.put("date", date);
         params.put("category", category);
         params.put("description", description);
         params.put("amount", amount);
