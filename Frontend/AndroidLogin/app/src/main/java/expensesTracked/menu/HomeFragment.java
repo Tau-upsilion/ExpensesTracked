@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
         amount_text = v.findViewById(R.id.textView);
     
         // List expenses total
-        listTotalAmount();
+        listTotalAmount(AppSingleton.getInstance(getActivity()).getToken(getActivity(), "token"));
         
         // Return
         return v;
